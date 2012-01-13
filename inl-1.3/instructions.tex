@@ -1,0 +1,68 @@
+\section{Genomförande}
+\label{sec:Instructions}
+\noindent
+Använd valfritt operativsystem.
+Du behöver ha tillgång till kommandotolk, eller terminalfönster, en
+grafisk filhanterare samt en valfri webbläsare.
+\begin{description}
+    \item[Windows XP] Kör kommandotolken genom att välja \emph{Kör} från
+        Startmenyn, skriv \emph{cmd.exe} och välj \emph{OK}.
+        Använd \emph{Den här datorn} eller \emph{Utforskaren} som grafisk
+        filhanterare.
+    \item[Windows Vista/7] Sök efter \emph{kommandotolken} eller
+        \emph{powershell} i Startmenyns sökfunktion.
+        Använd \emph{Dator} eller \emph{Utforskaren} som grafisk filhanterare.
+    \item[UNIX] Kör valfri terminal, exempelvis \emph{xterm}, med valfri shell,
+        exempelvis \emph{sh}.
+        Använder du Ubuntu kan du använda programmet \emph{Terminal}
+        (gnome-terminal).
+        Grafisk filhanterare varierar beroende på system: Nautilus i Gnome,
+        Konqueror i KDE.
+\end{description}
+
+För dokumentation om kommandona i Windows kan följande sida användas:
+\begin{quote}
+	\url{http://technet.microsoft.com/en-us/library/bb490890.aspx}
+\end{quote}
+För dokumentation om kommandon i UNIX används kommandot \emph{man}.
+Det tar kommandot du vill ha dokumentation för som argument.
+Om vi till exempel vill ha dokumentation om just \emph{man} skriver vi
+ \emph{man man}.
+\begin{lstlisting}
+/home/danbos$ man man
+MAN(1)                        Manual pager utils                        MAN(1)
+
+NAME
+       man - an interface to the on-line reference manuals
+
+SYNOPSIS
+       man  [-C  file]  [-d]  [-D]  [--warnings[=warnings]]  [-R encoding] [-L
+       locale] [-m system[,...]] [-M path] [-S list]  [-e  extension]  [-i|-I]
+       [--regex|--wildcard]   [--names-only]  [-a]  [-u]  [--no-subpages]  [-P
+       pager] [-r prompt] [-7] [-E encoding] [--no-hyphenation] [--no-justifi-
+       cation]  [-p  string]  [-t]  [-T[device]]  [-H[browser]] [-X[dpi]] [-Z]
+       [[section] page ...] ...
+       man -k [apropos options] regexp ...
+       man -K [-w|-W] [-S list] [-i|-I] [--regex] [section] term ...
+       man -f [whatis options] page ...
+       man -l [-C file] [-d] [-D] [--warnings[=warnings]]  [-R  encoding]  [-L
+       locale]  [-P  pager]  [-r  prompt]  [-7] [-E encoding] [-p string] [-t]
+       [-T[device]] [-H[browser]] [-X[dpi]] [-Z] file ...
+       man -w|-W [-C file] [-d] [-D] page ...
+       man -c [-C file] [-d] [-D] page ...
+       man [-hV]
+
+DESCRIPTION
+       man is the system's manual pager. Each page argument given  to  man  is
+       normally  the  name of a program, utility or function.  The manual page
+       associated with each of these arguments is then found and displayed.  A
+       section,  if  provided, will direct man to look only in that section of
+       the manual.  The default action is to search in all  of  the  available
+       sections, following a pre-defined order and to show only the first page
+       found, even if page exists in several sections.
+
+       The table below shows the section numbers of the manual followed by the
+       types of pages they contain.
+...
+/home/danbos$
+\end{lstlisting}

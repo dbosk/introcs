@@ -1,0 +1,286 @@
+\makeatletter\let\ifGm@compatii\relax\makeatother
+\documentclass[handout]{beamer}
+%\documentclass{beamer}
+
+\mode<presentation>
+{
+  %\usetheme{Warsaw}
+  \usetheme{Berkeley}
+  %\usetheme{Dresden}
+  %\usetheme{Frankfurt}
+  %\usetheme{Madrid}
+  %\usetheme{PaloAlto}
+  \setbeamercovered{transparent}
+  %\usecolortheme{default}
+  %\usecolortheme{crane}
+  \usecolortheme{seagull}
+}
+
+
+\usepackage[english,swedish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage[square]{natbib}
+%\bibliographystyle{swekthnat}
+\bibliographystyle{sweplnat}
+\setcitestyle{numbers}
+\usepackage[amssymb,noams,binary]{SIunits}
+\usepackage{listings}
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\newcommand{\code}[1]{\lstinline£#1£}
+
+\newcommand{\bps}{\bit\per\second}
+\newcommand{\Bps}{\byte\per\second}
+\newcommand{\Kbps}{\kilo\bit\per\second}
+\newcommand{\Kibps}{\kibi\bit\per\second}
+\newcommand{\KBps}{\kilo\byte\per\second}
+\newcommand{\KiBps}{\kibi\byte\per\second}
+\newcommand{\Mbps}{\mega\bit\per\second}
+\newcommand{\Mibps}{\mebi\bit\per\second}
+\newcommand{\MBps}{\mega\byte\per\second}
+\newcommand{\MiBps}{\mebi\byte\per\second}
+
+\title[Moment 3]
+{Informationsteknologi grundkurs:\\Föreläsning moment 3, del 2}
+
+\author{Daniel Bosk}
+
+\institute
+{
+	Avdelningen för informations- och kommunikationssytem (IKS),\\
+	Institutionen för informationsteknologi och medier (ITM),\\
+	Mittuniversitetet, Sundsvall.
+}
+
+\date[4/10 2011] % (optional)
+{4 oktober 2011}
+
+\pgfdeclareimage[height=0.65cm]{university-logo}{../../../MU_logotyp_int_CMYK.pdf}
+\logo{\pgfuseimage{university-logo}}
+
+\AtBeginSection[]
+{
+	\begin{frame}<beamer>{Översikt}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Översikt}
+	\tableofcontents
+	% You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+
+\section[Säkerhet]{Kommunikation och datasäkerhet}
+
+\subsection[Säker anslutning]{En säker anslutning}
+
+\begin{frame}{En säker anslutning}{Trådbundet och trådlöst nätverk}
+	\begin{itemize}
+		\item<2-> Hur fungerar trådbundet och trådlöst nätverk?
+		\item<3-> Vad är skillnaderna ur ett säkerhetsperspektiv?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{TCP/IP-modellen}
+	\begin{description}
+		\item<2>[Applikationslagret]
+			Kommunikation till och från program.
+			Exempel på protokoll:
+			HyperText Transfer Protocol (HTTP), HTTPS,
+			File Transfer Protocol (FTP),
+			Secure SHell (SSH).
+		\item<3>[Transportlagret]
+			Förbindelsen mellan sändare och mottagare.
+			Data delas upp i paket.
+			Exempel på protokoll:
+			Transport Control Protocol (TCP),
+			User Datagram Protocol (UDP).
+		\item<4>[Nätverkslagret]
+			Kopplar ihop punkter till ett nätverk.
+			Exempel på protokoll: Internet Protocol (IP).
+		\item<5>[Länklagret]
+			Datorns kommunikation med resten av nätverket.
+			Exempel på protokoll: Ethernet, IEEE 802.11\{a,b,g,n\}.
+	\end{description}
+\end{frame}
+
+\begin{frame}{Hur fungerar trådbundet och trådlöst nätverk?}
+	\uncover<2-4>{Skillnaden ligger i länklagret.}
+	\begin{description}
+		\uncover<3>{\item[Trådbundet]
+			Vid stjärnnät skickas allt via den centrala hubben som
+			sedan skickar vidare till mottagare eller annan hubb.
+		}
+		\uncover<4>{\item[Trådlöst]
+			Data skickas genom luften till
+			accesspunkten.
+		}
+	\end{description}
+\end{frame}
+
+\begin{frame}{Vad är skillnaden ur ett säkerhetsperspektiv?}
+	\uncover<2-4>{Skillnaden är vilka som är mottagare.}
+	\begin{description}
+		\uncover<3>{\item[Trådbundet]
+			Data skickas okrypterat genom kabeln.
+			Den som har tillgång till kablarna kan avlyssna.
+		}
+		\uncover<4>{\item[Trådlöst]
+			Data skickas genom luften.
+			Utan kryptering kan alla inom \unit{50-100}{\metre} ta emot data.
+			Med kryptering kan alla som har krypteringsnyckeln ta
+			emot\footnote{Och även alla som har tillräcklig datorkraft för att
+			knäcka kryptonyckeln.}.
+		}
+	\end{description}
+\end{frame}
+
+\begin{frame}{HTTP vs HTTPS}{Applikationslagret}
+	\uncover<1-4>{HTTP}
+	\begin{itemize}
+		\item<2-4> När en webbläsare begär innehåll från en webbserver görs
+			detta via HTTP-protokollet.
+		\item<3-4,9> Exempel på begäran:
+			\code{GET /path/to/file/index.html HTTP/1.0}
+		\item<4,9> Exempel på svar:
+			\code{HTTP/1.0 404 Not found}.
+			Därefter följer HTML-kod för en felsida.
+	\end{itemize}
+	\uncover<5->{HTTPS är HTTP med TLS/SSL}
+	\begin{itemize}
+		\item<6-9> Servern för över sitt certifikat.
+		\item<7-9> Klienten krypterar ett slumptal med serverns publika nyckel.
+			Bara den som har den motsvarande privata nyckeln kan avkryptera.
+		\item<8-9> Slumptalet används för att kryptera kommunikationen.
+		\item<9> Samma som för HTTP.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{SSH och SFTP}{Applikationslagret}
+	\begin{description}
+		\item<2>[Secure SHell (SSH)]
+			Upprättar en krypterad anslutning till en server,
+			likt den för HTTPS.
+			Låter därefter användaren logga in och startar därefter en
+			terminal på servern.
+		\item<3>[SFTP]
+			Upprättar en SSH-anslutning till servern.
+			Låter användaren logga in och startar därefter (i princip) en
+			FTP-server istället för en terminal.
+	\end{description}
+\end{frame}
+
+\subsection[SSL]{Säkerheten hos SSL}
+
+\begin{frame}{Säkerheten hos SSL}{Säkerhetsstruktur och \emph{trust model}}
+	\begin{enumerate}
+		\item<2-> (Regeringen för CAs land)
+		\item<2-> Certificate Authority (CA)
+		\item<3-> Middle CA \dots
+		\item<4-> (Server, företag och administratör)
+	\end{enumerate}
+	\uncover<5>{
+		Det finns uppskattningsvis strax över 600 CAs i världen.
+	}
+\end{frame}
+
+\begin{frame}{Två CAs: Comodo och DigiNotar}
+	\begin{itemize}
+		\item<2> Comodo är en av världens största CAs.
+		\item<3> DigiNotar \emph{var} den störta CA i Nederländerna.
+		\item<4> Dessa två blev hackade.
+			Comodo i mars 2011.
+			DigiNotar ungefär i juni, det avslöjades i början av september.
+			DigiNotar ansökte om konkurs den 21 september.
+		\item<5-> Förövarna genererade och signerade ungeför 500 falska
+			certifikat för bland andra domänerna \url{google.com},
+			\url{gmail.com} och \url{facebook.com}.
+		\item<6-> Certifikaten användes troligtvis av den Iranska regeringen
+			för att övervaka medborgare i Iran.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Alternativ till Certificate Authorities}
+	\begin{itemize}
+		\item<2> I augusti på BlackHat USA 2011 presenterades Convergence
+			\citep{Convergence}.
+		\item<3> Bygger på att du själv väljer vem du litar på.
+		\item<4> Systemet har \emph{notaries} som sitter på andra nät och
+			laddar hem certifikaten för samma servrar som du och det verifieras
+			att alla fick samma resultat.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{SSH har inte samma \emph{trust model}}
+	SSH kräver att du vet vilka nyckel-ID som en viss server ska ha.
+\end{frame}
+
+
+\section[Malware och WWW]{Malware och hot på World Wide Web}
+
+\subsection{Malware}
+
+\begin{frame}{Malware}
+	\begin{description}
+		\item<1>[Virus]
+			Ett program som infekterar andra program genom att kopiera sin egen
+			kod in i dem.
+		\item<2>[Worm]
+			En mask (engelskans \emph{worm}) är ett program som förflyttar sig
+			själv från dator till dator.
+		\item<3>[Trojan]
+			Ett program som ger sken av att vara någonting annant men öppnar
+			egentligen en bakdörr in i systemet.
+	\end{description}
+\end{frame}
+
+\subsection[Hot på WWW]{Hot på World Wide Web}
+
+\begin{frame}{Hot på World Wide Web}
+	\begin{itemize}
+		\item<2-3> Virus, worms och trojaner sprids via Internet.
+		\item<3> Kräver (i princip) att du laddar hem dem och kör dem.
+			Detta inkluderar att bli lurad att ladda hem och köra dem,
+			exempelvis bilagor till e-post.
+		\item<4> Se Open Web Application Security Project \citep{OWASP2010ot}.
+	\end{itemize}
+\end{frame}
+
+\section{Hashfunktioner}
+
+\begin{frame}{Hashfunktioner}
+	\dots
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[allowframebreaks]{Referenser}
+	\bibliography{../itgru}
+\end{frame}
+
+\end{document}
+

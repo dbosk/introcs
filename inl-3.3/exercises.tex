@@ -1,0 +1,102 @@
+\section{Uppgift}
+\label{sec:Exercises}
+\noindent
+Du ska i denna uppgift skapa en fil som du sedan ska beräkna en kontrollsumma
+för och sedan ladda upp denna fil till ditt filutrymme på skolans server.
+
+\begin{questions}															   
+	\question\label{q:Checksums}
+	Skapa och verifiera kontrollsummor.
+	\begin{parts}
+		\part
+		Skapa en vanligt textfil (.txt).
+		Exempelvis:
+		\begin{lstlisting}
+$ echo test > textfil.txt
+		\end{lstlisting}
+
+		\part
+		Beräkna kontrollsumman för filen och testa att kontrollera den.
+		Exempelvis i en UNIX-terminal:
+		\begin{lstlisting}
+$ sha256sum textfil.txt > textfil.txt.sha256
+$ sha256sum -c textfil.txt.sha256
+		\end{lstlisting}
+
+		\part
+		Ändra ett tecken i filens innehåll och kontrollera kontrollsumman igen.
+
+		\part
+		Vad är kontrollsummor bra för?
+	\end{parts}
+	\begin{solution}
+		\begin{lstlisting}
+$ echo test > fil.txt
+$ sha256sum fil.txt > fil.txt.sha256
+$ sha256sum -c fil.txt.sha256
+$ echo >> fil.txt
+$ sha256sum -c fil.txt.sha256
+		\end{lstlisting}
+	\end{solution}
+
+	\question
+	Använd SFTP-klienten för att ansluta till servern \url{myfiles.miun.se}.
+	(Den använder standardporten, port 22.)
+	Första gången du ansluter kommer du troligtvis att tillfrågas om du litar
+	på serverns public key.
+	Den bör vara:
+	\begin{center}
+		% TODO uppdatera public key för myfiles.miun.se.
+		RSA: aa:48:69:55:e9:85:1d:37:33:68:94:0a:0f:83:59:2d
+	\end{center}
+	Om du använder UNIX:
+	\begin{lstlisting}
+$ sftp anvandarnamn@myfiles.miun.se
+...
+	\end{lstlisting}
+	Om du använder Windows:
+	\begin{lstlisting}
+> psftp anvandarnamn@myfiles.miun.se
+...
+	\end{lstlisting}
+	Du ska givetvis ersätta \emph{anvandarnamn} med ditt användarnamn som du
+	använder för att logga in till studentportalen.
+	När du anslutit.
+	\begin{parts}
+		\part
+		Kolla vad du har för filer i din hemkatalog på servern\footnote{%
+			Du ser arbetskatalogen med kommandot \emph{pwd}.
+			Din hemkatalog är \emph{/home/anvandarnamn}.
+		}.
+
+		\part
+		Testa att ladda upp textfilen filen med kontrollsumman från
+		\prettyref{q:Checksums} till katalogen \emph{public\_html}.
+
+		\part
+		Använd webbläsaren och gå in på sidan
+		\begin{center}
+			\url{http://myfiles.miun.se/~anvandarnamn/textfil.txt},
+		\end{center}
+		om du döpte textfilen till \emph{textfil.txt}.
+	\end{parts}
+	\begin{solution}
+		\begin{lstlisting}
+$ sftp user@myfiles.miun.se
+Password:
+Connected to myfiles.miun.se.
+sftp> pwd
+Remote working directory: /home/user
+sftp> cd public_html
+sftp> put test.txt
+sftp> quit
+$
+		\end{lstlisting}
+		Alternativ lösning med SCP.
+		\begin{lstlisting}
+$ scp test.txt user@myfiles.miun.se:public_html
+Password:
+$
+		\end{lstlisting}
+	\end{solution}
+\end{questions}

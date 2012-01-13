@@ -1,0 +1,28 @@
+\section{Genomförande}
+\label{sec:Instructions}
+\noindent
+Använd valfritt operativsystem.
+Du behöver en SFTP-klient, ett program för att generera kontrollsummor och en
+webbläsare.
+\begin{description}
+	\item[Windows] För en SFTP-klient kan du installera PuTTY\footnote{%
+			URL: \url{ftp://ftp.chiark.greenend.org.uk/users/sgtatham/putty-latest/x86/putty-0.61-installer.exe}.
+		}.
+		SFTP-klienten används genom kommandot \emph{psftp}.
+		PuTTY innehåller även en SSH-klient (kommandot \emph{putty}) och en
+		SCP-klient (kommandot \emph{pscp}).
+		Det finns även grafiska SFTP-klienter, ett exempel är WinSCP\footnote{%
+			URL: \url{http://winscp.net/download/winscp433setup.exe}.
+		}
+
+		För att beräkna kontrollsummor kan du använda
+		\emph{sha256sum}\footnote{%
+			URL: \url{http://blog.nfllab.com/archives/152-Win32-native-md5sum,-sha1sum,-sha256sum-etc..html}.
+		} som kompilerats för Windows från samma källkod som för UNIX.
+	\item[UNIX] De flesta UNIX-baserade system har som standard en SFTP-klient
+		(kommandot \emph{sftp}), SSH-klient (kommandot \emph{ssh}), och
+		SCP-klient (kommandot \emph{scp}).
+		De flesta UNIX-baserade system har även som standard program för att
+		generera och verifiera kontrollsummor.
+		Du kan använda kommandot \emph{sha256sum}.
+\end{description}

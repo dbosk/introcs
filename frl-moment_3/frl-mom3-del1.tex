@@ -1,0 +1,293 @@
+\makeatletter\let\ifGm@compatii\relax\makeatother
+%\documentclass[handout]{beamer}
+\documentclass[handout]{beamer}
+
+\mode<presentation>
+{
+  %\usetheme{Warsaw}
+  \usetheme{Berkeley}
+  %\usetheme{Dresden}
+  %\usetheme{Frankfurt}
+  %\usetheme{Madrid}
+  %\usetheme{PaloAlto}
+  \setbeamercovered{transparent}
+  %\usecolortheme{default}
+  %\usecolortheme{crane}
+  \usecolortheme{seagull}
+}
+
+
+\usepackage[english,swedish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage[square]{natbib}
+%\bibliographystyle{swekthnat}
+\bibliographystyle{sweplnat}
+\setcitestyle{numbers}
+\usepackage[amssymb,noams,binary]{SIunits}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\newcommand{\bps}{\bit\per\second}
+\newcommand{\Bps}{\byte\per\second}
+\newcommand{\Kbps}{\kilo\bit\per\second}
+\newcommand{\Kibps}{\kibi\bit\per\second}
+\newcommand{\KBps}{\kilo\byte\per\second}
+\newcommand{\KiBps}{\kibi\byte\per\second}
+\newcommand{\Mbps}{\mega\bit\per\second}
+\newcommand{\Mibps}{\mebi\bit\per\second}
+\newcommand{\MBps}{\mega\byte\per\second}
+\newcommand{\MiBps}{\mebi\byte\per\second}
+
+\title[Moment 3]
+{Informationsteknologi grundkurs:\\Föreläsning moment 3, del 1}
+
+\author{Daniel Bosk}
+
+\institute
+{
+	Avdelningen för informations- och kommunikationssytem (IKS),\\
+	Institutionen för informationsteknologi och medier (ITM),\\
+	Mittuniversitetet, Sundsvall.
+}
+
+\date[3/10 2011] % (optional)
+{3 oktober 2011}
+
+\pgfdeclareimage[height=0.65cm]{university-logo}{../../../MU_logotyp_int_CMYK.pdf}
+\logo{\pgfuseimage{university-logo}}
+
+\AtBeginSection[]
+{
+	\begin{frame}<beamer>{Översikt}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Översikt}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+
+\section[Nätverk och kommunikation]{Datornätverk och datakommunikation}
+
+\begin{frame}{Nätverk}
+	Nätverk är datorer ihopkopplade för att kunna kommunicera.
+	Olika typer av nätverk:
+	\begin{description}
+		\item<2>[Local Area Network (LAN)]
+			Ett nätverk begränsat till att vara ''lokalt''.
+		\item<3>[Wide Area Network (WAN)]
+			Ett större nätverk, exempelvis telenätet.
+		\item<4>[Metropolitan Area Network (MAN)]
+			Ett nätverk inom en stad, har stor bandbredd.
+	\end{description}
+\end{frame}
+
+\begin{frame}{Nätverk}{Fortsättning}
+	\begin{itemize}
+		\item<2> Ett nätverk utgör ett \emph{intranet}.
+		\item<3> Flera sammankopplade nätverk utgör ett \emph{internet}.
+		\item<4> Internet med stort ''i'' är det internet som vi vill vara
+			anslutna till för att komma åt World Wide Web (WWW).
+	\end{itemize}
+\end{frame}
+
+\subsection{Nätverksarkitektur}
+
+\begin{frame}{Nätverksarkitektur}
+	Består av tre delar:
+	\begin{enumerate}
+		\item Accessmetodologi
+		\item Logisk topologi
+		\item Fysisk topologi
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Accessmetodologi}
+	Hur delar alla datorer på kabeln eller etern?
+	\begin{description}
+		\item<2>[CSMA/CD]
+			\emph{Carrier Sense Multiple Access with Collision Detection}.
+			Samma princip som i dagligt tal.
+		\item<3>[Token passing]
+			Kan jämföras med att det är bara den som har ordet som får tala.
+	\end{description}
+\end{frame}
+
+\begin{frame}{Fysiska topologier}
+	\uncover<1-4>{Fysiska nätverkstopologier, hur nätverket är kopplat:}
+	\begin{description}
+		\item<2>[Busstopologi] Alla nätverksenheter kopplas in till en buss, en
+			slags huvudledning.
+		\item<3>[Ringtopologi] Nätverksenheterna kopplas ihop med sina två
+			närmaste grannar.
+			För att skicka något skickas det till grannen som i sin tur skickar
+			det vidare o.s.v.
+		\item<4>[Stjärntopologi] Den topologi som vanliga användare är mest van.
+			Alla enheter kopplas till en central enhet (hub/switch/router).
+	\end{description}
+\end{frame}
+\begin{frame}{Logiska topologier}
+	\uncover<1-3>{Logiska topologier, hur nätverket fungerar:}
+	\begin{description}
+		\item<2>[Sekventiell topologi] Meddelandet märks med en adress till
+			mottagaren.
+			Meddelandet ges till grannen.
+			Grannen kollar om det är till denne, om inte skickas det vidare.
+		\item<3>[Broadcast topologi] Meddelandet skickas till alla samtidigt.
+			De som inte är adressater ignorerar meddelandet.
+	\end{description}
+\end{frame}
+
+\subsection{IP-adresser}
+
+\begin{frame}{IP-adresser}
+	\begin{itemize}
+		\item<2-3> För att kunna skicka data mellan datorer behövs adresser.
+		\item<3-4> Internet Protocol (IP) används för att kommunicera på
+			Internet.
+		\item<4-6> Det finns två IP-versioner:
+			\begin{itemize}
+				\item<5> IPv4, som används mest.
+				\item<6> IPv6, som borde användas.
+			\end{itemize}
+		\item<7> Routrar skickar paketen mellan olika nätverk beroende på
+			IP-adressen.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{IPv4}
+	\begin{itemize}
+		\item<2> Protokollet fastställt i RFC 791 \citep{RFC791}, september
+			1981.
+		\item<3> Har \(2^{32}\) unika adresser.
+		\item<4> Network Address Translation (NAT) gör att en del adresser kan
+			återanvändas.
+			\begin{itemize}
+				\item 10.0.0.0/8,
+				\item 172.16.0.0/12 och
+				\item 192.168.0.0/16 \citep{RFC5735}.
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{IPv6}
+	\begin{itemize}
+		\item<2> Protokollet fastställt i RFC 2460 \citep{RFC2460}, december 1998.
+		\item<3-4> Har \(2^{128}\) unika adresser.
+			\begin{itemize}
+				\item<4> Behöver inte NAT.
+			\end{itemize}
+		\item<5-6> Har inbyggd säkerhet, exempelvis IPSec.
+			\begin{itemize}
+				\item<6> IPSec är ett tillägg för IPv4.
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\subsection[Namn och DNS]{Värdnamn, domännamn och Domain Name System (DNS)}
+
+\begin{frame}{Värdnamn och domännamn}
+	\begin{itemize}
+		\item<2-3> IP-adresser är lite svåra för människor att komma ihåg.
+		\item<3> Text och namn är däremot lättare.
+		\item<4-5> Ett värdnamn är ett namn på en dator.
+		\item<5> En dator ingår i en domän, domännamnet är namnet på en grupp
+			av datorer.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Domain Name System (DNS)}
+	Domännamnssystemet (DNS) är en hierarkisk databas:
+	\begin{itemize}
+		\item<2-3> 13 \emph{rotservrar} ansvarar för roten av domänsystemet.
+		\item<3-5> Dessa håller koll på vilka servrar som har koll på alla
+			\emph{Top Level Domains (TLD)}, eller \emph{toppdomäner}.
+		\item<4> En TLD kan sägas vara en underdomän till roten.
+		\item<5> Varje TLD håller koll på vilka servrar som ansvarar för alla
+			underdomäner till den.
+		\item<6> Och så vidare \dots
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Domain Name System (DNS)}{Ett exempel}
+	%\[
+	%	\underbrace{\text{www}}_{\text{värdnamn}}\text{.}\underbrace{\text{miun.}\overbrace{\text{se}}^{\text{Toppdomän/TLD}}}_{\text{domännamn}}
+	%\]
+	\begin{center}
+		\url{www.miun.se.}
+	\end{center}
+	\begin{enumerate}
+		\item<2> Kontakta rotserver och fråga efter namnserver för TLD \url{se}.
+		\item<3> Kontakta namnserver för TLD \url{se} och fråga efter namnserver
+			för domännamnet \url{miun}.
+		\item<4> Kontakta namnserver för \url{miun.se.} och fråga efter
+			DNS-uppslaget för värdnamnet \url{www}.
+		\item<5> Du har nu IP-adressen för \url{www.miun.se.}.
+	\end{enumerate}
+\end{frame}
+
+\subsection[Överföringshastighet]{Kommunikation och överföringshastighet}
+
+\begin{frame}{Kommunikation och överföringshastighet}
+	\begin{itemize}
+		\item<2-> Data räknas i bitar (\bit) och byte (\byte), där
+			\( \unit{1}{\byte} = \unit{8}{\bit}. \)
+		\item<3-> Dataöverföringshastighet mäts då i bit per sekund (\bps) och
+			byte per sekund (\Bps).
+	\end{itemize}
+	\uncover<4->{
+	\begin{table}
+		\begin{tabular}{cc}
+			\(\unit{1000}{\bps}=\unit{1}{\Kbps}\) &
+			\(\unit{1024}{\bps}=\unit{1}{\Kibps}\) \\
+			\(\unit{1000}{\Kbps}=\unit{1}{\Mbps}\) &
+			\(\unit{1024}{\Kibps}=\unit{1}{\Mibps}\) \\
+			\dots & \dots
+		\end{tabular}
+	\end{table}
+	}
+	\uncover<5->{
+	\begin{table}
+		\begin{tabular}{cc}
+			\(\unit{1000}{\Bps}=\unit{1}{\KBps}\) &
+			\(\unit{1024}{\Bps}=\unit{1}{\KiBps}\) \\
+			\(\unit{1000}{\KBps}=\unit{1}{\MBps}\) &
+			\(\unit{1024}{\KiBps}=\unit{1}{\MiBps}\) \\
+			\dots & \dots
+		\end{tabular}
+	\end{table}
+	}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[allowframebreaks]{Referenser}
+	\bibliography{../itgru}
+\end{frame}
+
+
+\end{document}
+

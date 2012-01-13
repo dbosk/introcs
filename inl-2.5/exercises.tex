@@ -1,0 +1,61 @@
+\section{Uppgift}
+\label{sec:Exercises}
+\noindent
+Uppgiften går ut på att skapa en relationsdatabas över anställda hos en
+organisation.
+Ett exempel på hur en sådan databas utformas finns i
+\citet{Ekeroot2007dfal,Ekeroot2007dfam}, finns som bilaga i WebCT.
+
+\subsection{Skapa en databas}
+\noindent
+Den ska minst innehålla följande information:
+\begin{description}
+	\item[Namn] För- och efternamn för en anställd.
+	\item[Adress] Gata, postkod och postadress till den anställde.
+	\item[Telefonnummer] Ett telefonnummer till den anställde.
+	\item[Arbetstitel] Vilken arbetstitel den anställde har, exempelvis chef,
+		programmerare eller kock.
+	\item[Avdelning] Vilken avdelning som den anställde tillhör.
+	\item[Tidsperiod] När den anställde började i organisationen och när denne
+		eventuellt slutade.
+\end{description}
+Det finns inget krav på hur denna information ska lagras.
+Till exempel kan namnet lagras som en hel textsträng eller delas upp i två
+strängar, en för förnamn och en för efternamn.
+Ett tips är att utgå från databasen som skapas i
+\citet{Ekeroot2007dfal,Ekeroot2007dfam}.
+
+
+\subsection{Mata in data}
+\noindent
+Databasen ska sedan fyllas med information.
+Du ska i din databas lägga in information om minst 10 (fiktiva) personer varav
+åtminstone en ska ha slutat i organisationen
+Det ska finnas minst tre (3) olika tjänster och
+det ska även finnas minst tre (3) avdelningar.
+\begin{example}
+	Vi har de tre tjänsterna chef, administratör och arbetare och de tre
+	avdelningarna Avd1, Avd2 och Avd3.
+	På Avd1 finns en chef, en administratör och en arbetare.
+	På Avd2 finns en chef, en administratör och två arbetare.
+	Och på Avd3 finns en chef, en administratör och fyra arbetare.
+	Då har vi totalt tre olika tjänster (chef, administratör, arbetare),
+	tre avdelningar (Avd1, Avd2, Avd3) och
+	13 fiktiva personer (personerna som har tjänsterna).
+\end{example}
+Notera att exemplet utelämnade kravet om en person som slutat i organisationen.
+
+
+\subsection{Skapa rapporter}
+\noindent
+För varje tabell du använder i din databas ska du skapa en SQL-fråga (query)
+och sedan skapa en rapport utifrån denna fråga.
+När du skapar dessa SQL-frågor väljer du \emph{Create Query in SQL View \dots}
+och skriver frågan
+\begin{lstlisting}[language=sql]
+select * from "tabellnamn";
+\end{lstlisting}
+
+När frågorna är klara gör du en rapport från varje fråga.
+Du bör då ha en rapport för varje tabell och rapporten bör innehålla alla rader
+och alla fält i tabellen.
