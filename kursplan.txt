@@ -1,0 +1,100 @@
+                                   KURSPLAN
+                     DT001G Informationsteknologi grundkurs
+
+
+SYFTE
+
+Kursen utgör en introduktion till datateknik och är förberedande för praktiskt
+inriktade datatekniska utbildningar.  Centrala delar är datorns konstruktion,
+datorkomponenter, grundläggande begrepp och terminologier samt mjukvara.  Kursen
+fokuserar på praktisk användning av datorer och programvaror.  Kursen ger även
+en introduktion till rapportskrivande och presentationer.
+
+
+LÄRANDEMÅL
+
+Den studerande skall efter genomgången kurs:
+
+- ha grundläggande kunskaper om begrepp och terminologi inom datateknikområdet.
+- ha grundläggande kunskaper om datorsystems uppbyggnad och funktion.
+- ha grundläggande färdigheter i att använda och installera programvaror.
+- ha grundläggande kunskaper i datakommunikation och datorsäkerhet.
+- ha grundläggande färdigheter i ett akademiskt skrivsätt och
+  presentationsteknik.
+
+
+INNEHÅLL
+
+- Datarepresentation: bit, byte, talsystem, textrepresentation.
+- Operativsystem, filsystem och processer.
+- Datorns arkitektur och komponenter.
+- Exekvering av program (maskincykeln).
+- Textbaserade gränssnitt.
+- Ordbehandlings- , kalkyl-, presentations- och databasprogram.
+- Datornätverk och datakommunikation.
+- Datorsäkerhet.
+- Rapportskrivning och presentationer.
+
+
+BEHÖRIGHET
+
+Grundläggande behörighet.
+
+
+URVALSREGLER
+
+Urval sker i enlighet med Högskoleförordningen och den lokala
+antagningsordningen.
+
+
+UNDERVISNING
+
+Webbaserad distanskurs utan fysiska träffar.  Allt kursmaterial presenteras på
+en webbaserad undervisningsplattform.  Handledning ges via den aktuella
+undervisningsplattformen utifrån den enskilde studentens behov.  Detta kan
+exempelvis ske via e-post eller diskussionsgrupper.  För varje student avsätts
+cirka 3 timmars handledningstid.  Vid förändrad resurstillgång kan fördelningen
+ändras.
+
+
+EXAMINATION
+
+3.5 hp, IXXX: Inlämningsuppgifter
+Betyg: P för godkänt, F för underkänt.
+
+1.0 hp, PXXX: Presentation
+Betyg: P för godkänt, F för underkänt.
+
+3.0 hp, RXXX: Rapport
+Betyg: A, B, C, D och E för godkänt, Fx och F för underkänt.
+
+
+BETYGSSKALA
+
+På kursen ges något av betygen A, B, C, D och E för godkänt eller Fx och F för
+underkänt.
+
+
+LITTERATUR
+
+Brookshear, J Glenn (2012).  Computer Science: An overview.  Addison-Wesley,
+senaste upplagan.
+
+Referenslitteratur:
+
+Capron H.L., Johnson J.A., COMPUTERS Tools for an Information Age,
+Prentice Hall, 2004:8 eller senare, 0-13-122723-8
+
+
+ÖVRIG INFORMATION
+
+Den studerande måste ha tillgång till följande utrustning och programvara:
+
+- headset med hörlurar och mikrofon samt en webbkamera,
+- möjlighet att installera programvaror på datorn,
+- LibreOffice, eller motsvarande, som har ordbehandlings- , kalkyl-,
+  presentations- och databasprogram.
+
+Det är obligatorisk närvaro vid presentation av rapporter.
+
+Denna kurs kan inte ingå i samma examen som kurs med kod DTAA02.
