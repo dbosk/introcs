@@ -1,0 +1,152 @@
+\documentclass[11pt,a4paper]{miunasgn}
+\usepackage[utf8]{inputenc}
+\usepackage[english,swedish]{babel}
+\usepackage{url,hyperref}
+\usepackage{prettyref,varioref}
+\usepackage{natbib}
+\usepackage{listings}
+\usepackage[natbib,varioref,prettyref,listings]{miunmisc}
+
+\printanswers
+
+\courseid{DT001G}
+\course{Informationsteknologi grundkurs}
+\assignmenttype{Laboration}
+\title{Installationer}
+\author{Daniel Bosk\footnote{%
+	E-post: \href{mailto:daniel.bosk@miun.se}{daniel.bosk@miun.se}.
+}}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{foot}
+\tableofcontents
+
+
+\section{Introduktion}
+\label{sec:Introduktion}
+\noindent
+I denna laboration ska du installera program som du behöver för kursen och 
+eventuellt för kommande kurser på din dator.
+Du ska även installera ett operativsystem, Ubuntu, som kommer att användas 
+under kursens gång.
+
+De programvaror du kommer att installera är följande:
+\begin{itemize}
+	\item TeX Live för Ubuntu och eventuellt MikTeX för Windows, och
+	\item eventuellt LibreOffice för Windows (redan installerat för Ubuntu),
+\end{itemize}
+
+
+\section{Syfte}
+\label{sec:Syfte}
+\noindent
+Syftet med laborationen är att du ska förbereda din dator med den programvara 
+som behövs för kursen samt att få vana för enkel administration av programvaror 
+i din dator.
+
+
+\section{Läsanvisningar}
+\label{sec:Lasanvisningar}
+\noindent
+För att genomföra denna laboration bör du ha läst kapitlet om operativsystem 
+och bootprocessen \citep[kapitel 3]{Brookshear2012csa}.
+
+Innan du genomför laborationen bör du också läsa igenom dokumentationen för 
+installationen av Ubuntu \citep{UbuntuInstall}, detta är inte för att 
+installationen är svår att genomföra utan för att du ska kunna fundera igenom 
+dina beslut på förhand.
+
+När Ubuntu väl är installerat finns dokumentationen \citep{UbuntuDesktop} som 
+stöd för att börja använda systemet.
+Det kan vara bra att orientera sig i denna för senare enkelt hitta vid behov.
+Det rekommenderas att läsa igenom de första fem avsnitten -- \emph{Welcome to 
+Ubuntu 12.04} till och med \emph{Log out, power off, switch users} -- innan 
+installationen.
+Du ska även läsa om hur program installeras \citep[se Install additional 
+software]{UbuntuDesktop}.
+
+Om du använder Windows och vill testa att installera programmen även där finns 
+en instruktion för att installera \LaTeX\ för Windows \citep{Bosk2012lui}.
+Hur \LaTeX\ installeras under Ubuntu täcks senare i denna lydelse.
+
+
+\section{Genomförande}
+\label{sec:Genomforande}
+\noindent
+Här följer genomförandet för laborationen.
+Det rekommenderas att du läser igenom hela genomförandet innan du sätter igång.
+
+\subsection{Ubuntu Desktop}
+\noindent
+Börja med att installera den senaste versionen av Ubuntu Desktop, för 
+närvarande version 12.04.
+Ubuntu går att ladda hem på URL
+\begin{center}
+	\url{http://www.ubuntu.com/download/}.
+\end{center}
+Det rekommenderas att du installerar Ubuntu parallelt med redan befintligt 
+operativsystem om du har ett sådant, men du väljer själv vilken form du vill 
+installera \citep[för detaljer, se][]{UbuntuInstall}.
+Att enbart använda LiveCD rekommenderas inte eftersom att det blir problem med 
+att installera programvaror och att du inte kan spara filer annat än på 
+USB-minnen.
+
+\subsection{Programvaror}
+\noindent
+När du har loggat in i din Ubuntu-installation är det dags att installera de 
+programvaror du behöver.
+Den enda programvara du behöver installera i Ubuntu är TeX Live för att senare 
+kunna använda \LaTeX.
+I GNU/Linux\footnote{%
+	Ubuntu är en linuxdistribution, det vill säga det är Linux som används som 
+	kärna.
+} kallas installationsfiler för paket och de installeras med en pakethanterare.
+Det finns flera sätt att installera paket.
+Det sätt som rekommenderas enligt \citet{UbuntuDesktop} för nya användare av 
+Ubuntu är att använda Ubuntu Software Centre.
+Det alternativa sättet är att använda pakethanteraren direkt från terminalen.
+Detta görs genom att först starta ett terminalfönster, det vill säga starta 
+programmet \emph{Terminal}, därefter skrivs \emph{sudo apt-get install vim} med 
+följande som resultat:
+\begin{lstlisting}
+danbos@ID20809793:assgn-install:(0)$ sudo apt-get install vim
+[sudo] password for danbos: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+vim is already the newest version.
+The following package was automatically installed and is no longer required:
+  john-data
+Use 'apt-get autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 59 not upgraded.
+\end{lstlisting}
+(Observera att dollartecknet är en del av prompten.)
+
+Med valfritt tillvägagångssätt, installera följande paket:
+\begin{itemize}
+	\item texlive,
+	\item texlive-latex-extra,
+	\item texlive-lang-swedish, och
+	\item texlive-lang-ukenglish.
+\end{itemize}
+
+Om du vill ha tillgång till dessa program i Windows kan du installera MikTeX 
+\citep{Bosk2012lui} och LibreOffice\footnote{%
+	URL: \url{http://www.libreoffice.org/}.
+}.
+För MikTeX kan du hoppa över steget att installera universitetets 
+dokumentklasser, detta tas upp i en senare laboration.
+
+
+\section{Examination}
+\label{sec:Examination}
+\noindent
+Skriv ett enkelt textdokument med hjälp av GEdit i Ubuntu där du sammanfattar 
+dina erfarenheter av denna laboration och ger en kort jämförelse mellan Ubuntu 
+och Windows, eller MacOS om du har mer erfarenhet av det.
+
+
+\bibliography{../../itgrund}
+\end{document}
