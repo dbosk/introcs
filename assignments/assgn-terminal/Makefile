@@ -4,6 +4,4 @@ CATEGORY=	itgrund/assignments
 FILES=		assgn-terminal.tex ../../itgrund.bib
 DOCUMENTS=	assgn-terminal.pdf
 
-all: ${DOCUMENTS}
-
 include miun.docs.mk
