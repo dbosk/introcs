@@ -1,0 +1,327 @@
+\documentclass[11pt,a4paper]{miunasgn}
+\usepackage[utf8]{inputenc}
+\usepackage[english,swedish]{babel}
+\usepackage{url,hyperref}
+\usepackage{prettyref,varioref}
+\usepackage{natbib}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[natbib,varioref,prettyref,listings]{miunmisc}
+
+%\printanswers
+
+\courseid{DT001G}
+\course{Informationsteknologi grundkurs}
+\assignmenttype{Laboration}
+\title{Terminalen}
+\author{Daniel Bosk\footnote{%
+	E-post: \href{mailto:daniel.bosk@miun.se}{daniel.bosk@miun.se}.
+}}
+\date{\today}
+
+\lstset{basicstyle=\footnotesize}
+
+\begin{document}
+\maketitle
+\thispagestyle{foot}
+\tableofcontents
+
+
+\section{Introduktion}
+\label{sec:Introduktion}
+\noindent
+Denna laboration introducerar terminalen i ett UNIX-likt system, i detta fall 
+Ubuntu.
+Instruktioner om hur motsvarande kan genomföras i Windows finns också, men det 
+är obligatoriskt att genomföra laborationen i Ubuntu.
+
+Terminalen är ett kraftfullt verktyg som varit huvudgränssnitt och har 
+kontinuerligt utvecklats sedan den första versionen av UNIX släpptes av Bell 
+Laboratories år 1969.
+Det är ett kommandodrivet gränssnitt där varje kommandon är implementerade som 
+enkla program som utför en enkel specialiserad uppgift, det finns dock enstaka 
+kommandon som är inbyggda i skalet.
+Dessa enkla program kan sedan användas tillsammans för att åstadkomma mer 
+komplexa resultat.
+
+
+\section{Syfte}
+\label{sec:Syfte}
+\noindent
+Syftet med denna inlämningsuppgift är att
+\begin{itemize}
+	\item få en inblick i textbaserade användargränssnitt,
+	\item se sambandet mellan vad som händer i det textbaserade och det
+		grafiska gränssnittet,
+	\item få en förståelse för skillnaden mellan absoluta och relativa
+		sökvägar, samt
+	\item få en ökad förståelse för hur filsystemet fungerar.
+\end{itemize}
+
+
+\section{Läsanvisningar}
+\label{sec:Lasanvisningar}
+\noindent
+För att genomföra denna laboration bör du ha läst kapitlet om operativsystem 
+\citep[kapitel 3]{Brookshear2012csa}.
+
+För dokumentation om olika program i UNIX-lika system används kommandot 
+\emph{man}.
+Det tar namnet på att annat kommando som du vill ha dokumentation för som 
+argument.
+Om vi till exempel vill ha dokumentation om just \emph{man} självt skriver vi 
+\emph{man man} och får resultat i \prettyref{lst:manman}.
+\begin{lstlisting}[float=tbp,caption={Resultatet av kommandoraden \emph{man 
+	man}.},label={lst:manman}]
+/home/danbos$ man man
+MAN(1)						Manual pager utils						MAN(1)
+
+NAME
+	   man - an interface to the on-line reference manuals
+
+SYNOPSIS
+	   man  [-C  file]  [-d]  [-D]  [--warnings[=warnings]]  [-R encoding] [-L
+	   locale] [-m system[,...]] [-M path] [-S list]  [-e  extension]  [-i|-I]
+	   [--regex|--wildcard]   [--names-only]  [-a]  [-u]  [--no-subpages]  [-P
+	   pager] [-r prompt] [-7] [-E encoding] [--no-hyphenation] [--no-justifi-
+	   cation]  [-p  string]  [-t]  [-T[device]]  [-H[browser]] [-X[dpi]] [-Z]
+	   [[section] page ...] ...
+	   man -k [apropos options] regexp ...
+	   man -K [-w|-W] [-S list] [-i|-I] [--regex] [section] term ...
+	   man -f [whatis options] page ...
+	   man -l [-C file] [-d] [-D] [--warnings[=warnings]]  [-R  encoding]  [-L
+	   locale]  [-P  pager]  [-r  prompt]  [-7] [-E encoding] [-p string] [-t]
+	   [-T[device]] [-H[browser]] [-X[dpi]] [-Z] file ...
+	   man -w|-W [-C file] [-d] [-D] page ...
+	   man -c [-C file] [-d] [-D] page ...
+	   man [-hV]
+
+DESCRIPTION
+	   man is the system's manual pager. Each page argument given  to  man  is
+	   normally  the  name of a program, utility or function.  The manual page
+	   associated with each of these arguments is then found and displayed.  A
+	   section,  if  provided, will direct man to look only in that section of
+	   the manual.  The default action is to search in all  of  the  available
+	   sections, following a pre-defined order and to show only the first page
+	   found, even if page exists in several sections.
+
+	   The table below shows the section numbers of the manual followed by the
+	   types of pages they contain.
+[...]
+/home/danbos$
+\end{lstlisting}
+Manualsidorna är indelade i sektioner, denna ges som en siffra inom parentes 
+efter namnet på manualsidan -- exempelvis \emph{man(1)}.
+För att specificera en särskild sektion anges sektionen innan namnet på 
+manualsidan (kommandot) som argument till \emph{man}, exempelvis \emph{man 
+1 man}.
+Oftast behövs dock inte detta, det är bara när ett uppslagsnamn finns i flera 
+sektioner.
+Det framgår i \prettyref{lst:manman} att det är man(1) som ges av \emph{man 
+man}, alltså samma resultat som vid \emph{man 1 man}.
+Dessa manualer finns även tillgängliga online på URL
+\begin{center}
+	\url{https://www.kernel.org/doc/man-pages/}.
+\end{center}
+Då finns de att läsa som förberedelse till genomförandet.
+De manualsidor som bör läsas översiktligt i förväg är bash(1) och man(1).
+
+För dokumentation om kommandona i Windows kan följande sida användas:
+\begin{quote}
+	\url{http://technet.microsoft.com/en-us/library/bb490890.aspx}
+\end{quote}
+
+
+\section{Genomförande}
+\label{sec:Genomforande}
+\noindent
+% XXX skriv om uppgifterna så att studenterna fokuserar mindre på > och >>.
+% XXX byt ordning på uppgifterna: fråga om kommandonas funktioner först,
+% XXX   använd dem sedan.
+Du kommer att behöva använda ett terminalfönster och en grafisk filhanterare.
+För att använda dessa i de olika operativsystemen gör du följande:
+\begin{description}
+	\item[Ubuntu] För Ubuntu kan du använda programmet \emph{Terminal} 
+		(gnome-terminal).
+		Grafisk filhanterare varierar beroende på system, men leta efter 
+		\emph{Files} eller \emph{File manager}.
+	\item[UNIX-lika system] Använd valfri terminal, exempelvis \emph{xterm}.
+	\item[Windows XP] Kör kommandotolken genom att välja \emph{Kör} från
+		Startmenyn, skriv \emph{cmd.exe} och klicka på \emph{OK}.
+		Använd \emph{Den här datorn} eller \emph{Utforskaren} som grafisk
+		filhanterare.
+	\item[Windows Vista/7] Sök efter \emph{kommandotolken} eller
+		\emph{powershell} i Startmenyns sökfunktion.
+		Använd \emph{Dator} eller \emph{Utforskaren} som grafisk filhanterare.
+\end{description}
+
+\begin{questions}
+	\uplevel{%
+		Starta ett terminalfönster och besvara följande frågor.
+	}
+	\question\label{q:ls}
+	Vad gör kommandot ls(1)?
+	Läs manualsidan och testa själv med och utan olika argument.
+	(Motsvarigheten i Windows heter \emph{dir}.)
+	\begin{solution}
+		Lista innehållet i kataloger.
+	\end{solution}
+
+	\question\label{q:cd}
+	Vad gör kommandot cd?
+	Detta kommando är inbyggt i skalet, bash(1), och har därför ingen egen 
+	manualsida, se istället bash(1).
+	(Motsvarigheten i Windows heter också \emph{cd}.)
+	\begin{solution}
+		Byt arbetskatalog till den som anges, kan vara relativ eller absolut 
+		sökväg.
+	\end{solution}
+
+	\question\label{q:mkdir}
+	Vad gör kommandona mkdir(1) och rmdir(1)?
+	Läs manualsidan och testa själv med och utan olika argument.
+	(Motsvarigheten i Windows heter också \emph{mkdir} respektive \emph{rmdir}.)
+	\begin{solution}
+		Skapar respektive tar bort tomma kataloger.
+	\end{solution}
+
+	\question\label{q:rm}
+	Vad gör kommandot rm(1)?
+	Läs manualsidan och testa själv med och utan olika argument.
+	(Motsvarigheten i Windows heter \emph{del}.)
+	\begin{solution}
+		Tar bort filer och även kataloger om rätt argument används.
+	\end{solution}
+
+	\question\label{q:gedit}
+	Vad gör följande kommandorad?
+	\begin{lstlisting}
+$ gedit test.txt
+	\end{lstlisting}
+	\begin{solution}
+		Öppnar filen test.txt för redigering i en GUI-baserad textredigerare.
+		Om filen inte finns skapas den när den sparas.
+	\end{solution}
+
+	\question\label{q:cat}
+	Vad gör kommandot cat(1)?
+	Läs manualsidan och testa själv med exempelvis följande kommandorad, om du 
+	har kvar \emph{test.txt} från föregående uppgift.
+	\begin{lstlisting}
+$ cat test.txt
+	\end{lstlisting}
+	\begin{solution}
+		Skriver ut innehållet i filerna som ges som argument till stdout 
+		(vanligtvis terminalen).
+	\end{solution}
+
+	\question\label{q:echo}
+	Vad gör kommandot echo(1)?
+	Läs manualsidan och testa själv med och utan olika argument.
+	(Motsvarigheten i Windows heter detsamma, men den skiljer sig en aning.)
+	\begin{solution}
+		Skriver ut alla argument till stdout (vanligtvis terminalen).
+	\end{solution}
+
+	\question\label{q:find}
+	Vad gör kommandot find(1)?
+	Läs manualsidan och testa själv med och utan olika argument.
+	(För motsvarigheten i Windows måste kommandot \emph{dir} användas med 
+	argumentet \emph{/s}.)
+	\begin{solution}
+		Söker igenom filstrukturen efter filer som matchar de givna sökkriterierna.
+	\end{solution}
+
+	\question\label{q:findless}
+	Vad gör följande kommandorad?
+	\begin{lstlisting}
+$ find / -type d -print | less
+	\end{lstlisting}
+	Läs manualsidorna för de olika programmen, find(1) respektive less(1), och 
+	testa att köra den.
+	\begin{solution}
+		Sök igenom filstrukturen, med början i roten, efter kataloger.
+		Dessa skickas via en pipeline till less(1) som skriver ut en skärmsida 
+		i taget.
+	\end{solution}
+
+	\question\label{q:fs}
+	\begin{parts}\label{qp:relative}
+		\part Använd ls(1), pwd(1), cd och eventuella andra program eller kommandon 
+		du behöver för att undersöka vad de speciella katalogerna ''.'' respektive 
+		''..'' som finns i varje katalog är.
+		(Dessa speciella kataloger finns i de flesta filsystem, även i Windows.)
+		\begin{solution}
+			Katalogen ''.'' hänvisar till den nuvarande arbetskatalogen.
+			Katalogen ''..'' hänvisar till föräldern till den nuvarande 
+			arbetskatalogen.
+		\end{solution}
+
+		\part\label{qp:exploring} Använd cd och ls(1) för att utforska filsystemet.
+		Använd den grafiska filhanteraren för att göra samma utforskning parallelt, 
+		på så vis tappar du inte lika lätt orienteringen om du är ovan.
+	\end{parts}
+
+	\question\label{q:RelativeWWW}
+	Använd din webbläsare och gå in på adressen
+	\begin{center}
+		\url{http://www.miun.se/denna/sida/finns/ej/}.
+	\end{center}
+	Jämför och förklara skillnaden när du istället går in på adressen
+	\begin{center}
+		\url{http://www.miun.se/denna/sida/finns/ej/../../../../}.
+	\end{center}
+	\begin{solution}
+		Den andra adressen leder tillbaka till huvudsidan tack vare de relativa
+		sökvägarna ''..''.
+	\end{solution}
+	\begin{solution}
+		Den senare URL:en är en relativ sökväg till webbplatsens rotkatalog, vilket 
+		gör att webbläsaren visar universitetets startsida.
+	\end{solution}
+
+	\uplevel{%
+		När skalet tolkar kommandoraden läses första ordet som filnamnet för ett 
+		program.
+		För att veta vilket program, med sökväg, som ska köras finns ett flertal 
+		kataloger inlagda i miljövariabeln \emph{PATH}.
+		Dessa kataloger söks igenom i ordning och en programfil med rätt namn 
+		eftersöks.
+		Kommandot which(1) kan användas för att undersöka vilket program, med 
+		fullständig sökväg, som skulle köras om ett visst kommando angavs i skalet.
+	}
+	\question\label{q:which}
+	Undersök sökvägarna till de olika programmen du använt under denna 
+	laboration.
+	Läs om which(1) för att veta hur programmet fungerar.
+	\begin{solution}
+		\begin{lstlisting}
+(0):danbos@ID20809793:assgn-terminal$ which ls cat mkdir rmdir rm gedit \
+> find echo bash pwd
+/bin/ls
+/bin/cat
+/bin/mkdir
+/bin/rmdir
+/home/danbos/bin/rm
+/usr/bin/gedit
+/usr/bin/find
+/bin/echo
+/bin/bash
+/bin/pwd
+(0):danbos@ID20809793:assgn-terminal$
+		\end{lstlisting}
+	\end{solution}
+
+\end{questions}
+
+
+\section{Examination}
+\label{sec:Examination}
+\noindent
+Frågorna i \prettyref{sec:Genomforande} besvaras i textfältet i laborationens 
+inlämningslåda i lärplattformen.
+
+
+\bibliography{../../itgrund}
+\end{document}
