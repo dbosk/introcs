@@ -1,4 +1,4 @@
-SUBDIR+= \
+SUBDIR?= \
 		 assgn-install \
 		 assgn-terminal \
 		 assgn-latex \

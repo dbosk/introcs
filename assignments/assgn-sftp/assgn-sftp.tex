@@ -1,0 +1,112 @@
+\documentclass[11pt,a4paper]{miunasgn}
+\usepackage[utf8]{inputenc}
+\usepackage[english,swedish]{babel}
+\usepackage{url,hyperref}
+\usepackage{prettyref,varioref}
+\usepackage{natbib}
+\usepackage{listings}
+\usepackage[today,nofancy]{svninfo}
+\usepackage[natbib,varioref,prettyref,listings]{miunmisc}
+
+\svnInfo $Id$
+%\printanswers
+
+\courseid{DT001G}
+\course{Informationsteknologi grundkurs}
+\assignmenttype{Laboration}
+\title{Säkerhet}
+\author{Daniel Bosk\footnote{%
+	E-post: \href{mailto:daniel.bosk@miun.se}{daniel.bosk@miun.se}.
+}}
+\date{\svnId}
+
+\begin{document}
+\maketitle
+\thispagestyle{foot}
+\tableofcontents
+
+\newtheorem{example}{Exempel}
+
+\section{Introduktion}
+\label{sec:Introduktion}
+\noindent
+\dots
+
+
+\section{Syfte}
+\label{sec:Syfte}
+\noindent
+Syftet med uppgiften är att du ska lära dig använda en SFTP-klient.
+Anledningen är för att kunna logga in och överföra filer på ett säkert sätt.
+Du ska
+\begin{itemize}
+    \item kunna ladda hem filer från en server,
+    \item kunna ladda upp filer till en server, och
+	\item kunna skapa och verifiera kontrollsummor.
+\end{itemize}
+Du ska kunna använda verktyg i terminalen för att göra detta.
+
+
+\section{Läsanvisningar}
+\label{sec:Lasanvisningar}
+\noindent
+\dots
+
+
+\section{Genomförande}
+\label{sec:Genomforande}
+\noindent
+Använd valfritt operativsystem.
+Du behöver en SFTP-klient, ett program för att generera kontrollsummor och en
+webbläsare.
+\begin{description}
+	\item[Windows] För en SFTP-klient kan du installera PuTTY\footnote{%
+			URL: \url{ftp://ftp.chiark.greenend.org.uk/users/sgtatham/putty-latest/x86/putty-0.61-installer.exe}.
+		}.
+		SFTP-klienten används genom kommandot \emph{psftp}.
+		PuTTY innehåller även en SSH-klient (kommandot \emph{putty}) och en
+		SCP-klient (kommandot \emph{pscp}).
+		Det finns även grafiska SFTP-klienter, ett exempel är WinSCP\footnote{%
+			URL: \url{http://winscp.net/download/winscp433setup.exe}.
+		}
+
+		För att beräkna kontrollsummor kan du använda
+		\emph{sha256sum}\footnote{%
+			URL: \url{http://blog.nfllab.com/archives/152-Win32-native-md5sum,-sha1sum,-sha256sum-etc..html}.
+		} som kompilerats för Windows från samma källkod som för UNIX.
+	\item[UNIX] De flesta UNIX-baserade system har som standard en SFTP-klient
+		(kommandot \emph{sftp}), SSH-klient (kommandot \emph{ssh}), och
+		SCP-klient (kommandot \emph{scp}).
+		De flesta UNIX-baserade system har även som standard program för att
+		generera och verifiera kontrollsummor.
+		Du kan använda kommandot \emph{sha256sum}.
+\end{description}
+
+
+\section{Examination}
+\label{sec:Examination}
+\noindent
+Sammanfatta i en textfil de olika kommandona du använde för att genomföra
+uppgifterna.
+Döp filen till \emph{dt001g-inlupp3.3.txt}.
+Skapa en ny fil innehållandes SHA256-kontrollsumman, döp denna till
+\emph{dt001g-inlupp3.3.txt.sha256}.
+Ladda upp de två filerna till \emph{public\_html}-katalogen i din hemkatalog på
+\url{myfiles.miun.se}.
+Låt filerna ligga kvar tills att kursen är avslutad.
+
+I WebCT ska du lämna in kontrollsumman.
+Öppna filen och kopiera själva kontrollsumman, klistra därefter in den i fältet
+\emph{Inlämnad uppgift}. (Det vill säga inte som kommentar.)
+Skriv också om kontrollsumman skapats med SHA256 eller SHA1.
+\begin{example}
+	Om du använt SHA256 kan du skriva:
+	\begin{center}
+		\emph{SHA256
+		e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+	\end{center}
+\end{example}
+
+
+\bibliography{../../itgrund}
+\end{document}
