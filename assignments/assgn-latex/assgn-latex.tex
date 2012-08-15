@@ -5,9 +5,11 @@
 \usepackage{prettyref,varioref}
 \usepackage{natbib}
 \usepackage{listings}
-\usepackage[today]{rcsinfo}
+\usepackage{dtklogos}
+\usepackage[today,nofancy]{svninfo}
 \usepackage[natbib,varioref,prettyref,listings]{miunmisc}
 
+\svnInfo $Id$
 %\printanswers
 
 \courseid{DT001G}
@@ -17,9 +19,7 @@
 \author{Daniel Bosk\footnote{%
 	E-post: \href{mailto:daniel.bosk@miun.se}{daniel.bosk@miun.se}.
 }}
-\date{\today\footnote{%
-	\rcsInfo $Id$
-}}
+\date{\svnId}
 
 \begin{document}
 \maketitle
@@ -64,8 +64,17 @@ Därefter, för att komma in i \LaTeX, bör följande kapitel i WikiBooks
 \begin{itemize}
 	\item 1.1 Introduction,
 	\item 1.2 Basics,
-	\item 1.3 Errors and Warnings, och
-	\item 2.1 Document Structure.
+	\item 1.3 Errors and Warnings,
+	\item 2.1 Document Structure,
+	\item 2.7 List Structures,
+	\item 2.8 Tables,
+	\item 2.11 Importing Graphics,
+	\item 2.12 Floats, Figures and Captions,
+	\item 2.13 Footnotes and Margin Notes,
+	\item 2.15 Labels and Cross-referencing,
+	\item 4.1 Mathematics,
+	\item 4.5 Algorithms and Pseudocode, och
+	\item 5.3 Bibliography Management.
 \end{itemize}
 
 Slutligen ska universitetets rapportmall för examensarbeten \citep{MiUn2012rft} 
@@ -75,7 +84,35 @@ läsas igenom.
 \section{Genomförande}
 \label{sec:Genomforande}
 \noindent
-\dots
+Öppna en ny .tex-fil för redigering, exempelvis genom följande kommandorad:
+\begin{lstlisting}
+$ gedit lab-latex.tex
+\end{lstlisting}
+Skriv ett kort exempeldokument med \emph{article} som dokumentklass där du 
+testar lite olika funktionalitet.
+
+Leta fram kurslitteraturen i Kungliga Bibliotekets katalog Libris\footnote{%
+	URL: \url{http://libris.kb.se}.
+} och skapa en referens för \BibTeX i en .bib-fil.
+
+Installera universitetets dokumentklasser.
+Detta gör du genom att gå in på följande URL:
+\begin{center}
+	\url{http://ver.miun.se/latexmallar/}.
+\end{center}
+Läs igenom filen \emph{README} och installera därefter paketen 
+\emph{miunmisc.tar.gz}, \emph{miunart.tar.gz} och \emph{miunthes.tar.gz}.
+
+Skriv ett nytt exempeldokument som använder \emph{miunthes} som dokumentklass.
+Detta exempeldokument ska
+\begin{itemize}
+	\item ha minst en figur,
+	\item ha minst en tabell med tabellhuvud, några rader och kolumner,
+	\item ha minst en referens med hjälp av .bib-filen som skapades tidigare,
+	\item ha minst en matematisk formel,
+	\item ha minst två huvudrubriker med minst en underrubrik vardera, samt
+	\item ha en innehållsförteckning.
+\end{itemize}
 
 
 \section{Examination}
