@@ -1,0 +1,68 @@
+För att genomföra denna laboration bör du ha läst kapitlet om operativsystem 
+\citep[kapitel 3]{Brookshear2012csa}.
+
+För dokumentation om olika program i UNIX-lika system används kommandot 
+\emph{man}.
+Det tar namnet på att annat kommando som du vill ha dokumentation för som 
+argument.
+Om vi till exempel vill ha dokumentation om just \emph{man} självt skriver vi 
+\emph{man man} och får resultat i \prettyref{lst:manman}.
+\begin{lstlisting}[float=tbp,caption={Resultatet av kommandoraden \emph{man 
+	man}.},label={lst:manman}]
+/home/danbos$ man man
+MAN(1)						Manual pager utils						MAN(1)
+
+NAME
+	   man - an interface to the on-line reference manuals
+
+SYNOPSIS
+	   man  [-C  file]  [-d]  [-D]  [--warnings[=warnings]]  [-R encoding] [-L
+	   locale] [-m system[,...]] [-M path] [-S list]  [-e  extension]  [-i|-I]
+	   [--regex|--wildcard]   [--names-only]  [-a]  [-u]  [--no-subpages]  [-P
+	   pager] [-r prompt] [-7] [-E encoding] [--no-hyphenation] [--no-justifi-
+	   cation]  [-p  string]  [-t]  [-T[device]]  [-H[browser]] [-X[dpi]] [-Z]
+	   [[section] page ...] ...
+	   man -k [apropos options] regexp ...
+	   man -K [-w|-W] [-S list] [-i|-I] [--regex] [section] term ...
+	   man -f [whatis options] page ...
+	   man -l [-C file] [-d] [-D] [--warnings[=warnings]]  [-R  encoding]  [-L
+	   locale]  [-P  pager]  [-r  prompt]  [-7] [-E encoding] [-p string] [-t]
+	   [-T[device]] [-H[browser]] [-X[dpi]] [-Z] file ...
+	   man -w|-W [-C file] [-d] [-D] page ...
+	   man -c [-C file] [-d] [-D] page ...
+	   man [-hV]
+
+DESCRIPTION
+	   man is the system's manual pager. Each page argument given  to  man  is
+	   normally  the  name of a program, utility or function.  The manual page
+	   associated with each of these arguments is then found and displayed.  A
+	   section,  if  provided, will direct man to look only in that section of
+	   the manual.  The default action is to search in all  of  the  available
+	   sections, following a pre-defined order and to show only the first page
+	   found, even if page exists in several sections.
+
+	   The table below shows the section numbers of the manual followed by the
+	   types of pages they contain.
+[...]
+/home/danbos$
+\end{lstlisting}
+Manualsidorna är indelade i sektioner, denna ges som en siffra inom parentes 
+efter namnet på manualsidan -- exempelvis \emph{man(1)}.
+För att specificera en särskild sektion anges sektionen innan namnet på 
+manualsidan (kommandot) som argument till \emph{man}, exempelvis \emph{man 
+1 man}.
+Oftast behövs dock inte detta, det är bara när ett uppslagsnamn finns i flera 
+sektioner.
+Det framgår i \prettyref{lst:manman} att det är man(1) som ges av \emph{man 
+man}, alltså samma resultat som vid \emph{man 1 man}.
+Dessa manualer finns även tillgängliga online på URL
+\begin{center}
+	\url{https://www.kernel.org/doc/man-pages/}.
+\end{center}
+Då finns de att läsa som förberedelse till genomförandet.
+De manualsidor som bör läsas översiktligt i förväg är bash(1) och man(1).
+
+För dokumentation om kommandona i Windows kan följande sida användas:
+\begin{quote}
+	\url{http://technet.microsoft.com/en-us/library/bb490890.aspx}
+\end{quote}
