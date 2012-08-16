@@ -21,9 +21,6 @@
 }}
 \date{\svnId}
 
-\newcommand{\Mbps}{\mega\bit\per\second}
-\newcommand{\MBps}{\mega\byte\per\second}
-
 \begin{document}
 \maketitle
 \thispagestyle{foot}
@@ -33,10 +30,11 @@
 \section{Introduktion}
 \label{sec:Introduktion}
 \noindent
-Du behöver en Internetanslutning, en webbläsare med Flash-stöd samt tillgång
-till ett terminalfönster.
-Du ska undersöka Internet-inställningarna som används för din anslutning,
-instruktionen är anpassad för Windows och UNIX.
+Denna laboration behandlar nätverk och internet.
+Du ska i denna uppgift undersöka din internetanslutning och bekanta dig med
+internets adresserings- och domännamnssystem (DNS).
+Du kommer att göra några olika mätningar och använda några vanliga verktyg som 
+används i nätverkssammanhang.
 
 
 \section{Syfte}
@@ -44,8 +42,8 @@ instruktionen är anpassad för Windows och UNIX.
 \noindent
 Syftet med denna uppgift är
 \begin{itemize}
-    \item att ge en inblick i Internet-anslutningen som används och dess
-		kvalitet,
+		\item att ge en inblick i internetanslutningen som används och dess
+		tillförlitlighet,
     \item att ge grundläggande förståelse för IPv4-adressering och domännamn,
 		samt
 	\item att ge erfarenhet av att räkna på överföringshastighet och
@@ -56,30 +54,23 @@ Syftet med denna uppgift är
 \section{Läsanvisningar}
 \label{sec:Lasanvisningar}
 \noindent
-\dots
+\input{literature.tex}
 
 
 \section{Genomförande}
 \label{sec:Genomforande}
 \noindent
-% TODO skriv uppgifter
-Du ska i denna uppgift undersöka din Internetanslutning och bekanta dig med
-Internets adresserings- och domännamnssystem (DNS).
-Frågorna är numrerade 1-16, dessa besvarar du i svarsmallen
-(\emph{svar\_3.1.doc}) som finns bifogad i WebCT.
-Därefter ska du också sammanfatta de intressantaste resultaten i svarsmallen.
+Genomför och besvara följande uppgifter i den ordning de ges.
 
 \begin{questions}
 
 \fullwidth{
 \subsection{IP-adresser}
 \noindent
-Denna del kommer att fokusera på Internetprotokollets (IP) adresser.
+Denna del kommer att fokusera på internetprotokollets (IP) adresser.
 }
 
 \uplevel{
-Använd \citet{Brookshear2012csa,Brookshear2009csa} och Internet för
-att besvara följande frågor.
 Glöm inte att ange referenser.
 }
 \question
@@ -140,7 +131,8 @@ Address Block       Present Use                Reference
 
 \uplevel{
 För att se vilken IP-adress som ditt system använder kan verktygen
-\emph{ifconfig}, för UNIX, och \emph{ipconfig}, för Windows, vara användbara.
+ifconfig(8), för UNIX-lika system, och \emph{ipconfig}, för Windows, vara 
+användbara.
 Dessa används från terminalen.
 }
 \question
@@ -148,12 +140,6 @@ Dessa används från terminalen.
 \begin{solution}
 	Troligtvis \dots
 \end{solution}
-
-%\question
-%\dots
-%\begin{solution}
-%	\dots
-%\end{solution}
 
 
 \fullwidth{
@@ -163,8 +149,8 @@ Följande avsnitt kommer att behandla Internets domännamnssystem (DNS).
 }
 
 \uplevel{
-För följande uppgift kan kommandot \emph{ipconfig} användas för Windows och
-verktyget \emph{hostname} för UNIX.
+För följande uppgift kan kommandot hostname(1) användas för UNIX-lika system 
+och \emph{ipconfig} för Windows.
 }
 \question
 Vad har din dator för
@@ -192,9 +178,8 @@ Vad har din dator för
 \end{parts}
 
 \uplevel{
-För följande uppgifter kan kommandot \emph{nslookup} användas för både UNIX
-och Windows.
-Kommandot körs i terminalen.
+För följande uppgifter kan kommandot nslookup(1) användas för både UNIX-lika 
+system och Windows.
 }
 \question
 Ange vad följande domännamn har för IP-adress, ange även DNS-servern som
@@ -298,10 +283,11 @@ Gå till webbsidan för Stiftelsen för Internetinfrastruktur (IIS)\footnote{%
 \end{solution}
 
 \uplevel{
-För följande uppgift kan du använda whois-tjänsten hos DomainTools\footnote{%
+För följande uppgift kan du använda kommandot whois(1).
+För Windows krävs dock tredjepartsverktyg, ett exempel är 
+DomainTools\footnote{%
 	URL: \url{http://whois.domaintools.com}.
-} om du använder Windows eller kommandot \emph{whois} i terminalen om du
-använder UNIX.
+}.
 }
 \question
 Välj tre domännamn och undersök när de registrerades.
@@ -321,8 +307,9 @@ I detta avsnitt ska du undersöka din uppkopplingshastighet.
 
 \question
 Vilken hastighet säger ditt operativsystem att du har på din anslutning?
+Använd ifconfig(8).
 \begin{solution}
-	Troligtvis \unit{100}{\Mbps}.
+	Troligtvis \unit{100}{\mega\bit\per\second}.
 \end{solution}
 
 \question
@@ -330,13 +317,16 @@ Mät din verkliga uppkopplingshastighet på Post- och Telestyrelsens webbplats
 Bredbandskollen\footnote{URL: \url{http://www.bredbandskollen.se}.}.
 Ange hastigheterna nedströms och uppströms i
 \begin{parts}
-	\part \Mbps\ (megabit per sekund)
-	\part \MBps\ (megabyte per sekund)
+	\part \mega\bit\per\second\ (megabit per sekund)
+	\part \mega\byte\per\second\ (megabyte per sekund)
 \end{parts}
-Ange även uträkningarna för omräkningen mellan \Mbps\ och \MBps.
+Ange även uträkningarna för omräkningen mellan \mega\bit\per\second\ och 
+\mega\byte\per\second.
 \begin{solution}
-	Troligtvis \unit{10}{\Mbps} (\unit{1.25}{\MBps}) nedströms och
-	\unit{0.8}{\Mbps} (\unit{0.1}{\MBps}) uppströms.
+	Troligtvis \unit{10}{\mega\bit\per\second} 
+	(\unit{1.25}{\mega\byte\per\second}) nedströms och
+	\unit{0.8}{\mega\bit\per\second} (\unit{0.1}{\mega\byte\per\second}) 
+	uppströms.
 \end{solution}
 
 \question\label{q:AnalyseraUppkoppplingshastigheter}
@@ -368,7 +358,8 @@ besökarna upplever.
 \end{solution}
 
 \question
-Beräkna vilken nedladdningshastighet (i \Mbps) du skulle behöva för att ladda
+Beräkna vilken nedladdningshastighet (i \mega\bit\per\second) du skulle behöva 
+för att ladda
 ner
 \begin{parts}
 	\part\label{qp:giga}
@@ -386,16 +377,27 @@ Redogör för dina beräkningar.
 \begin{solution}
 	Vi har först att \[
 		\unit{1}{\giga\byte} = \unit{1000}{\mega\byte} =
-		\unit{1000\cdot 8}{\mega\bit}.
+		\unit{1000\cdot 8}{\mega\bit} = \unit{8000}{\mega\bit}.
 	\]
 	Därefter har vi att \[
 		\unit{30}{\min} = \unit{30\cdot 60}{\second} =
-		\unit{1800}{\min}.
+		\unit{1800}{\second}.
 	\]
 	Vi får således att vi behöver minst en hastighet på \[
 		\frac{\unit{8000}{\mega\bit}}{\unit{1800}{\second}} \approx
 		\unit{4.45}{\mega\bit\per\second}.
 	\]
+
+	För nästa deluppgift har vi först att \[
+		\unit{1}{\gibi\byte} = \unit{1024}{\mega\byte} =
+		\unit{1024\cdot 8}{\mega\bit}.
+	\]
+	Det följer då att \[
+		\frac{\unit{8192}{\mega\bit}}{\unit{1800}{\second}} \approx
+		\unit{4.55}{\mega\bit\per\second}.
+	\]
+
+	Den slutgiltiga skillnaden är alltså cirka \unit{0.10}{\mega\bit\per\second}.
 \end{solution}
 
 \end{questions}
@@ -404,13 +406,8 @@ Redogör för dina beräkningar.
 \section{Examination}
 \label{sec:Examination}
 \noindent
-Exportera dokumentet \emph{svar\_3.1.doc} till PDF-format, döp dokumentet till
-\begin{center}
-\emph{FornamnEfternamn\_inlupp3.1\_datum}
-\end{center}
-och lämna in under inlämningsuppgifter i WebCT.
-Glöm inte att du även ska ha sammanfattat de intressantaste resultaten i
-\emph{svar\_3.1.doc}.
+Besvara de olika frågorna och uppgifterna direkt i textfältet i inlämningslådan 
+i lärplattformen.
 
 
 \bibliography{../../itgrund}
