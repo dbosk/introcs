@@ -5,12 +5,14 @@
 \usepackage{prettyref,varioref}
 \usepackage{natbib}
 \usepackage{listings}
+\usepackage{color}
 \usepackage{dtklogos}
 \usepackage[today,nofancy]{svninfo}
 \usepackage[natbib,varioref,prettyref,listings]{miunmisc}
 
 \svnInfo $Id$
 %\printanswers
+\lstset{basicstyle=\footnotesize}
 
 \courseid{DT001G}
 \course{Informationsteknologi grundkurs}
@@ -32,7 +34,7 @@
 \noindent
 \LaTeX\ är ett dokumentpreparationssystem, det skapades 1985 av Leslie Lamport 
 och bygger på \TeX.
-Det är implementerat som ett enormt bibliotek av \TeX-makron.
+Det är implementerat som ett väldigt omfattande bibliotek av \TeX-makron.
 
 \TeX, i sin tur, skapades av Donald E. Knuth i slutet av 1970-talet när han 
 skulle revidera sitt livsverk \emph{The Art of Computer Programming} 
@@ -41,7 +43,7 @@ Han var missnöjd med hur förlaget hade typsatt den andra upplagan av boken och
 började därför att skriva Metafont och \TeX.
 Det är alltså utvecklat för att skriva matematiska och tekniska texter.
 Några exempel på vad som kan åstadkommas med \TeX\ kan ses i The \TeX\ Users 
-Group (TUG) \emph{The \TeX showcase}\footnote{%
+Group (TUG) \emph{The \TeX\ showcase}\footnote{%
 	URL: \url{http://www.tug.org/texshowcase/}.
 }.
 
@@ -57,28 +59,7 @@ officepaketen, det vill säga ordbehandlare.
 \section{Läsanvisningar}
 \label{sec:Lasanvisningar}
 \noindent
-Som inledande läsning till laborationen kan ni läsa \emph{Just what is \TeX?} 
-\citep{TUG2011jwi}.
-Därefter, för att komma in i \LaTeX, bör följande kapitel i WikiBooks 
-\emph{\LaTeX} \citep{Wikibooks2012l} läsas igenom:
-\begin{itemize}
-	\item 1.1 Introduction,
-	\item 1.2 Basics,
-	\item 1.3 Errors and Warnings,
-	\item 2.1 Document Structure,
-	\item 2.7 List Structures,
-	\item 2.8 Tables,
-	\item 2.11 Importing Graphics,
-	\item 2.12 Floats, Figures and Captions,
-	\item 2.13 Footnotes and Margin Notes,
-	\item 2.15 Labels and Cross-referencing,
-	\item 4.1 Mathematics,
-	\item 4.5 Algorithms and Pseudocode, och
-	\item 5.3 Bibliography Management.
-\end{itemize}
-
-Slutligen ska universitetets rapportmall för examensarbeten \citep{MiUn2012rft} 
-läsas igenom.
+\input{literature.tex}
 
 
 \section{Genomförande}
