@@ -27,8 +27,11 @@
 %\bibliographystyle{swekthnat}
 \bibliographystyle{sweplnat}
 \setcitestyle{numbers}
+\usepackage[today,nofancy]{svninfo}
 \usepackage[amssymb,noams,binary]{SIunits}
 \usepackage{listings}
+
+\svnInfo $Id$
 
 \def\newblock{\hskip .11em plus .33em minus .07em}
 
@@ -57,8 +60,7 @@
 	Mittuniversitetet, Sundsvall.
 }
 
-\date[4/10 2011] % (optional)
-{4 oktober 2011}
+\date{\svnId}
 
 \pgfdeclareimage[height=0.65cm]{university-logo}{../../../MU_logotyp_int_CMYK.pdf}
 \logo{\pgfuseimage{university-logo}}

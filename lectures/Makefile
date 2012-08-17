@@ -1,4 +1,4 @@
-SUBDIR+= \
+SUBDIR?= \
 		 lect-internet \
 		 lect-security \
 		 lect-shell

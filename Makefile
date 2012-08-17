@@ -1,4 +1,4 @@
-SUBDIR+= \
+SUBDIR?= \
 		 assignments \
 		 introduction \
 		 compendium \

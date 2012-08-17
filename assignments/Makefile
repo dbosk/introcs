@@ -4,6 +4,7 @@ SUBDIR?= \
 		 assgn-latex \
 		 assgn-computer \
 		 assgn-internet \
-		 assgn-security
+		 assgn-security \
+		 assgn-sftp
 
 include miun.subdir.mk
