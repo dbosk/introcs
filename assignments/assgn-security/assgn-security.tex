@@ -29,8 +29,15 @@
 \section{Introduktion}
 \label{sec:Introduktion}
 \noindent
-Använd valfritt operativsystem.
-Du behöver valfri webbläsare och PDF-läsare.
+Säkerheten i användandet av datorn blir allt viktigare.
+Detta ses tydligt på året 2011.
+Många stora företag hackades och alltifrån deras e-post till deras 
+lösenordsdatabaser publicerades öppet på internet.
+Ett tydligt exempel är DigiNotar, en av Nederländernas största certificate 
+authorities (CA) då som gick i konkurs efter en av de största skandalerna 
+i historien av säkerhet på internet.
+Ett annat exempel från 2012 är Mat Honan, journalist på techtidningen Wired, 
+vars digitala liv helt försvann i en attack.
 
 
 \section{Syfte}
@@ -46,21 +53,11 @@ Du ska
 	\item få insikt i hur utsatt man kan vara i dagens informationssamhälle.
 \end{itemize}
 
-Syftet med uppgiften är att du ska lära dig använda en SFTP-klient.
-Anledningen är för att kunna logga in och överföra filer på ett säkert sätt.
-Du ska
-\begin{itemize}
-    \item kunna ladda hem filer från en server,
-    \item kunna ladda upp filer till en server, och
-	\item kunna skapa och verifiera kontrollsummor.
-\end{itemize}
-Du ska kunna använda verktyg i terminalen för att göra detta.
-
 
 \section{Läsanvisningar}
 \label{sec:Lasanvisningar}
 \noindent
-\dots
+\input{literature.tex}
 
 
 \section{Genomförande}
@@ -68,8 +65,6 @@ Du ska kunna använda verktyg i terminalen för att göra detta.
 \noindent
 Du ska i denna uppgift få ett säkerhetsperspektiv på datorer och kommunikation.
 Genomför uppgifterna i den ordning de ges.
-Svaren skriver du i svarsmallen (\emph{svar\_3.2.doc}) som finns bifogad i
-WebCT.
 
 \begin{questions}															   
 	\question\label{q:PTS}
@@ -88,96 +83,29 @@ WebCT.
 	\end{parts}
 
 	\question
-	\label{q:OWASPTopTen}
-	Läs igenom en av attackerna i OWASP Top 10 \citep{OWASP2010ot} och
-	sammanfatta hur den fungerar.
-	\begin{solution}
-		Se referensen \citet{OWASP2010ot}.
-	\end{solution}
-
-	\question
-	Läs Wired Magazines Threat Level-artikel \emph{Facebook Enables HTTPS So
-	You Can Share Without Being Hijacked} \citep{Singel2011feh}.
-	%\footnote{%
-	%	URL: \url{http://www.wired.com/threatlevel/2011/01/facebook-https/}.
-	%}.
-	Hur säker är din Facebook-användning?
+	Läs och fundera över Mat Honans öde \citep{Honan2012haa} och hur man bör 
+	undvika att hamna i samma sits \citep{Zetter2012hnt}.
+	Hur ser säkerheten ut för ditt digitala liv och vad kan du göra för att 
+	skydda dig?
 	\begin{solution}
 		Troligtvis inte säker \dots
-	\end{solution}
-
-	\question\label{q:Attack}
-	Sök på Internet efter dokumenterade attacker, exempelvis attackerna mot
-	CitiBank,
-	RSA,
-	Lockheed Martin,
-	Gawker samt
-	Sony Playstation Network,
-	Sony BMG och
-	Sony Pictures
-	under våren 2011 eller det eviga attackerandet av
-	Facebook och
-	Twitter\footnote{%
-		Bra källor kan vara:
-			\url{http://www.Wired.com},
-			\url{http://www.TheRegister.co.uk} och
-			\url{http://NakedSecurity.Sophos.com}.
-	}.
-	\begin{parts}
-		\part
-		Redogör för en attack, hur den gick tillväga, och försök att
-		klassificera denna, om möjligt, utifrån OWASP Top 10 från
-		\prettyref{q:OWASPTopTen}.
-
-		\part
-		Diskutera konsekvenserna av attacken i en kort text.
-	\end{parts}
-	\begin{solution}
-		CitiGroup-hacket använde \emph{A4: Insecure Direct Object References}
-		för att gå igenom alla bankens konton.
-		Det räckte med att logga in med giltiga uppgifter och därefter utan
-		problem komma åt alla andra konton i banken.
-
-		RSA hackades med en lite mer avancerad strategi:
-		\begin{enumerate}
-			\item Efterforskning om detaljer om personal.
-				Via exempelvis företagets webbsidor tillsammans med sociala
-				medier (ex. Facebook, Twitter).
-			\item Skicka specialskrivna mail till ett antal anställda som
-				verkade äkta.
-				Bifogat var Exceldokument (.xls) som använde en zero-day
-				exploit för Adobes Flashplayer för att ladda hem en trojan.
-			\item Trojanen tillät fjärrstyrning av datorn.
-			\item Dessa användares konton användes för att internt hacka konton
-				med fler privilegier, exempelvis administratörskonton för
-				servrar.
-			\item Väl inne i servrarna laddades informationen över till en av
-				RSAs egna FTP-servrar och från denna till externa servrar
-				(hackade).
-		\end{enumerate}
-		De data som stals från RSA användes för företagets SecureID.
-		En av RSAs SecureID-kunder, Lockheed Martin, blev hackade till följd av
-		detta.
-
-		Sonys Playstation Network blev hackade och information om 77 miljoner
-		användare togs.
-		Servrarnas programvara var ej uppdaterad.
-
-		Sony Pictures: SQL injection gav hela databasen.
+		Se \citet{Zetter2012hnt}.
 	\end{solution}
 
 	\question\label{q:Losenord}
 	Hur säkra är dina lösenord?
-	Kolla på Post- och Telestyrelsens tjänst Testa lösenord\footnote{%
+	Kolla på Post- och Telestyrelsens tjänst \emph{Testa lösenord}\footnote{%
 		URL: \url{http://www.testalosenord.pts.se/}.
 	} vad som krävs för ett säkert lösenord.
 	\begin{parts}
 		\part
-		Försök att hitta ett säkert lösenord som även är lätt att komma ihåg.
-		(Lösenordet \emph{ql!3d2d@} klassificeras som ej lätt att komma ihåg.)
+		Undersök vilka olika typer av lösenord som PTS klassificerar som starka 
+		respektive svaga, ge några exempel på vardera kategori.
+		Vilka är enklast att komma ihåg?
 		\begin{solution}
-			Lösenfraser är bättre än lösenord, exempelvis ''Apan äter 1 banan''
-			är enkelt att komma ihåg och är ett starkt lösenord enligt PTS.
+			Lösenfraser är oftast lättare att komma ihåg än lösenord, exempelvis 
+			''Apan äter 1 banan'' är enkelt att komma ihåg och är ett starkt lösenord 
+			enligt PTS.
 			Vi har tur i Sverige eftersom att å, ä och ö räknas som
 			specialtecken.
 		\end{solution}
@@ -188,77 +116,31 @@ WebCT.
 			Använd alltid starka lösenord och använd inte samma lösenord på
 			flera ställen.
 		\end{solution}
-
-		\part
-		Varför är det viktigt med en bra lösenordsstrategi?
-		Läs \emph{A brief Sony password analysis} \citep{Hunt2011abs}.
 	\end{parts}
 
 	\question\label{q:Kamkar}
-	Se föreläsningen \emph{How I met your girlfriend} \citep{Kamkar2010him}
-	%\footnote{%
-	%	YouTube: del 1 -- \url{http://www.youtube.com/watch?v=fEmO7wQKCMw},
-	%	del 2 -- \url{http://www.youtube.com/watch?v=2ctRfWnisSk},
-	%	del 3 -- \url{http://www.youtube.com/watch?v=vJtmZZGcR54}.
-	%	Totalt ca 40 minuter.
-	%}
-	från datasäkerhetskonferensen DefCon18.
-	Sammanfatta dina tankar om innehållet i en kort text.
+	Sammanfatta dina tankar om föreläsningen \emph{How I met your girlfriend} 
+	\citep{Kamkar2010him} och intervjun om hur Facebook har information om 
+	icke-medlemmar \citep{Cherry2012fny} i en kort text.
 	\begin{solution}
 		Det finns väldigt många olika sätt att attackera dagens
 		informationssystem.
 		Det finns inget perfekt skyddat system och systemets användare måste
 		vara vaksamma för att inte råka illa ut.
+		
+		Det är svårt när andra än en själv publicerar information om en själv.
 	\end{solution}
 
 \end{questions}
-
-\subsection{Del två: SFTP}
-\noindent
-Använd valfritt operativsystem.
-Du behöver en SFTP-klient, ett program för att generera kontrollsummor och en
-webbläsare.
-\begin{description}
-	\item[Windows] För en SFTP-klient kan du installera PuTTY\footnote{%
-			URL: \url{ftp://ftp.chiark.greenend.org.uk/users/sgtatham/putty-latest/x86/putty-0.61-installer.exe}.
-		}.
-		SFTP-klienten används genom kommandot \emph{psftp}.
-		PuTTY innehåller även en SSH-klient (kommandot \emph{putty}) och en
-		SCP-klient (kommandot \emph{pscp}).
-		Det finns även grafiska SFTP-klienter, ett exempel är WinSCP\footnote{%
-			URL: \url{http://winscp.net/download/winscp433setup.exe}.
-		}
-
-		För att beräkna kontrollsummor kan du använda
-		\emph{sha256sum}\footnote{%
-			URL: \url{http://blog.nfllab.com/archives/152-Win32-native-md5sum,-sha1sum,-sha256sum-etc..html}.
-		} som kompilerats för Windows från samma källkod som för UNIX.
-	\item[UNIX] De flesta UNIX-baserade system har som standard en SFTP-klient
-		(kommandot \emph{sftp}), SSH-klient (kommandot \emph{ssh}), och
-		SCP-klient (kommandot \emph{scp}).
-		De flesta UNIX-baserade system har även som standard program för att
-		generera och verifiera kontrollsummor.
-		Du kan använda kommandot \emph{sha256sum}.
-\end{description}
 
 
 \section{Examination}
 \label{sec:Examination}
 \noindent
-Exportera dokumentet \emph{svar\_3.2.doc} till PDF-format, döp dokumentet till
-\begin{center}
-	\emph{FornamnEfternamn\_inlupp3.2\_datum}
-\end{center}
-och lämna in under inlämningsuppgifter i WebCT.
+Besvara frågorna direkt i textfältet i inlämningslådan i lärplattformen.
 
-Du ska även bidra till diskussionen i WebCT.
-Diskutera vad som är viktigt att tänkta på ur säkerhetssynpunkt.
-Du kan använda dig av dina svar från frågorna
-\ref{q:PTS}\ref{q:SkyddaSig},
-\ref{q:OWASPTopTen},
-\ref{q:Attack},
-\ref{q:Losenord} och
-\ref{q:Kamkar}.
+Diskutera gärna vad som är viktigt att tänkta på ur säkerhetssynpunkt och dina 
+övriga tankar från laborationen i diskussionsforumet i lärplattformen.
 
 
 \bibliography{../../itgrund}
