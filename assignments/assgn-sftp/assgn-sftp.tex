@@ -25,12 +25,18 @@
 \thispagestyle{foot}
 \tableofcontents
 
-\newtheorem{example}{Exempel}
-
 \section{Introduktion}
 \label{sec:Introduktion}
 \noindent
-\dots
+Ett av de äldsta protokollen på internet är File Transfer Protocol (FTP) 
+\citep{rfc959}.
+Detta är ett enkelt filöverföringsprotokoll som utvecklades under en tid innan 
+säkerhet började bli ett krav på internet.
+Det finns många sätt att göra filöverföringar säkra ett av dem är att göra dem 
+över krypterade tunnlar.
+Ett annat sätt är SSH File Transfer Protocol (SFTP) där all kommunikation sker 
+över en SSH-tunnel.
+Det är detta protokoll som ska användas i denna laboration.
 
 
 \section{Syfte}
@@ -40,8 +46,8 @@ Syftet med uppgiften är att du ska lära dig använda en SFTP-klient.
 Anledningen är för att kunna logga in och överföra filer på ett säkert sätt.
 Du ska
 \begin{itemize}
-    \item kunna ladda hem filer från en server,
-    \item kunna ladda upp filer till en server, och
+	\item kunna ladda hem filer från en server,
+	\item kunna ladda upp filer till en server, och
 	\item kunna skapa och verifiera kontrollsummor.
 \end{itemize}
 Du ska kunna använda verktyg i terminalen för att göra detta.
@@ -50,63 +56,32 @@ Du ska kunna använda verktyg i terminalen för att göra detta.
 \section{Läsanvisningar}
 \label{sec:Lasanvisningar}
 \noindent
-\dots
+\input{literature.tex}
 
 
 \section{Genomförande}
 \label{sec:Genomforande}
 \noindent
-Använd valfritt operativsystem.
-Du behöver en SFTP-klient, ett program för att generera kontrollsummor och en
-webbläsare.
-\begin{description}
-	\item[Windows] För en SFTP-klient kan du installera PuTTY\footnote{%
-			URL: \url{ftp://ftp.chiark.greenend.org.uk/users/sgtatham/putty-latest/x86/putty-0.61-installer.exe}.
-		}.
-		SFTP-klienten används genom kommandot \emph{psftp}.
-		PuTTY innehåller även en SSH-klient (kommandot \emph{putty}) och en
-		SCP-klient (kommandot \emph{pscp}).
-		Det finns även grafiska SFTP-klienter, ett exempel är WinSCP\footnote{%
-			URL: \url{http://winscp.net/download/winscp433setup.exe}.
-		}
+Skriv en vanlig textfil med exempelvis \emph{gedit} där du anger vilka 
+kommandon som ska köras för att ladda upp en textfil till en annan dator med 
+hjälp av sftp(1).
 
-		För att beräkna kontrollsummor kan du använda
-		\emph{sha256sum}\footnote{%
-			URL: \url{http://blog.nfllab.com/archives/152-Win32-native-md5sum,-sha1sum,-sha256sum-etc..html}.
-		} som kompilerats för Windows från samma källkod som för UNIX.
-	\item[UNIX] De flesta UNIX-baserade system har som standard en SFTP-klient
-		(kommandot \emph{sftp}), SSH-klient (kommandot \emph{ssh}), och
-		SCP-klient (kommandot \emph{scp}).
-		De flesta UNIX-baserade system har även som standard program för att
-		generera och verifiera kontrollsummor.
-		Du kan använda kommandot \emph{sha256sum}.
-\end{description}
+Skapa en SHA256-kontrollsumma för filen och ladda sedan upp denna textfil med 
+namnet \emph{dt001g.txt} till servern \url{myfiles.miun.se} i katalogen 
+\emph{public\_html} i hemkatalogen.
 
 
 \section{Examination}
 \label{sec:Examination}
 \noindent
-Sammanfatta i en textfil de olika kommandona du använde för att genomföra
-uppgifterna.
-Döp filen till \emph{dt001g-inlupp3.3.txt}.
-Skapa en ny fil innehållandes SHA256-kontrollsumman, döp denna till
-\emph{dt001g-inlupp3.3.txt.sha256}.
-Ladda upp de två filerna till \emph{public\_html}-katalogen i din hemkatalog på
-\url{myfiles.miun.se}.
-Låt filerna ligga kvar tills att kursen är avslutad.
-
-I WebCT ska du lämna in kontrollsumman.
-Öppna filen och kopiera själva kontrollsumman, klistra därefter in den i fältet
-\emph{Inlämnad uppgift}. (Det vill säga inte som kommentar.)
-Skriv också om kontrollsumman skapats med SHA256 eller SHA1.
-\begin{example}
-	Om du använt SHA256 kan du skriva:
-	\begin{center}
-		\emph{SHA256
-		e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
-	\end{center}
-\end{example}
+I textfältet i inlämningslådan i lärplattformen lämnar du in kontrollsumman för 
+din textfil.
+Denna kontrollsumma kommer vid rättning att kontrolleras mot den fil ni laddat 
+upp till servern, den går att komma åt publikt via URL
+\begin{center}
+	\url{http://myfiles.miun.se/~username/dt001g.txt}.
+\end{center}
 
 
-\bibliography{../../itgrund}
+\bibliography{../../itgrund,rfc}
 \end{document}
