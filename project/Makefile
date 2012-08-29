@@ -1,7 +1,7 @@
-SERVER=		secure.itm.miun.se
-PUBDIR=		/home/danbos/www/pub
-CATEGORY=	itgrund
-FILES=
-DOCUMENTS=
+CATEGORY=	itgrund/project
+FILES=		project.tex ../../itgrund.bib
+DOCUMENTS=	project.pdf
 
-include miun.docs.mk
+project.pdf: project.tex ../../itgrund.bib
+
+include miun.course.mk

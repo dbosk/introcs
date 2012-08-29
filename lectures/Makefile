@@ -1,6 +1,6 @@
 SUBDIR?= \
-		 lect-internet \
-		 lect-security \
-		 lect-shell
+		 internet \
+		 security \
+		 shell
 
 include miun.subdir.mk

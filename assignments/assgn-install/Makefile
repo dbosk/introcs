@@ -1,7 +1,7 @@
-SERVER=		secure.itm.miun.se
-PUBDIR=		/home/danbos/www/pub
 CATEGORY=	itgrund/assignments
 FILES=		assgn-install.tex ../../itgrund.bib
 DOCUMENTS=	assgn-install.pdf
 
-include miun.docs.mk
+assgn-install.pdf: assgn-install.tex ../../itgrund.bib
+
+include miun.course.mk

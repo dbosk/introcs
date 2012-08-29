@@ -1,9 +1,7 @@
-SERVER=		secure.itm.miun.se
-PUBDIR=		/home/danbos/www/pub
-CATEGORY=	itgrund/assignments
-FILES=		assgn-sftp.tex ../../itgrund.bib
 DOCUMENTS=	assgn-sftp.pdf
+FILES=		assgn-sftp.tex ../../itgrund.bib rfc.bib
+CATEGORY=	itgrund/assignments
 
-assgn-sftp.pdf: assgn-sftp.tex rfc.bib
+assgn-sftp.pdf: assgn-sftp.tex rfc.bib ../../itgrund.bib
 
-include miun.docs.mk
+include miun.course.mk
