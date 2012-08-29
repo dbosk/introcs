@@ -1,9 +1,9 @@
 SUBDIR?= \
 		 assignments \
 		 introduction \
-		 compendium \
 		 lectures \
-		 literature \
-		 project
+		 project \
+		 # compendium \
+		 # end_of_dirs
 
 include miun.subdir.mk
