@@ -1,4 +1,4 @@
-CATEGORY?=	itgrund
+CATEGORY?=	itgrund/literature
 FILES?=		compendium.tex ../itgrund.bib
 DOCUMENTS?=	compendium.pdf
 
