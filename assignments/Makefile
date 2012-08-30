@@ -1,10 +1,10 @@
 SUBDIR?= \
-		 assgn-install \
-		 assgn-terminal \
-		 assgn-latex \
-		 assgn-computer \
-		 assgn-internet \
-		 assgn-security \
-		 assgn-sftp
+		 install \
+		 terminal \
+		 latex \
+		 computer \
+		 internet \
+		 security \
+		 sftp
 
 include miun.subdir.mk
