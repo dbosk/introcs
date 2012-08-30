@@ -1,6 +1,6 @@
 SUBDIR?= \
-		 internet \
-		 security \
-		 shell
+		 shell \
+		 # security \
+		 # internet
 
 include miun.subdir.mk
