@@ -1,7 +1,7 @@
 CATEGORY=	itgrund/project
-FILES=		project.tex ../itgrund.bib
+FILES=		project.tex ../literature.bib
 DOCUMENTS=	project.pdf
 
-project.pdf: project.tex ../itgrund.bib
+project.pdf: project.tex ../literature.bib
 
 include miun.course.mk
