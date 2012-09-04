@@ -1,7 +1,7 @@
 CATEGORY=	itgrund/lectures
-FILES=		internet.tex ../../itgrund.bib
+FILES=		internet.tex ../../literature.bib
 DOCUMENTS=	internet.pdf
 
-internet.pdf: internet.tex ../../itgrund.bib
+internet.pdf: internet.tex ../../literature.bib
 
 include miun.course.mk
