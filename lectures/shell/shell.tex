@@ -1,5 +1,5 @@
-%\documentclass[handout]{beamer}
-\documentclass{beamer}
+\documentclass[handout]{beamer}
+%\documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[swedish,english]{babel}
@@ -116,6 +116,23 @@ $
 		\item<4> A man-page with the same name can occur in different sections, 
 			e.g. printf(1) and printf(3).
 	\end{itemize}
+\end{frame}
+\begin{frame}[fragile]{UNIX shells}{apropos(1)}
+	apropos(1) can be used to search in man-page titles and descriptions.
+	\small
+	\begin{lstlisting}
+$ apropos print
+cat (1)              - concatenate files and print on the standard output
+lp (1)               - print files
+lp (4)               - line printer devices
+lpq (1)              - show printer queue status
+lpr (1)              - print files
+lprm (1)             - cancel print jobs
+lpstat (1)           - print cups status information
+printf (1)           - format and print data
+printf (3)           - formatted output conversion
+whoami (1)           - print effective userid
+	\end{lstlisting}
 \end{frame}
 
 \subsection{Input, output and error streams}
