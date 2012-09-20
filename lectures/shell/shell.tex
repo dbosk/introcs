@@ -1,9 +1,7 @@
-%\makeatletter\let\ifGm@compatii\relax\makeatother
 %\documentclass[handout]{beamer}
 \documentclass{beamer}
-%\usepackage[utf8]{inputenc}
-%\usepackage{times}
-%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[swedish,english]{babel}
 \usepackage{verbatim}
 \usepackage{url}
@@ -14,7 +12,9 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage[today,nofancy]{svninfo}
-\usepackage[listings,varioref,prettyref,natbib]{miunmisc}
+\usepackage[listings,varioref,prettyref]{miunmisc}
+\setcitestyle{numbers,square}
+\bibliographystyle{alpha}
 
 \svnInfo $Id$
 
@@ -34,7 +34,7 @@
 }
 \def\newblock{\hskip .11em plus .33em minus .07em}
 
-\title[UNIX]{%
+\title[UNIX-like shells]{%
 	Introduction to Operating Systems:\\
 	Lecture on UNIX-like shells
 }
@@ -506,7 +506,7 @@ $
 %%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{References}
-	\bibliography{../opsys}
+	\bibliography{../../literature}
 \end{frame}
 
 \end{document}
