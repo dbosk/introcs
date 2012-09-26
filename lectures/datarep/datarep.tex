@@ -1,0 +1,138 @@
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+%\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[english,swedish]{babel}
+\usepackage{url}
+\usepackage{varioref,prettyref}
+\usepackage{graphicx}
+\usepackage[today,nofancy]{svninfo}
+\usepackage{natbib}
+\usepackage[varioref,prettyref]{miunmisc}
+\setcitestyle{numbers,square}
+\bibliographystyle{swealpha}
+
+\svnInfo $Id$
+
+\mode<presentation>
+{
+	%\usetheme{Berkeley}
+  %\usetheme{Dresden}
+	\usetheme{Frankfurt}
+  %\usetheme{Madrid}
+  %\usetheme{PaloAlto}
+	\setbeamercovered{transparent}
+  %\usecolortheme{default}
+  %\usecolortheme{crane}
+	\usecolortheme{seagull}
+}
+%\def\newblock{\hskip .11em plus .33em minus .07em}
+\setbeamertemplate{footline}{\insertframenumber}
+
+\title[Introduktion]{%
+	Datarepresentation
+}
+\author{Daniel Bosk}
+\institute[MIUN ITM]{%
+	%Division of Information and Communication Systems (ICS),\\
+	%Department of Information Technology and Media (ITM),\\
+	%Mid Sweden University, Sundsvall.
+	%
+	%Avdelningen för informations- och kommunikationssytem (IKS),\\
+	Institutionen för informationsteknologi och medier (ITM),\\
+	Mittuniversitetet, Sundsvall.
+}
+\date{\svnId}
+
+\pgfdeclareimage[height=0.65cm]{university-logo}{MU_logotyp_int_CMYK.pdf}
+\logo{\pgfuseimage{university-logo}}
+
+\AtBeginSection[]{%
+	\begin{frame}<beamer>{Översikt}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Översikt}
+	\tableofcontents
+	% You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+
+\section{Boolesk algebra}
+
+\begin{frame}{Boolesk algebra}
+	\begin{description}
+		\item[Möjliga värden] \dots
+		\item[Operationer] \dots
+	\end{description}
+\end{frame}
+
+
+\section{Talsystem}
+
+\subsection{Olika talsystem}
+\begin{frame}{Olika talsystem}
+	\dots
+\end{frame}
+
+\subsection{Positionssystem}
+\begin{frame}{Positionssystem}
+	\dots
+\end{frame}
+
+\subsection{Byte av talbas}
+\begin{frame}{Byte av talbas}
+	\dots
+\end{frame}
+
+\subsection{Additionsalgoritmen}
+\begin{frame}{Additionsalgoritmen}
+	\dots
+\end{frame}
+
+
+\section{Hur gör datorn?}
+
+\subsection{Grindar}
+\begin{frame}
+	\dots
+\end{frame}
+
+\subsection{Representation}
+\begin{frame}{Representation}
+	\dots
+\end{frame}
+
+\subsection{Additionsalgoritmen igen}
+\begin{frame}{Additionsalgoritmen igen}
+	\dots
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Referenser}
+	\bibliography{../../literature}
+\end{frame}
+
+\end{document}
+
