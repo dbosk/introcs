@@ -1,3 +1,5 @@
+% $Id$
+% Author: Daniel Bosk <daniel.bosk@miun.se>
 \documentclass[a4paper]{miunasgn}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -5,6 +7,7 @@
 \usepackage{url,hyperref}
 \usepackage{prettyref,varioref}
 \usepackage{natbib}
+\usepackage{verbatim}
 \usepackage[today,nofancy]{svninfo}
 \usepackage[natbib,varioref,prettyref]{miunmisc}
 
@@ -13,11 +16,9 @@
 \courseid{DT001G}
 \course{Informationsteknologi grundkurs}
 \assignmenttype{Slutprojekt}
-\title{En undersökning och jämförelse}
-\author{Daniel Bosk\footnote{%
-		E-post: \href{mailto:daniel.bosk@miun.se}{daniel.bosk@miun.se}.
-	}\thanks{%
-		Baserat på en projektuppgift av Magnus Eriksson.
+\title{En undersökande jämförelse}
+\author{Daniel Bosk\thanks{%
+		Baserad på en uppgift författad av Magnus Eriksson.
 	}
 }
 \date{\svnId}
@@ -30,7 +31,118 @@
 
 \section{Introduktion}
 \noindent
-\dots
+All forskning som producerar ny kunskap måste använda sig av någon metod som 
+kan skapa ett tillförlitligt resultat för att kunna användas.
+De metoder som används måste vara objektiva nog för att ge resultat som är 
+reproducerbara.
+Utifrån dessa resultat dras sedan en slutsats som är den nya kunskapen.
+Därefter kan detta byggas vidare på och dessa resultat kan användas i samband 
+för att formulera ytterligare resultat.
+
+
+\section{Syfte}
+\noindent
+Syftet med uppgiften är
+\begin{itemize}
+	\item att fördjupa sig inom något delområde som tagits upp i kursen,
+	\item att öva på genomförandet en enklare objektiv undersökning och dra en 
+		slutsats av resultatet, samt
+	\item att öva på att skriva en rapport och hålla en muntlig presentation av 
+		densamma.
+\end{itemize}
+
+
+\section{Läsanvisningar}
+\noindent
+\input{literature.tex}
+
+
+\section{Genomförande}
+\noindent
+Börja med att fundera på vad du vill fokusera på.
+När du väl valt ett område formulerar du mål och en frågeställning, dessa 
+publicerar du i forumet i lärplattformen.
+Läs igenom några andra målformuleringar som finns publicerade och kommentera på 
+dessa.
+En målformulering och frågeställning bör vara tydlig och inte gå att 
+missförstå.
+Det är lätt att bli ''hemmavan'' i sitt eget tänkande och formulerande, därför 
+bör någon annan som inte är insatt titta på det och ge återkoppling.
+Genom detta får du från både lärare och andra studenter.
+Syftet med mål och frågeställningen är att en annan student skulle kunna 
+använda exakt samma mål och frågeställning och genomföra samma undersökning 
+oberoende.
+
+När du fått återkoppling på mål och frågeställning kan du sätta igång med din 
+undersökning.
+Du följer rapportmallen när du skriver din rapport och genomför undersökningen.
+
+\begin{comment}
+The topic should be comparative analyses of (minimum two) different 
+technologies.  Here are four possible alternatives: 
+
+Compare two data communication standards. Explain their basic principles with 
+your own words, and draw your own conclusions about their advantages and 
+disadvantages, as well as which of them are expected to be improved in couple 
+of years. http://wikipedia.org , and the course book can be used as resources.  
+If there are RFCs for these standards (Request for Comments – which exist for 
+the standards at the network and higher layers), read them. RFC are normally 
+easy to read. The standards on physical layer or data‐link layer, for example 
+IEEE standards are often RFCs, but that would be more difficult to understand 
+than for example the transport protocols UDP and TCP or the e‐mail protocols 
+POP3 and IMAP4.  You can even compare two xDSL – modem standards (for example 
+ADSL2+ and VDSL2), or different wireless communication schemes (for example 
+IEEE802.11a versus b, different security schemes for wireless LAN, Bluetooth 
+versus IRDA, etc.). Here you will probably find the most difficult to read the 
+documents about the standard. Describe their advantages and disadvantages.  
+Draw your own conclusions about when the respective protocol is most convenient 
+to be used and what is expected to be largely used in the coming years. 
+
+Test and compare two types of software in the area of data communication.  
+Install and test two comparable software packages, for example two firewalls, 
+two instant message‐programs, two IP telephony programs, etc. You can use 
+a freeware, shareware or demo versions of commercial packages. One site that 
+offers downloads www.download.com. Once you decide what you are going to 
+compare, try to find out the protocols and other paradigms used in each of 
+them. Evaluate their usability, functionality and performance, for example in 
+a specific usage scenario or for specific user group. Criticize the marketing 
+motivations for the developers. Compile your thoughts about both programs 
+‐ advantages, disadvantages and performance‐ into a table or a bulleted list, 
+and draw conclusions about which of the programs is the best taking into 
+account all the properties, or according to your own beliefs will dominate the 
+market in the coming years.
+
+Compare two types of equipment. You can for example design a home network from 
+a given set of specifications or suggest changes in your company’s network.  
+Compare alternative solutions and recommend one of them. Test some of the 
+equipment and describe how it is configured and installed. Draw your own 
+conclusions about the advantages and disadvantages of the solution proposed 
+when compared to the others. Criticize the producer marketing motivation and 
+policy.
+
+Compare two data communications services, for example two Internet or broadband 
+suppliers or two wireless communication services. Describe the technical 
+differences, test them yourself and make a questionnaire to get opinion from 
+other users, or interview the suppliers about their future plans. Criticize the 
+suppliers about their marketing policy.
+\end{comment}
+
+
+\section{Examination}
+\noindent
+Den färdiga rapporten lämnas in i inlämningslådan i lärplattformen.
+Omfattningen bör vara omkring fyra (4) sidor tät text, utöver detta tillkommer 
+titel, sammanfattning (abstract), innehållsförteckning och referenslista.
+Rapportens förstasida ska ha titel, författare med e-postadress och 
+användarnamn\footnote{%
+	Ett tips är att använda kommandot \texttt{\textbackslash footnote} i \LaTeX.
+}, datum och sammanfattning (abstract).
+Därefter följer innehållet direkt.
+
+Rapporten presenteras även muntligen vid tillfälle för helklass, omfattning på 
+presentationen är cirka 15 minuter.
+Slides är obligatoriskt för godkänd presentation.
+
 
 \bibliography{../literature}
 \end{document}
