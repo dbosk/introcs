@@ -22,8 +22,6 @@
 }}
 \date{\svnId}
 
-\lstset{basicstyle=\footnotesize}
-
 \begin{document}
 \maketitle
 \thispagestyle{foot}
@@ -182,10 +180,10 @@ $ find / -type d -print | less
 	\end{solution}
 
 	\question\label{q:fs}
-	\begin{parts}\label{qp:relative}
-		\part Använd ls(1), pwd(1), cd och eventuella andra program eller kommandon 
-		du behöver för att undersöka vad de speciella katalogerna ''.'' respektive 
-		''..'' som finns i varje katalog är.
+	\begin{parts}
+		\part\label{qp:relative} Använd ls(1), pwd(1), cd och eventuella andra 
+		program eller kommandon du behöver för att undersöka vad de speciella 
+		katalogerna ''.'' respektive ''..'' som finns i varje katalog är.
 		(Dessa speciella kataloger finns i de flesta filsystem, även i Windows.)
 		\begin{solution}
 			Katalogen ''.'' hänvisar till den nuvarande arbetskatalogen.
@@ -249,6 +247,15 @@ $ find / -type d -print | less
 (0):danbos@ID20809793:assgn-terminal$
 		\end{lstlisting}
 	\end{solution}
+
+%%\question\label{q:tar}
+%%Vad gör kommandot tar(1)?
+%%Läs manualsidan och testa själv med och utan olika argument.
+%%\begin{solution}
+%%	Kommandot används för att skapa filarkiv.
+%%	Ett flertal filer och kataloger kan packas ihop till en fil.
+%%	Denna fil kan vara komprimerad eller okomprimerad.
+%%\end{solution}
 
 \end{questions}
 

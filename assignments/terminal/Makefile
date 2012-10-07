@@ -2,6 +2,12 @@ CATEGORY=	itgrund/assignments
 FILES=		terminal.tex ../../literature.bib
 DOCUMENTS=	terminal.pdf
 
-terminal.pdf: terminal.tex ../../literature.bib
+#PACKAGE=		terminal-src
+#PACKAGE_FILES=	${FILES}
+#
+#PUB_FILES=		${PACKAGE}.tar.gz ${DOCUMENTS}
+
+terminal.pdf: ${FILES}
 
 include miun.course.mk
+#include miun.package.mk
