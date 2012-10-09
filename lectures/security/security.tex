@@ -1,72 +1,43 @@
-\makeatletter\let\ifGm@compatii\relax\makeatother
-\documentclass[handout]{beamer}
-%\documentclass{beamer}
-
-\mode<presentation>
-{
-  %\usetheme{Warsaw}
-  %\usetheme{Berkeley}
-  %\usetheme{Dresden}
-  \usetheme{Frankfurt}
-  %\usetheme{Madrid}
-  %\usetheme{PaloAlto}
-  \setbeamercovered{transparent}
-  %\usecolortheme{default}
-  %\usecolortheme{crane}
-  \usecolortheme{seagull}
-}
-
-
+% $Id$
+% Author: Daniel Bosk <daniel.bosk@miun.se>
+\documentclass{beamer} % [handout]
 \usepackage[english,swedish]{babel}
 \usepackage[latin1]{inputenc}
-\usepackage{times}
 \usepackage[T1]{fontenc}
 \usepackage{verbatim}
 \usepackage{url}
-\usepackage[square]{natbib}
-%\bibliographystyle{swekthnat}
-\bibliographystyle{sweplnat}
-\setcitestyle{numbers}
+\usepackage{natbib}
 \usepackage[today,nofancy]{svninfo}
 \usepackage[amssymb,noams,binary]{SIunits}
 \usepackage{listings}
+\usepackage[listings]{miunmisc}
+\setcitestyle{square,numbers}
+\bibliographystyle{swealpha}
 
 \svnInfo $Id$
 
-\def\newblock{\hskip .11em plus .33em minus .07em}
-
-\newcommand{\code}[1]{\lstinline£#1£}
-
-\newcommand{\bps}{\bit\per\second}
-\newcommand{\Bps}{\byte\per\second}
-\newcommand{\Kbps}{\kilo\bit\per\second}
-\newcommand{\Kibps}{\kibi\bit\per\second}
-\newcommand{\KBps}{\kilo\byte\per\second}
-\newcommand{\KiBps}{\kibi\byte\per\second}
-\newcommand{\Mbps}{\mega\bit\per\second}
-\newcommand{\Mibps}{\mebi\bit\per\second}
-\newcommand{\MBps}{\mega\byte\per\second}
-\newcommand{\MiBps}{\mebi\byte\per\second}
-
-\title[Moment 3]
-{Informationsteknologi grundkurs:\\Föreläsning om säkerhet}
+\mode<presentation>
+{
+	\usetheme{Frankfurt}
+	\setbeamercovered{transparent}
+  %\usecolortheme{default}
+	\usecolortheme{seagull}
+}
+\setbeamertemplate{footline}{\insertframenumber}
 
 \author{Daniel Bosk}
-
-\institute
-{
-	Avdelningen för informations- och kommunikationssytem (IKS),\\
+\title{Säkerhet}
+\institute{
 	Institutionen för informationsteknologi och medier (ITM),\\
 	Mittuniversitetet, Sundsvall.
 }
-
 \date{\svnId}
 
-\pgfdeclareimage[height=0.65cm]{university-logo}{../../../MU_logotyp_int_CMYK.pdf}
+% use the logotype in the slides
+\pgfdeclareimage[height=0.65cm]{university-logo}{MU_logotyp_int_CMYK.pdf}
 \logo{\pgfuseimage{university-logo}}
 
-\AtBeginSection[]
-{
+\AtBeginSection[]{
 	\begin{frame}<beamer>{Översikt}
 		\tableofcontents[currentsection]
 	\end{frame}
@@ -79,20 +50,8 @@
 \end{frame}
 
 \begin{frame}{Översikt}
-	\tableofcontents
-	% You might wish to add the option [pausesections]
+	\tableofcontents %[pausesections]
 \end{frame}
-
-
-% Since this a solution template for a generic talk, very little can
-% be said about how it should be structured. However, the talk length
-% of between 15min and 45min and the theme suggest that you stick to
-% the following rules:  
-
-% - Exactly two or three sections (other than the summary).
-% - At *most* three subsections per section.
-% - Talk about 30s to 2min per frame. So there should be between about
-%   15 and 30 frames, all told.
 
 
 \section[Säkerhet]{Kommunikation och datasäkerhet}
@@ -121,10 +80,10 @@
 			Transport Control Protocol (TCP),
 			User Datagram Protocol (UDP).
 		\item<4>[Nätverkslagret]
-			Kopplar ihop punkter till ett nätverk.
+			Kopplar ihop noder till ett nätverk.
 			Exempel på protokoll: Internet Protocol (IP).
 		\item<5>[Länklagret]
-			Datorns kommunikation med resten av nätverket.
+			Datorns kommunikation med närliggande enheter i resten av nätverket.
 			Exempel på protokoll: Ethernet, IEEE 802.11\{a,b,g,n\}.
 	\end{description}
 \end{frame}
@@ -154,11 +113,15 @@
 			Data skickas genom luften.
 			Utan kryptering kan alla inom \unit{50-100}{\metre} ta emot data.
 			Med kryptering kan alla som har krypteringsnyckeln ta
-			emot\footnote{Och även alla som har tillräcklig datorkraft för att
-			knäcka kryptonyckeln.}.
+			emot\footnote{%
+				Och även alla som har tillräcklig datorkraft för att knäcka 
+				kryptonyckeln.
+			}.
 		}
 	\end{description}
 \end{frame}
+
+\subsection{Några exempel från applikationslagret}
 
 \begin{frame}{HTTP vs HTTPS}{Applikationslagret}
 	\uncover<1-4>{HTTP}
@@ -228,7 +191,7 @@
 \begin{frame}{Alternativ till Certificate Authorities}
 	\begin{itemize}
 		\item<2> I augusti på BlackHat USA 2011 presenterades Convergence
-			\citep{Convergence}.
+			\cite{Convergence}.
 		\item<3> Bygger på att du själv väljer vem du litar på.
 		\item<4> Systemet har \emph{notaries} som sitter på andra nät och
 			laddar hem certifikaten för samma servrar som du och det verifieras
@@ -263,26 +226,82 @@
 
 \begin{frame}{Hot på World Wide Web}
 	\begin{itemize}
-		\item<2-3> Virus, worms och trojaner sprids via Internet.
+		\item<2-3> Virus, worms och trojaner sprids via internet.
 		\item<3> Kräver (i princip) att du laddar hem dem och kör dem.
 			Detta inkluderar att bli lurad att ladda hem och köra dem,
 			exempelvis bilagor till e-post.
-		\item<4> Se Open Web Application Security Project \citep{OWASP2010ot}.
+		\item<4> Se Open Web Application Security Project \cite{OWASP2010ot}.
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{OWASP Top Ten för nätverksdrift}
+	Från \cite{OWASP2010ot}:
+	\begin{description}
+		\item[A3] Broken Authentication and Session Management
+		\item[A6] Security Misconfiguration
+		\item[A7] Insecure Cryptographic Storage
+		\item[A9] Insufficient Transport Layer Protection
+	\end{description}
 \end{frame}
 
 
 \section{Hashfunktioner}
 
+\subsection{Allmänt om hashfunktioner}
+
 \begin{frame}{Hashfunktioner}
-	\dots
+	\begin{itemize}
+		\item En funktion \(H\colon S\to T\) från mängden av alla strängar \(S\) 
+			till en delmängd \(T\) med strängar av en given längd.
+		\item Ska vara en envägsfunktion, svårt att finna krockar.
+	\end{itemize}
+\end{frame}
+
+\subsection{Några olika hashfunktioner}
+
+\begin{frame}{MD4 och MD5}
+	\begin{itemize}
+		\item<1>[MD4] Av Ronald Rivest från 1990.
+			128-bitars hashvärde, 3 rundor.
+			Används för Windows lösenordshashvärden.
+		\item<2>[MD5] Av Ronald Rivest från 1992.
+			128-bitars hashvärde, 4 rundor.
+			Inte kollisionsresistent.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{SHA-familjen}
+	\begin{description}
+		\item<1>[SHA-1] Av National Security Agency (NSA) från 1995.
+			160-bitars hashvärde, 80 rundor.
+		\item<2>[SHA-2] Av National Security Agency (NSA) från 2001.
+			224/256- eller 384/512-bitars hashvärden, 64 respektive 80 rundor.
+		\item<3>[SHA-3] Av Bertoni, Daemen, Peeters och Van Assche från 2007-2012.
+			Kan ge godtyckligt stort hashvärde.
+	\end{description}
+\end{frame}
+
+\subsection{Exempel från terminalen}
+
+\begin{frame}[fragile]{Exempel från terminalen}
+	\begin{lstlisting}
+(0):danbos@ID20809793:security$ sha256sum
+jag testar med en mening
+1a558689ccc4ff988b5f8c3f1bc2bf5f48b116c890077a6ff10a1718429e579b  -
+(0):danbos@ID20809793:security$ sha256sum
+jag testar med en annan mening
+829eb0677df411ee0d821bdd87c0ceb7b4d0db1996c0f312b2cbbd5aaf2e42af  -
+(0):danbos@ID20809793:security$ sha256sum security.tex 
+c535894cb08c14564eb3d08e32fd4d40b80354f9d8e2b1e8b28028c28f6455ae  security.tex
+(0):danbos@ID20809793:security$
+\end{lstlisting}
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[allowframebreaks]{Referenser}
-	\bibliography{../literature}
+\begin{frame}{Referenser}
+	\bibliography{../../literature}
 \end{frame}
 
 \end{document}
