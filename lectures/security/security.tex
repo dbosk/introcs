@@ -1,6 +1,6 @@
 % $Id$
 % Author: Daniel Bosk <daniel.bosk@miun.se>
-\documentclass{beamer} % [handout]
+\documentclass[handout]{beamer} % [handout]
 \usepackage[english,swedish]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
@@ -10,11 +10,15 @@
 \usepackage[today,nofancy]{svninfo}
 \usepackage[amssymb,noams,binary]{SIunits}
 \usepackage{listings}
+\usepackage{color}
+\usepackage{subfig}
 \usepackage[listings]{miunmisc}
 \setcitestyle{square,numbers}
 \bibliographystyle{swealpha}
 
 \svnInfo $Id$
+
+\lstset{style=term,basicstyle=\tt\tiny,numberstyle=\tiny}
 
 \mode<presentation>
 {
@@ -267,17 +271,35 @@
 		\item<2>[MD5] Av Ronald Rivest från 1992.
 			128-bitars hashvärde, 4 rundor.
 			Inte kollisionsresistent.
+			Bygger på Merkle-Damgård-konstruktion.
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{MD5 kollision}
+	\begin{figure}
+		\subfloat[Rekommendationsbrev]{%
+			\includegraphics[width=0.4\linewidth]{letter_of_rec.eps}
+		}
+		\hfill
+		\subfloat[Order]{%
+			\includegraphics[width=0.4\linewidth]{order.eps}
+		}
+		\caption{Två brev i PostScript med MD5 hashvärdet a25f7f0b 29ee0b39 
+		68c86073 8533a4b9 \cite{LucksMD5}.}
+	\end{figure}
 \end{frame}
 
 \begin{frame}{SHA-familjen}
 	\begin{description}
 		\item<1>[SHA-1] Av National Security Agency (NSA) från 1995.
 			160-bitars hashvärde, 80 rundor.
+			Bygger på Merkle-Damgård-konstruktion.
 		\item<2>[SHA-2] Av National Security Agency (NSA) från 2001.
 			224/256- eller 384/512-bitars hashvärden, 64 respektive 80 rundor.
+			Bygger på Merkle-Damgård-konstruktion.
 		\item<3>[SHA-3] Av Bertoni, Daemen, Peeters och Van Assche från 2007-2012.
 			Kan ge godtyckligt stort hashvärde.
+			Bygger på sponge-funktioner.
 	\end{description}
 \end{frame}
 
