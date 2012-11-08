@@ -369,7 +369,7 @@ ner
 	\unit{1}{\gibi\byte} på kortare tid än en halvtimme (\unit{30}{\min}).
 
 	\part
-	Hur stor blir skillnaden mellan \prettyref{qp:giga} och
+	Hur stor blir skillnaden mellan hastigheterna i \prettyref{qp:giga} och
 	\prettyref{qp:gibi}?
 \end{parts}
 
@@ -388,16 +388,22 @@ Redogör för dina beräkningar.
 		\unit{4.45}{\mega\bit\per\second}.
 	\]
 
-	För nästa deluppgift har vi först att \[
-		\unit{1}{\gibi\byte} = \unit{1024}{\mega\byte} =
-		\unit{1024\cdot 8}{\mega\bit}.
-	\]
+	För nästa deluppgift har vi först att
+	\begin{eqnarray*}
+		\unit{1}{\gibi\byte} &=& \unit{1024}{\mebi\byte} \\
+			&=& \unit{1024^2}{\kibi\byte} \\
+			&=& \unit{1024^3}{\byte} \\
+			&=& \unit{8\cdot 1024^3}{\bit} \\
+			&=& \unit{\frac{8\cdot 1024^3}{1000^2}}{\mega\bit} \approx 
+			\unit{8590}{\mega\bit}.
+	\end{eqnarray*}
 	Det följer då att \[
-		\frac{\unit{8192}{\mega\bit}}{\unit{1800}{\second}} \approx
-		\unit{4.55}{\mega\bit\per\second}.
+		\frac{\unit{8590}{\mega\bit}}{\unit{1800}{\second}} \approx
+		\unit{4.772}{\mega\bit\per\second}.
 	\]
 
-	Den slutgiltiga skillnaden är alltså cirka \unit{0.10}{\mega\bit\per\second}.
+	Den slutgiltiga skillnaden, den sista deluppgiften, är alltså cirka 
+	\unit{0.322}{\mega\bit\per\second}.
 \end{solution}
 
 \end{questions}
