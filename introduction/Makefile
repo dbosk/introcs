@@ -1,7 +1,12 @@
 CATEGORY=	itgrund
-FILES=		literature.tex ../literature.bib welcome.tex studyguide.tex \
+FILES=		literature.tex ../literature.bib welcome.tex \
 			kursplan.pdf
-DOCUMENTS=	literature.pdf welcome.pdf studyguide.pdf
+DOCUMENTS=	literature.pdf welcome.pdf
+
+PACKAGE=		intro-src
+PACKAGE_FILES=	${FILES}
+
+PUB_FILES=		${PACKAGE}.tar.gz ${DOCUMENTS}
 
 literature.pdf: literature.tex ../literature.bib \
 	../assignments/install/literature.tex \
@@ -15,3 +20,4 @@ welcome.pdf: welcome.tex kursplan.pdf
 studyguide.pdf: studyguide.tex ../literature.bib
 
 include miun.course.mk
+include miun.package.mk

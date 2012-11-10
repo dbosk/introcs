@@ -2,9 +2,9 @@ SUBDIR?= \
 		 install \
 		 terminal \
 		 latex \
-		 computer \
 		 internet \
 		 security \
 		 sftp
+		 #computer \
 
 include miun.subdir.mk

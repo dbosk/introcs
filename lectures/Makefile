@@ -1,10 +1,10 @@
 SUBDIR?= \
-		 intro \
-		 datarep \
 		 shell \
 		 latex \
-		 internet \
-		 security \
-		 present
+		 #internet \
+		 #security \
+		 #present
+		 #intro \
+		 #datarep \
 
 include miun.subdir.mk
