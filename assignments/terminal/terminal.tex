@@ -1,10 +1,11 @@
+% $Id$
+% Author:	Daniel Bosk <daniel.bosk@miun.se>
 \documentclass[a4paper]{miunasgn}
 \usepackage[utf8]{inputenc}
 \usepackage[english,swedish]{babel}
 \usepackage{url,hyperref}
 \usepackage{prettyref,varioref}
 \usepackage{natbib}
-\usepackage{verbatim}
 \usepackage{listings}
 \usepackage{color}
 \usepackage[today,nofancy]{svninfo}
@@ -18,7 +19,10 @@
 \assignmenttype{Laboration}
 \title{Terminalen}
 \author{Daniel Bosk\footnote{%
-	E-post: \href{mailto:daniel.bosk@miun.se}{daniel.bosk@miun.se}.
+	Detta verk är tillgängliggjort under licensen Creative Commons 
+	Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
+	För att se en sammanfattning och kopia av licenstexten besök URL 
+	\url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
 }}
 \date{\svnId}
 
@@ -129,9 +133,10 @@ För att använda dessa i de olika operativsystemen gör du följande:
 
 	\question\label{q:gedit}
 	Vad gör följande kommandorad?
-	\begin{lstlisting}
+	\begin{terminal}
 $ gedit test.txt
-	\end{lstlisting}
+$
+	\end{terminal}
 	\begin{solution}
 		Öppnar filen test.txt för redigering i en GUI-baserad textredigerare.
 		Om filen inte finns skapas den när den sparas.
@@ -141,9 +146,10 @@ $ gedit test.txt
 	Vad gör kommandot cat(1)?
 	Läs manualsidan och testa själv med exempelvis följande kommandorad, om du 
 	har kvar \emph{test.txt} från föregående uppgift.
-	\begin{lstlisting}
+	\begin{terminal}
 $ cat test.txt
-	\end{lstlisting}
+$
+	\end{terminal}
 	\begin{solution}
 		Skriver ut innehållet i filerna som ges som argument till stdout 
 		(vanligtvis terminalen).
@@ -168,9 +174,10 @@ $ cat test.txt
 
 	\question\label{q:findless}
 	Vad gör följande kommandorad?
-	\begin{lstlisting}
+	\begin{terminal}
 $ find / -type d -print | less
-	\end{lstlisting}
+$
+	\end{terminal}
 	Läs manualsidorna för de olika programmen, find(1) respektive less(1), och 
 	testa att köra den.
 	\begin{solution}
@@ -231,7 +238,7 @@ $ find / -type d -print | less
 	laboration.
 	Läs om which(1) för att veta hur programmet fungerar.
 	\begin{solution}
-		\begin{lstlisting}
+		\begin{terminal}
 (0):danbos@ID20809793:assgn-terminal$ which ls cat mkdir rmdir rm gedit \
 > find echo bash pwd
 /bin/ls
@@ -245,7 +252,7 @@ $ find / -type d -print | less
 /bin/bash
 /bin/pwd
 (0):danbos@ID20809793:assgn-terminal$
-		\end{lstlisting}
+		\end{terminal}
 	\end{solution}
 
 %%\question\label{q:tar}
@@ -267,5 +274,5 @@ Frågorna i \prettyref{sec:Genomforande} besvaras i textfältet i laborationens
 inlämningslåda i lärplattformen.
 
 
-\bibliography{../../literature}
+\bibliography{literature}
 \end{document}

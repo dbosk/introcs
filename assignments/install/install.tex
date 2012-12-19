@@ -1,3 +1,5 @@
+% $Id$
+% Author:	Daniel Bosk <daniel.bosk@miun.se>
 \documentclass[a4paper]{miunasgn}
 \usepackage[utf8]{inputenc}
 \usepackage[english,swedish]{babel}
@@ -16,7 +18,10 @@
 \assignmenttype{Laboration}
 \title{Installationer}
 \author{Daniel Bosk\footnote{%
-	E-post: \href{mailto:daniel.bosk@miun.se}{daniel.bosk@miun.se}.
+	Detta verk är tillgängliggjort under licensen Creative Commons 
+	Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
+	För att se en sammanfattning och kopia av licenstexten besök URL 
+	\url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
 }}
 \date{\svnId}
 
@@ -94,7 +99,7 @@ Det alternativa sättet är att använda pakethanteraren direkt från terminalen
 Detta görs genom att först starta ett terminalfönster, det vill säga starta 
 programmet \emph{Terminal}, därefter skrivs \emph{sudo apt-get install vim}, 
 för att installera paketet \emph{vim}, med följande som resultat:
-\begin{lstlisting}
+\begin{terminal}
 danbos@ID20809793:install:(0)$ sudo apt-get install vim
 [sudo] password for danbos: 
 Reading package lists... Done
@@ -105,7 +110,8 @@ The following package was automatically installed and is no longer required:
   john-data
 Use 'apt-get autoremove' to remove them.
 0 upgraded, 0 newly installed, 0 to remove and 59 not upgraded.
-\end{lstlisting}
+$
+\end{terminal}
 (Observera att dollartecknet är en del av prompten.)
 
 Med valfritt tillvägagångssätt, installera följande paket:
@@ -139,5 +145,5 @@ erfarenhet av det än av Windows.
 Du kan skriva texten direkt i inlämningslådan i lärplattformen.
 
 
-\bibliography{../../literature}
+\bibliography{literature}
 \end{document}

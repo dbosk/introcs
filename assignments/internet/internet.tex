@@ -1,3 +1,5 @@
+% $Id$
+% Author:	Daniel Bosk <daniel.bosk@miun.se>
 \documentclass[a4paper]{miunasgn}
 \usepackage[utf8]{inputenc}
 \usepackage[english,swedish]{babel}
@@ -17,7 +19,10 @@
 \assignmenttype{Laboration}
 \title{Internet}
 \author{Daniel Bosk\footnote{%
-	E-post: \href{mailto:daniel.bosk@miun.se}{daniel.bosk@miun.se}.
+	Detta verk är tillgängliggjort under licensen Creative Commons 
+	Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
+	För att se en sammanfattning och kopia av licenstexten besök URL 
+	\url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
 }}
 \date{\svnId}
 
@@ -195,7 +200,7 @@ svarade.
 	\url{ftp.sunet.se}
 \end{parts}
 \begin{solution}
-	\begin{lstlisting}
+	\begin{terminal}
 /home/danbos$ nslookup www.iis.se
 Server:         10.2.1.2
 Address:        10.2.1.2#53
@@ -224,7 +229,7 @@ Name:   ftp.sunet.se
 Address: 194.71.11.69
 
 /home/danbos$ 
-	\end{lstlisting}
+	\end{terminal}
 \end{solution}
 
 \question\label{q:IPLookup}
@@ -235,7 +240,7 @@ Vad har följande IP-adresser för domännamn?
 	\part 18.9.22.69
 \end{parts}
 \begin{solution}
-	\begin{lstlisting}
+	\begin{terminal}
 /home/danbos$ for h in 193.10.112.13 130.237.32.143 18.9.22.69; do \
 	nslookup $h; done
 Server:         10.2.1.2
@@ -259,9 +264,7 @@ Non-authoritative answer:
 69.22.9.18.in-addr.arpa name = web.mit.edu.
 
 Authoritative answers can be found from:
-
-/home/danbos$ 
-	\end{lstlisting}
+	\end{terminal}
 \end{solution}
 
 \question
