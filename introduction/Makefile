@@ -8,7 +8,7 @@ PACKAGE_FILES=	${FILES}
 
 PUB_FILES=		${PACKAGE}.tar.gz ${DOCUMENTS}
 
-literature.pdf: literature.tex ../literature.bib \
+literature.pdf: literature.tex ../literature.bib rfc.bib \
 	../assignments/install/literature.tex \
 	../assignments/terminal/literature.tex \
 	../assignments/latex/literature.tex \
