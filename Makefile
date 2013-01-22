@@ -1,8 +1,8 @@
 SUBDIR?= \
-		 assignments \
 		 introduction \
+		 assignments \
 		 lectures \
-		 # project \
+		 project \
 		 # compendium \
 		 # end_of_dirs
 
