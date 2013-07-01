@@ -1,10 +1,8 @@
-SUBDIR?= \
-		 introduction \
-		 assignments \
-		 lectures \
-		 project \
-		 # compendium \
-		 # end_of_dirs
+SUBDIR= 	intro
+SUBDIR+= 	labs
+SUBDIR+= 	project
+SUBDIR+= 	lectures
+SUBDIR+= 	compendii
 
 CATEGORY=	itgrund
 PUB_FILES=	literature.bib

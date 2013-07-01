@@ -3,13 +3,15 @@
 \documentclass[a4paper]{miunasgn}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[english]{babel}
-\usepackage{url,hyperref}
+\usepackage[english,swedish]{babel}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
 \usepackage{prettyref,varioref}
-\usepackage{natbib}
 \usepackage{listings}
 \usepackage[today,nofancy]{svninfo}
-\usepackage[natbib,varioref,prettyref,listings]{miunmisc}
+\usepackage[natbib,style=alphabetic]{biblatex}
+\addbibresource{literature.bib}
+\usepackage[varioref,prettyref,listings]{miunmisc}
 
 \svnInfo $Id$
 %\printanswers
@@ -34,7 +36,6 @@
 
 \section{Introduktion}
 \label{sec:Introduktion}
-\noindent
 I denna laboration ska du installera program som du behöver för kursen och 
 eventuellt för kommande kurser på din dator.
 Du ska även installera ett operativsystem, Ubuntu, som kommer att användas 
@@ -50,21 +51,19 @@ De programvaror du kommer att installera är följande:
 
 \section{Syfte}
 \label{sec:Syfte}
-\noindent
-Syftet med laborationen är att du ska förbereda din dator med den programvara 
-som behövs för kursen samt att få vana för enkel administration av programvaror 
-i din dator.
+Syftet med laborationen är:
+\begin{itemize}
+  \input{aims.tex}
+\end{itemize}
 
 
 \section{Läsanvisningar}
 \label{sec:Lasanvisningar}
-\noindent
 \input{literature.tex}
 
 
 \section{Genomförande}
 \label{sec:Genomforande}
-\noindent
 Här följer genomförandet för laborationen.
 Det rekommenderas att du läser igenom hela genomförandet innan du sätter igång.
 
@@ -139,12 +138,11 @@ URL
 
 \section{Examination}
 \label{sec:Examination}
-\noindent
 Skriv en sammanfattande text med dina erfarenheter av denna laboration och ger 
 en kort jämförelse mellan Ubuntu och Windows, eller MacOS om du har mer 
 erfarenhet av det än av Windows.
 Du kan skriva texten direkt i inlämningslådan i lärplattformen.
 
 
-\bibliography{literature}
+\printbibliography
 \end{document}

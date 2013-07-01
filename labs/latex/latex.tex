@@ -3,12 +3,13 @@
 \usepackage[english,swedish]{babel}
 \usepackage{url,hyperref}
 \usepackage{prettyref,varioref}
-\usepackage{natbib}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{dtklogos}
 \usepackage[today,nofancy]{svninfo}
-\usepackage[natbib,varioref,prettyref,listings]{miunmisc}
+\usepackage[natbib,style=alphabetic,maxbibnames=99]{biblatex}
+\addbibresource{literature.bib}
+\usepackage[varioref,prettyref,listings]{miunmisc}
 
 \svnInfo $Id$
 %\printanswers
@@ -53,10 +54,10 @@ Group (TUG) \emph{The \TeX\ showcase}\footnote{%
 
 \section{Syfte}
 \label{sec:Syfte}
-\noindent
-Syftet med laborationen är att lära er att skriva en rapport med universitetets 
-dokumentklass för \LaTeX, få insikt i att det finns alternativ till de olika 
-officepaketen, det vill säga ordbehandlare.
+Syftet med laborationen är följande:
+\begin{itemize}
+  \input{aims.tex}
+\end{itemize}
 
 
 \section{Läsanvisningar}
@@ -110,5 +111,5 @@ exempeldokumenten, med \emph{article} respektive \emph{miunthes} som
 dokumentklass, till inlämningslådan i lärplattformen.
 
 
-\bibliography{../../literature}
+\printbibliography
 \end{document}

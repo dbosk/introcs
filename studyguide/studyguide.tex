@@ -1,0 +1,248 @@
+% $Id$
+\documentclass[a4paper,logo]{miunart}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage{prettyref,varioref}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage[today,nofancy]{svninfo}
+\usepackage{booktabs}
+\usepackage[natbib,style=alphabetic,maxbibnames=99]{biblatex}
+\addbibresource{literature.bib}
+\usepackage[varioref,prettyref]{miunmisc}
+
+\svnInfo $Id$
+
+\title{Den fullständiga studiehandledningen för\\
+  DT001G Informationsteknologi grundkurs}
+\author{
+  Daniel Bosk\footnote{%
+    Detta verk är tillgängliggjort under licensen Creative Commons 
+    Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
+    För att se en sammanfattning och kopia av licenstexten besök URL 
+    \url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
+  }
+}
+\date{\svnId}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+
+\section{Mål}
+\label{sec:aim}
+Kursen utgör en introduktion till datateknik och är förberedande för praktiskt 
+inriktade datatekniska utbildningar.
+Centrala delar är datorns konstruktion, datorkomponenter, grundläggande begrepp 
+och terminologier samt mjukvara.
+Kursen fokuserar på praktisk användning av datorer och programvaror.
+Kursen ger även en introduktion till rapportskrivande och presentationer.
+
+Mer specifikt ska du efter genomgången kurs uppfylla följande mål:
+\begin{itemize}
+  \input{install-aim.tex}
+  \input{linux-aim.tex}
+  \input{latex-aim.tex}
+  \input{pylab-aim.tex}
+  \input{project-aim.tex}
+\end{itemize}
+
+
+\section{Kursupplägg}
+\label{sec:outline}
+Den bok som används som huvudlitteratur på kursen är Brookshears bok 
+\emph{Computer Science: An Overview} \cite{Brookshear2012csa}.
+Därutöver tillkommer litteratur för en del av laborationerna, denna framgår av 
+läsanvisningarna nedan och i respektive laboration.
+
+\citet{Brookshear2012csa} tar upp grunden inom datateknik, den är värd att läsa 
+i sin helhet -- detta rekommenderas!
+De kapitel och avsnitt som behandas i denna kurs är dock enbart kapitlen 0 till 
+och med 5 i sina helheter, avsnitten 6.1 till och med 6.4, samt avsnitten 9.1 
+och 9.2.
+
+Det går att använda tidigare upplagor av boken, kapitlen som behandlas i kursen 
+utgår från den senaste upplagan \citep{Brookshear2012csa} och de behandlar 
+följande områden:
+\begin{itemize}
+	\item kapitel 0: introduktion och historia,
+	\item kapitel 1: datalagring och -representation,
+	\item kapitel 2: datamanipulering, datorarkitektur, programexekvering,
+	\item kapitel 3: operativsystem,
+	\item kapitel 4: nätverk och internet,
+	\item kapitel 5: algoritmer,
+	\item avsnitten 6.1 till och med 6.4: programspråk och programmering,
+	\item avsnitten 9.1 och 9.2: grunder för databaser och relationsdatabaser.
+\end{itemize}
+
+Litteraturläsningen kompletteras av ett antal föreläsningar och övningar som 
+ges under kursens gång.
+Dessa kommer inte att vara heltäckande och för att förstå dem måste du läsa 
+litteraturen enligt anvisningarna nedan.
+
+Kursens lärandemål kommer att examineras med ett antal laborationer och 
+avslutas med ett mindre projekt.
+Detta projekt motsvaras av två veckors heltidsarbete.
+Den som nyligen kommer från gymnasieskolan kan ha som referens att detta 
+motsvaras precis av projektarbetet för gymnasieskolan, dock med högre krav på 
+innehållet.
+
+\subsection{Schema}
+\label{sec:schedule}
+Du finner en sammanställning av kursens schema i \prettyref{tbl:schema}.
+Det är naturligtvis valfritt att följa detta schema sånär som på slutdatum för 
+kursens uppgifter och när föreläsningarna ges.
+Läsanvisningar för respektive moment följer i kommande avsnitt.
+Undervisningen förutsätter att du följer dessa riktlinjer.
+
+\begin{table}
+	\centering
+  \begin{tabular}{rp{9cm}}
+    \toprule
+		\textbf{Kursvecka}	& \textbf{Arbete} \\
+    \midrule
+    1	& Kursstart/Föreläsning introduktion \\
+      & Laboration L0 Installation \\
+      & Laboration L1 Introduktion till Linuxsystem \\
+    \midrule
+    2 & Föreläsning om datarepresentation \\
+      & Föreläsning om datorarkitektur, del 1 \\
+      & Handledning \\
+    \midrule
+    3 & Föreläsning om datorarkitektur, del 2 \\
+      & Föreläsning om den UNIX-lika terminalen \\
+      & Övning: den UNIX-lika terminalen \\
+      & Handledning \\
+    \midrule
+    4 & Föreläsning om programmering med Python, del 1 \\
+      & Övning: Python \\
+      & Laboration L2 Programmering med Python \\
+      & Föreläsning om programmering med Python, del 2 \\
+      & Övning: Python \\
+      & Handledning \\
+    \midrule
+    5 & Föreläsning om LaTeX \\
+      & Övning: LaTeX \\
+      & Laboration L3 LaTeX \\
+      & Föreläsning om presentationsteknik \\
+      & Handledning \\
+    \midrule
+    6 & Projekt \\
+      & Handledning \\
+    \midrule
+    %7 & Föreläsning om sidokanaler och annat säkerhetsrelaterat \\
+    7 & Handledning \\
+    \midrule
+    8 & Handledning \\
+    \midrule
+    9 & Handledning \\
+    \midrule
+    10  & Redovisning av projekt \\
+    \bottomrule
+  \end{tabular}
+  \caption{En sammanställning av kursens moment och när de kommer att 
+  genomföras.
+  Tiden är anpassad efter studietakt om halvfart.}
+	\label{tbl:schema}
+\end{table}
+
+\subsection{Introduktionsföreläsning}
+\input{intro-lit.tex}
+
+\subsection{Laboration L0 Installation}
+\input{install-lit.tex}
+
+\subsection{Laboration L1 Introduktion till Linuxsystem}
+\input{linux-lit.tex}
+
+\subsection{Föreläsning om datarepresentation}
+\input{datarep-lit.tex}
+
+\subsection{Föreläsning om datorarkitektur}
+\input{arch-lit.tex}
+
+\subsection{Föreläsning om den UNIX-lika terminalen}
+\input{shell-lit.tex}
+
+\subsection{Föreläsning om programmering med Python}
+\input{python-lit.tex}
+
+\subsection{Laboration L2 Programmering med Python}
+\input{pylab-lit.tex}
+
+\subsection{Föreläsning om LaTeX}
+\input{tex-lit.tex}
+
+\subsection{Laboration L3 LaTeX}
+\input{latex-lit.tex}
+
+\subsection{Föreläsning om presentationsteknik}
+\input{present-lit.tex}
+
+\subsection{Projektet}
+Projektet syftar till att genomföra en mindre studie som fördjupning inom 
+området datateknik.
+Det tillkommer därför delvis valfri litteratur i detta moment.
+
+
+\section{Examination}
+\label{sec:exam}
+\noindent
+Kursen examineras med med laborationer och ett projekt, se lydelsen för 
+respektive uppgift för detaljer.
+Projektet examineras genom en skriftlig rapport och en muntlig presentation.
+Alla laborationer och den muntliga presentationen betygsätts \emph{pass (P)} 
+för godkänt eller \emph{fail (F)} för underkänt.
+Projektrapporten betygsätts A--E för godkänt eller F--Fx för underkänt.
+
+
+\section{Vad händer om jag ej blir klar i tid?}
+\label{sec:late}
+\noindent
+Slutdatumena på denna kurs är av yttersta vikt.
+Du måste ha genomfört introduktionsuppgiften inom dess givna slutdatum, om du 
+inte gör detta kommer du att avregistreras från kursen och din plats kommer att 
+ställas till förfogande för andra sökande.
+
+Vad gäller den övriga examinationen på kursen kommer det för redovisningar att 
+ges ett redovisningstillfälle under kursens gång, detta kommer att vara under 
+ordinarie tentamensvecka.
+Därefter ges ytterligare två redovisningstillfällen, dessa förläggs i de 
+efterföljande omtentamensperioderna.
+Alla dessa tillfällen kommer att finnas i kursens schema (i studentportalen).
+
+De slutdatum som finns för dessa tillfällen är strikta.
+Om du missar slutdatumet för ett tillfälle hänvisas du till nästa 
+redovisningstillfälle.
+Efter det tredje redovisningstillfället hänvisas till redovisningstillfällena 
+under nästkommande kursomgång.
+
+För skriftliga inlämningsuppgifter gäller att dessa rättas en gång under 
+kursens gång, i samband med slutdatum för inlämning, därefter ytterligare två 
+gånger i de kommande omtentamensperioderna.
+Totalt erbjuds tre försök per år.
+Därefter hänvisas till nästa kursomgång.
+
+Ingen handledning kommer att ges efter kursens slut, det vill säga efter det 
+sista schemalagda handledningstillfället.
+Om du inte hinner bli klar med uppgifterna inom kursens tidsramar och du vill 
+ha vidare handledning av lärare krävs att du omregistrerar dig på nästa 
+kursomgång.
+Omregistrering på kurs sker i mån om plats och ligger lägst i
+prioriteringslistan, alla förstagångssökande och reserver kommer att ha förtur.
+
+Om du vid kursslut har majoriteten av kursens moment kvar att göra hänvisas du 
+direkt till nästa kursomgång, då krävs omregistrering.
+Huruvida din prestation är tillräcklig för att enbart komplettera eller om 
+omregistrering krävs bedöms av ansvarig lärare.
+
+Om du känner att du inte kommer att hinna bli klar med kursen är det därför 
+bättre att göra ett tidigt avbrott på kursen och söka om den inför nästa 
+kurstillfälle.
+Tidigt avbrott kan registreras senast tre veckor från kursstart och då kommer 
+du att räknas som en förstagångssökande nästa gång du söker kursen.
+
+
+\printbibliography
+\end{document}
