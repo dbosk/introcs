@@ -6,10 +6,12 @@
 \usepackage[english,swedish]{babel}
 \usepackage{url,hyperref}
 \usepackage{prettyref,varioref}
-\usepackage{natbib}
 \usepackage{verbatim}
+\usepackage[binary]{SIunits}
 \usepackage[today,nofancy]{svninfo}
-\usepackage[natbib,varioref,prettyref]{miunmisc}
+\usepackage[natbib,style=alphabetic,maxbibnames=99]{biblatex}
+\addbibresource{literature.bib}
+\usepackage[varioref,prettyref]{miunmisc}
 
 \svnInfo $Id$
 
@@ -58,26 +60,58 @@ Syftet med uppgiften är:
 
 \section{Genomförande}
 \noindent
+Notera först att omfattningen för detta projekt är närmare tre veckor 
+heltidsarbete, eftersom att kursen läses på halvfart innebär detta strax över 
+fem veckors arbete om 20 timmar i veckan.
+Om du kommer direkt från gymnasiet kan du tänka dig att arbetet är något större 
+än projektarbetet som görs under den sista årskursen.
+
+När ett projekt genomförs och ska resultera i en rapport, vilket majoriteten av 
+projekt faktiskt gör, är det viktigt att rapporten inte blir en 
+efterhandskonstruktion.
+Projektet i denna kurs är därför indelad i fem uppgifter: introduktion, teori, 
+metod, resultat och analys, samt diskussion; en för respektive del i en 
+klassisk akademisk rapport.
+
+\subsection{Introduktion}
+
+Denna uppgift utgör alltså den första av fem delar.
+Utformningen gör att de olika delarna ska genomföras i ordning och lämnas in 
+till din handledare allteftersom projektet genomförs -- projektet ska 
+genomföras i precis denna ordning.
+Naturligtvis kan det hända ibland att små detaljer behöver läggas till 
+i efterhand, men i stort ska projektet genomföras enligt denna progression.
+
+Introduktionsavsnittet i en akademisk rapport, vilket denna del går ut på att 
+skriva, ska ta upp bakgrunden och syftet med undersökningen.
+Introduktionen ska beskriva bakgrunden och tidigare studier på området, en 
+sammanfattning av området och en sorts motivering för läsaren av rapporten 
+varför detta är intressant och varför denne ska fortsätta att läsa.
+
+Därutöver ska ett tydligt syfte med lika tydliga avgränsningar och konkreta 
+frågeställningar ges.
+Meningen med dessa är att läsaren ska få veta exakt vad som ska besvaras 
+i rapporten.
+
 Börja med att fundera på vad du vill fokusera på.
 När du väl valt ett område formulerar du mål och en frågeställning, dessa 
-publicerar du i forumet i lärplattformen.
+publicerar du i forumet i lärplattformen för att diskutera med andra studenter 
+och handledarna.
 Läs igenom några andra målformuleringar som finns publicerade och kommentera på 
 dessa.
 En målformulering och frågeställning bör vara tydlig och inte gå att 
 missförstå.
-Det är lätt att bli ''hemmavan'' i sitt eget tänkande och formulerande, därför 
-bör någon annan som inte är insatt titta på det och ge återkoppling.
-Genom detta får du från både lärare och andra studenter.
+Det är lätt att bli ''hemmablind'' i sitt eget tänkande och formulerande, 
+därför bör någon annan som inte är insatt titta på det och ge återkoppling.
 Syftet med mål och frågeställningen är att en annan student skulle kunna 
 använda exakt samma mål och frågeställning och genomföra samma undersökning 
 oberoende.
 
 När du känner dig säker på ditt mål och frågeställning, exempelvis efter 
 återkoppling, kan du sätta igång med din undersökning.
-Du följer rapportmallen när du genomför undersökningen och skriver din rapport.
 
 \begin{comment}
-\subsection{Inspiration för projektidéer}
+\subsubsection{Inspiration för projektidéer}
 \noindent
 The topic should be comparative analyses of (minimum two) different 
 technologies.  Here are four possible alternatives: 
@@ -128,22 +162,165 @@ other users, or interview the suppliers about their future plans. Criticize the
 suppliers about their marketing policy.
 \end{comment}
 
+\subsection{Teori}
+
+Teoriavsnittet ska behandla all teori som krävs för att förstå dels relevansen 
+av undersökningen och dels undersökningen i sig.
+Detta avsnitt ska därför behandla de begrepp och definitioner som är relevanta 
+för området, exempelvis en sammanfattning av relevanta delar för protokoll som 
+ska undersökas.
+Om prestandan för att använda UDP eller TCP för SNMP ska undersökas, då bör de 
+fundamentala skillnaderna mellan UDP och TCP som kan ha inverkan på detta 
+beskrivas.
+Likaså funktionaliteten hos SNMP bör beskrivas.
+
+Det är även i detta avsnitt som tidigare forskning på området ska redogöras 
+för.
+Vilka andra undersökningar finns och vad kom de fram till?
+
+Detaljnivån i teoriavsnittet ska lämpa sig för en läsare med en bakgrund inom 
+området.
+
+\subsection{Metod}
+
+Metodavsnittet behandlar hela den undersökande delen.
+Det är här själva undersökningsmetoden redogörs för, och denna ska presenteras 
+så tydligt att \emph{läsaren ska kunna göra om undersökningen på egen hand för 
+att verifiera resultatet}.
+Det bör dock påpekas att onödiga detaljer som ''jag råkade skriva fel under det 
+första försöket'' ska utelämnas.
+Det ska vara kort och koncist, men ändå detaljerat till den grad att läsaren 
+kan göra om undersökningen.
+
+I detta avsnitt ska alltså versioner av hårdvara, versioner av protokoll, 
+versioner av programvaror och konfigurationer av dessa redogöras för.
+Den logiska nätverkstopologin, och den fysiska om detta är relevant för 
+undersökningen, bör tas upp i detta avsnitt.
+(Den logiska topologin antas relevant med tanke på kursens och programmets 
+inriktning, men om undersökningen inte är nätverksinriktad finns kanske ingen 
+anledning att ha den med.)
+
+Du ska nu utforma din undersökningsmetod, det arbete som är tänkt ska besvara 
+din frågeställning -- du ska utforma den men \emph{ännu inte genomföra den}.
+Fundera över hur du ska gå tillväga för att besvara din uppsatta frågeställning 
+från introduktionsavsnittet.
+Kom ihåg att läsaren ska kunna utgå från samma frågeställning, använda din här 
+specificerade metod och sedan få samma resultat i sina egna mätningar.
+
+\subsection{Resultat och analys}
+
+I resultatavsnittet ska undersökningens resultat \emph{objektivt} redogöras 
+för.
+Efter att ha genomfört allt som står i metodavsnittet är det som beskrivs 
+i resultatavsnittet utfallet.
+Detta måste beskrivas helt objektivt \emph{utan något som helst inslag av 
+värdering}.
+Exempelvis ''vid den första mätningen mellan dator A och dator B var 
+genomstömningen \unit{23}{\mega\bit\per\second}'' -- varken mer eller mindre 
+ska anges.
+
+Om resultatet innefattar mycket data ges en sammanfattning av datat i form av 
+medelvärden etcetera här i resultatavsnittet, och den fullständiga datamängden 
+ges som bilagor.
+Hur denna sammanfattning har framställts utifrån datat ska också framgå 
+tydligt.
+
+Det är sedan i analysavsnittet som resultatet analyseras och relateras till 
+teorin.
+Det vill säga, resultaten ska förklaras: varför hände detta?
+Det är även här det redogörs för hur ''\unit{23}{\mega\bit\per\second} 
+genomströmning'' ska tolkas utifrån teorin, varför blev det 
+\unit{23}{\mega\bit\per\second} istället för närmare den teoretiska maxgränsen 
+\unit{1000}{\mebi\bit\per\second}?
+Huruvida detta resultat är bra eller ej ska inte diskuteras här, det hör hemma 
+i diskussionsavsnittet.
+Resultatet ska analyseras och jämföras med eventuella tidigare resultat som 
+presenterats i teoriavsnittet, även hur resultatet förhåller sig till de 
+teoretiska förväntningarna.
+
+Ibland kan det vara passande att avsnitten resultat och analys slås samman till 
+ett gemensamt avsnitt, men oftast hålls de separerade.
+
+Det är nu du faktiskt genomför din undersökning, det vill säga hela din 
+redogjorda metod i föregående avsnitt.
+Följ din specificerade metod och notera resultaten, anteckna vad som händer och 
+spara loggfiler för senare analys.
+Sammanfatta resultaten av undersökningen i kapitlet Resultat.
+
+Därefter påbörjar du din analys av dessa resultat.
+Sammanställ dessa, jämför dem med förväntningarna från teorin och ställ upp 
+mått för hur du objektivt avgör avvikanden från de förväntningarna.
+Notera att ''det kändes som ett dåligt resultat'' inte är objektivt, däremot 
+''om medelvärdet av alla mätpunkter är större än \(0.5\) är det inom rimliga 
+gränser från de teoretiska förväntningarna'' är ett objektivt avgörande.
+Läsaren kan förvisso ha synpunkter på just värdet \(0.5\), men denne kan 
+fortfarande göra exakt samma avgörande som du.
+
+\subsection{Diskussion}
+
+Efter den objektiva presentationen av resultaten och den lika objektiva 
+analysen är det i diskussionen som dessa ska värderas.
+I diskussionen ska författarens egna slutsatser av resultaten presenteras; det 
+är viktigt att diskutera tillförlitligheten hos resultaten, denna beror på 
+metoden som använts för att uppmäta resultatet och beroende på 
+tillförlitligheten kan olika slutsatser dras.
+Generaliserbarheten hos resultaten ska också diskuteras.
+Resultat kan gå att generalisera, beroende på utformning, men ibland kan de 
+vara alldeles för specifika för att detta ska gå att göra.
+
+Det ska också diskuteras huruvida undersökningen uppfyller syftet och besvarar 
+frågeställningen.
+Det är i samband med detta resonemang som slutsatsen dras, alltså den konkreta 
+sammanfattande besvaringen av frågeställningen.
+
+Det är nu du ska värdera dina resultat, är de tillförlitliga?
+Detta avgör du genom att kritiskt granska din undersökningsmetod.
+Hur spelar din undersökningsmetod in på resultatet, tror du att resultatet 
+skulle ha varit annorlunda om du använt ett annat metodval?
+
+Du kan därefter gå vidare genom att diskutera huruvida undersökningen har 
+uppfyllt det uppställda syftet och besvarat frågeställningen.
+De konkreta svaren på frågeställningen, och hur tillförlitliga dessa är, 
+skriver du som en slutsats för undersökningen.
+
+Du kan därefter avsluta diskussionsavsnittet med några förslag på vidare 
+forskning: finns det något relaterat som skulle vara intressant att 
+vidareutveckla denna undersökning till?
+
+Viktigt att påpeka är att alla frågor i frågeställningen ska besvaras.
+Dock kan det visa sig att någon av frågorna inte går att säkert besvara med den 
+använda metoden, då ska detta tas upp i och eventuellt förslag för hur denna 
+kan besvaras ska ges.
+
 
 \section{Examination}
 \noindent
-Den färdiga rapporten lämnas in i inlämningslådan i lärplattformen.
-Omfattningen bör vara omkring fyra (4) sidor tät text, utöver detta tillkommer 
+Den färdiga rapporten tillsammans med källkod lämnas in i inlämningslådan 
+i lärplattformen.
+Omfattningen bör vara omkring (4) sidor tät text, utöver detta tillkommer 
 titel, sammanfattning (abstract), innehållsförteckning och referenslista.
-Rapportens förstasida ska ha titel, författare med e-postadress och 
-användarnamn\footnote{%
-	Ett tips är att använda kommandot \texttt{\textbackslash footnote} i \LaTeX.
+Rapportens förstasida ska ha titel och författare med e-postadress\footnote{%
+  Ett tips är att använda kommandot \texttt{\textbackslash footnote}.
 }, datum och sammanfattning (abstract).
-Därefter följer innehållet direkt.
+Därefter följer innehållet direkt, se den bifogade rapportmallen för ett 
+exempel.
+
+Utöver detta föreligger följande krav:
+\begin{itemize}
+  \item Rapporten ska vara typsatt med LaTeX.
+  \item Rapporten ska ha minst en figur eller tabell.
+  \item Rapportens referenser ska göras med diverse \texttt{\textbackslash 
+    cite}-kommandon tillsammans med en BibTeX-databas med alla referenser.
+    Ett tips är att använda kursens BibTeX-databas.
+  \item Rapportens studie ska innehålla minst en matematisk formel.
+  \item Rapportens disposition ska följa en akademisk rapport och den ska vara 
+    skriven på formell akademisk svenska eller engelska.
+\end{itemize}
 
 Rapporten presenteras även muntligen vid tillfälle för helklass, omfattning på 
-presentationen är cirka 15 minuter.
+presentationen är 14--15 minuter.
 Slides är obligatoriskt för godkänd presentation.
 
 
-\bibliography{../literature}
+\printbibliography
 \end{document}
