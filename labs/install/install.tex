@@ -69,8 +69,7 @@ Det rekommenderas att du läser igenom hela genomförandet innan du sätter igå
 
 \subsection{Ubuntu Desktop}
 \noindent
-Börja med att installera den senaste versionen av Ubuntu Desktop, för 
-närvarande version 12.04.
+Börja med att installera den senaste versionen av Ubuntu Desktop.
 Ubuntu går att ladda hem på URL
 \begin{center}
 	\url{http://www.ubuntu.com/download/}.
@@ -100,7 +99,7 @@ Detta görs genom att först starta ett terminalfönster, det vill säga starta
 programmet \emph{Terminal}, därefter skrivs \emph{sudo apt-get install vim}, 
 för att installera paketet \emph{vim}, med följande som resultat:
 \begin{terminal}
-danbos@ID20809793:install:(0)$ sudo apt-get install vim
+$ sudo apt-get install vim
 [sudo] password for danbos: 
 Reading package lists... Done
 Building dependency tree       
@@ -114,14 +113,7 @@ $
 \end{terminal}
 (Observera att dollartecknet är en del av prompten.)
 
-Med valfritt tillvägagångssätt, installera följande paket:
-\begin{itemize}
-	\item texlive,
-	\item texlive-latex-extra,
-	\item texlive-science,
-	\item texlive-lang-swedish, och
-	\item texlive-lang-ukenglish.
-\end{itemize}
+Med valfritt tillvägagångssätt, installera paketet \texttt{texlive-full}.
 
 Om du vill ha tillgång till dessa program i Windows kan du installera MikTeX 
 \citep{Bosk2012lui} och LibreOffice\footnote{%
