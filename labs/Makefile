@@ -1,6 +1,6 @@
 SUBDIR= 	install
-#SUBDIR+= 	terminal
-SUBDIR+= 	linux
+SUBDIR+= 	terminal
+#SUBDIR+= 	linux
 SUBDIR+= 	python
 SUBDIR+= 	latex
 #SUBDIR+= 	computer
