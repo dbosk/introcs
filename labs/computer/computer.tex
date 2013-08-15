@@ -6,10 +6,11 @@
 \usepackage[english,swedish]{babel}
 \usepackage{url,hyperref}
 \usepackage{prettyref,varioref}
-\usepackage{natbib}
 \usepackage{listings}
 \usepackage[today,nofancy]{svninfo}
-\usepackage[natbib,varioref,prettyref,listings]{miunmisc}
+\usepackage[natbib,style=alphabetic,maxbibnames=99]{biblatex}
+\addbibresource{literature.bib}
+\usepackage[varioref,prettyref,listings]{miunmisc}
 
 \svnInfo $Id$
 %\printanswers
@@ -62,5 +63,5 @@
 \dots
 
 
-\bibliography{../../literature}
+\printbibliography
 \end{document}
