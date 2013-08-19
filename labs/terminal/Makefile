@@ -7,6 +7,9 @@ PACKAGE_FILES=	${FILES}
 
 PUB_FILES=		${DOCUMENTS}
 
+USE_LATEXMK= 	yes
+USE_BIBLATEX= 	yes
+
 terminal.pdf: ${FILES}
 literature.bib: ../../literature.bib
 	${CP} $^ $@

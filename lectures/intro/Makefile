@@ -18,6 +18,9 @@ PUB_FILES= 		${PACKAGE}.tar.gz ${DOCUMENTS}
 literature.bib: ../../literature.bib
 	${CP} $^ $@
 
+clean:
+	${RM} ${DOCUMENTS} literature.bib
+
 #endexport
 
 miun.depend.mk:
