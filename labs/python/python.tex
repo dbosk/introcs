@@ -7,7 +7,7 @@
 \usepackage[today,nofancy]{svninfo}
 \usepackage{listings} 
 \usepackage{prettyref,varioref}
-\usepackage[natbib,style=alphabetic,maxnames=99]{biblatex}
+\usepackage[natbib,style=numeric-comp,maxnames=99]{biblatex}
 \addbibresource{literature.bib}
 \usepackage[listings,prettyref,varioref]{miunmisc}
 
@@ -35,12 +35,21 @@
 
 \section{Introduktion}
 \label{sec:intro}
-\dots
+Ett av de fundamentala områdena inom datatekniken är programmering, utan denna 
+vore datorer helt oanvändbara.
+Denna laboration behandlar grundläggande programmering, en kort introduktion 
+till detta enorma område.
+
+Programmeringsspråket som används i laborationen är Python.
+Detta är ett enkelt skriptspråk som är mycket populärt \cite{PythonWeb} och 
+effektivt avseende kodmängd och hastighet \cite{PythonWeb,Shootout}, enkelhet 
+att lära \cite{PythonWeb,grandell2006complicate}, öppenhet och tillgängligt på 
+en mängd olika plattformar \cite{PythonWeb}.
 
 
 \section{Syfte}
 \label{sec:aim}
-\dots
+Syftet med denna laboration är följande:
 \begin{itemize}
   \input{aims.tex}
 \end{itemize}
@@ -53,12 +62,53 @@
 
 \section{Genomförande}
 \label{sec:work}
-\dots
+När du har läst litteraturen, och förhoppningsvis även gjort några av 
+övningarna däri, och börjar känna dig bekant med materialet då är det dags att 
+ta itu med denna uppgift.
+
+Det som ska åstadkommas är ett program för att hjälpa nätverksdriftstudenter 
+att repetera inför sina Cisco-prov.
+Programmet ska innehålla ett tiotal frågor med tillhörande svar.
+När det körs ska det ställa en slumpmässigt vald fråga till användaren, denne 
+svarar och får veta om det är rätt eller fel.
+Därefter frågar programmet om användaren känner sig klar och vill 
+avsluta.
+Om användaren vill fortsätta ställs en på nytt slumpmässigt vald fråga och så 
+vidare.
+Om användaren vill avsluta skrivs statistik ut för denna övningssession.
+Statistiken ska innehålla hur många procent av frågorna som blev korrekt 
+besvarade och om detta skulle bli godkänt eller ej.
+Se \prettyref{lst:output} för ett exempel på utmatning.
+
+\begin{terminal}[float,label={lst:output},caption={Exempel på utmatning från 
+  programmet.}]
+$ python cisco.py
+Hur många portar med terabitstöd har en Cisco X500 SuperPro GrooveRoute?
+5
+Fel!
+Vill du fortsätta? (Ja/Nej)
+Ja
+Vad heter Ciscos nuvarande VD?
+Rutger Blinka
+Fel!
+Vill du fortsätta? (Ja/Nej)
+Nej
+Du hade 0% rätt.  Du är underkänd!
+$
+\end{terminal}
+
+Notera att programmet ska fortsätta att köra tills att användaren väljer att 
+avsluta.
 
 
 \section{Examination}
 \label{sec:exam}
-\dots
+Lämna in din källkod tillika programfil (.py-fil) i inlämningslådan 
+i lärplattformen.
+
+%\begin{solution}
+%  \lstinputlisting{cisco.py}
+%\end{solution}
 
 
 \printbibliography

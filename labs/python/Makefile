@@ -1,5 +1,5 @@
 CATEGORY=	itgrund/labs
-FILES=		python.tex literature.tex literature.bib
+FILES=		python.tex aims.tex literature.tex literature.bib
 DOCUMENTS=	python.pdf
 
 PACKAGE=		python-src
