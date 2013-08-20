@@ -1,13 +1,15 @@
 % $Id$
-% Author:	Daniel Bosk <daniel.bosk@miun.se>
+% Author:  Daniel Bosk <daniel.bosk@miun.se>
 \documentclass[a4paper]{miunasgn}
 \usepackage[utf8]{inputenc}
 \usepackage[english,swedish]{babel}
-\usepackage{url,hyperref}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
 \usepackage{prettyref,varioref}
 \usepackage{listings}
 \usepackage{color}
 \usepackage[today,nofancy]{svninfo}
+\usepackage{csquotes}
 \usepackage[natbib,style=numeric-comp,maxbibnames=99]{biblatex}
 \addbibresource{literature.bib}
 \usepackage[varioref,prettyref,listings]{miunmisc}
@@ -20,10 +22,10 @@
 \assignmenttype{Laboration}
 \title{Terminalen}
 \author{Daniel Bosk\footnote{%
-	Detta verk är tillgängliggjort under licensen Creative Commons 
-	Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
-	För att se en sammanfattning och kopia av licenstexten besök URL 
-	\url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
+  Detta verk är tillgängliggjort under licensen Creative Commons 
+  Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
+  För att se en sammanfattning och kopia av licenstexten besök URL 
+  \url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
 }}
 \date{\svnId}
 
@@ -41,22 +43,31 @@ Ubuntu.
 Instruktioner om hur motsvarande kan genomföras i Windows finns också, men det 
 är obligatoriskt att genomföra laborationen i Ubuntu.
 
-Terminalen är ett kraftfullt verktyg som varit huvudgränssnitt och har 
-kontinuerligt utvecklats sedan den första versionen av UNIX släpptes av Bell 
-Laboratories år 1969.
-Det är ett kommandodrivet gränssnitt där varje kommandon är implementerade som 
-enkla program som utför en enkel specialiserad uppgift, det finns dock enstaka 
-kommandon som är inbyggda i skalet.
-Dessa enkla program kan sedan användas tillsammans för att åstadkomma mer 
+Terminalen är ett kraftfullt verktyg som har varit huvudgränssnitt och 
+kontinuerligt utvecklats sedan den första versionen av UNIX släpptes av 
+\foreignlanguage{english}{Bell Laboratories} år 1969.
+Det är ett kommandodrivet gränssnitt där enskilda kommandon är implementerade 
+som enkla program som utför en enkel specialiserad uppgift.
+Det finns dock enstaka kommandon som är inbyggda i skalet.
+Dessa enkla kommandon kan sedan användas tillsammans för att åstadkomma mer 
 komplexa resultat.
 
 
 \section{Syfte}
 \label{sec:Syfte}
 \noindent
-Syftet med denna inlämningsuppgift är att
+Syftet med denna inlämningsuppgift är att examinera att du kan:
 \begin{itemize}
-	\input{aims.tex}
+  \input{aims.tex}
+\end{itemize}
+Utöver detta är syftet även att du ska
+\begin{itemize}
+  \item få vana för textbaserade användargränssnitt,
+  \item se sambandet mellan vad som händer i det textbaserade och det
+    grafiska gränssnittet,
+  \item få en förståelse för skillnaden mellan absoluta och relativa
+    sökvägar, samt
+  \item få en ökad förståelse för hur filsystemet fungerar.
 \end{itemize}
 
 
@@ -72,34 +83,34 @@ laboration är utformade för att stödja dig i denna process.
 
 Följande kommandon används för filhantering:
 \begin{itemize}
-  \item \texttt{ls(1)}
-  \item \texttt{cd}
-  \item \texttt{pwd(1)}
-  \item \texttt{mkdir(1)}
-  \item \texttt{rmdir(1)}
-  \item \texttt{cp(1)}
-  \item \texttt{mv(1)}
-  \item \texttt{rm(1)}
-  \item \texttt{find(1)}
-  \item \texttt{which(1)}
-  \item \texttt{touch(1)}
-  \item \texttt{stat(1)}
+  \item \term{ls(1)}
+  \item \term{cd}, se \term{bash(1)}
+  \item \term{pwd(1)}
+  \item \term{mkdir(1)}
+  \item \term{rmdir(1)}
+  \item \term{cp(1)}
+  \item \term{mv(1)}
+  \item \term{rm(1)}
+  \item \term{find(1)}
+  \item \term{which(1)}
+  \item \term{touch(1)}
+  \item \term{stat(1)}
 \end{itemize}
 
 Och följande kommandon används för att arbeta med filernas innehåll:
 \begin{itemize}
-  \item \texttt{cat(1)}
-  \item \texttt{more(1)}
-  \item \texttt{less(1)}
-  \item \texttt{head(1)}
-  \item \texttt{tail(1)}
-  \item \texttt{grep(1)}
-  \item \texttt{vi(1)}
-  \item \texttt{nano(1)}
+  \item \term{cat(1)}
+  \item \term{more(1)}
+  \item \term{less(1)}
+  \item \term{head(1)}
+  \item \term{tail(1)}
+  \item \term{grep(1)}
+  \item \term{vi(1)}
+  \item \term{nano(1)}
 \end{itemize}
 
-För fler kommandon, see avsnittet \emph{coreutils} i GNU:s infomanual genom att 
-köra kommandoraden \texttt{info coreutils}.
+För fler kommandon, see avsnittet ''coreutils'' i GNU:s infomanual genom att 
+köra kommandoraden \term{info coreutils}.
 
 
 \section{Genomförande}
@@ -108,167 +119,165 @@ köra kommandoraden \texttt{info coreutils}.
 Du kommer att behöva använda ett terminalfönster och en grafisk filhanterare.
 För att använda dessa i de olika operativsystemen gör du följande:
 \begin{description}
-	\item[Ubuntu] För Ubuntu kan du använda programmet \emph{Terminal} 
-		(gnome-terminal).
-		Grafisk filhanterare varierar beroende på system, men leta efter 
-		\emph{Files} eller \emph{File manager}.
-	\item[UNIX-lika system] Använd valfri terminal, exempelvis \emph{xterm}.
-	\item[Windows XP] Kör kommandotolken genom att välja \emph{Kör} från
-		Startmenyn, skriv \emph{cmd.exe} och klicka på \emph{OK}.
-		Använd \emph{Den här datorn} eller \emph{Utforskaren} som grafisk
-		filhanterare.
-	\item[Windows Vista/7] Sök efter \emph{kommandotolken} eller
-		\emph{powershell} i Startmenyns sökfunktion.
-		Använd \emph{Dator} eller \emph{Utforskaren} som grafisk filhanterare.
+  \item[Ubuntu] För Ubuntu kan du använda programmet \emph{Terminal} 
+    (gnome-terminal).
+    Grafisk filhanterare varierar beroende på system, men leta efter 
+    \emph{Files} eller \emph{File manager}.
+  \item[UNIX-lika system] Använd valfri terminal, exempelvis \term{xterm}.
+  \item[Windows XP] Kör kommandotolken genom att välja \emph{Kör} från
+    Startmenyn, skriv \emph{cmd.exe} och klicka på \emph{OK}.
+    Använd \emph{Den här datorn} eller \emph{Utforskaren} som grafisk
+    filhanterare.
+  \item[Windows Vista/7] Sök efter \emph{kommandotolken} eller
+    \emph{powershell} i Startmenyns sökfunktion.
+    Använd \emph{Dator} eller \emph{Utforskaren} som grafisk filhanterare.
 \end{description}
 
 \begin{questions}
-	\uplevel{%
-		Starta ett terminalfönster och besvara följande frågor.
-	}
-	\question\label{q:ls}
-	Vad gör kommandot ls(1)?
-	Läs manualsidan och testa själv med och utan olika argument.
-	(Motsvarigheten i Windows heter \emph{dir}.)
-	\begin{solution}
-		Lista innehållet i kataloger.
-	\end{solution}
+  \uplevel{%
+    Starta ett terminalfönster och besvara följande frågor.
+  }
+  \question\label{q:ls}
+  Vad gör kommandot \term{ls(1)}?
+  Läs manualsidan och testa själv med och utan olika argument.
+  (Motsvarigheten i Windows heter \term{dir}.)
+  \begin{solution}
+    Lista innehållet i kataloger.
+  \end{solution}
 
-	\question\label{q:cd}
-	Vad gör kommandot cd?
-	Detta kommando är inbyggt i skalet, bash(1), och har därför ingen egen 
-	manualsida, se istället bash(1).
-	(Motsvarigheten i Windows heter också \emph{cd}.)
-	\begin{solution}
-		Byt arbetskatalog till den som anges, kan vara relativ eller absolut 
-		sökväg.
-	\end{solution}
+  \question\label{q:cd}
+  Vad gör kommandot \term{cd}?
+  Detta kommando är inbyggt i skalet, \term{bash(1)}, och har därför ingen egen 
+  manualsida, se istället \term{bash(1)}.
+  (Motsvarigheten i Windows heter också \term{cd}.)
+  \begin{solution}
+    Byt arbetskatalog till den som anges, kan vara relativ eller absolut 
+    sökväg.
+  \end{solution}
 
-	\question\label{q:mkdir}
-	Vad gör kommandona mkdir(1) och rmdir(1)?
-	Läs manualsidan och testa själv med och utan olika argument.
-	(Motsvarigheterna i Windows heter också \emph{mkdir} respektive 
-	\emph{rmdir}.)
-	\begin{solution}
-		Skapar respektive tar bort tomma kataloger.
-	\end{solution}
+  \question\label{q:mkdir}
+  Vad gör kommandona \term{mkdir(1)} och \term{rmdir(1)}?
+  Läs manualsidan och testa själv med och utan olika argument.
+  (Motsvarigheterna i Windows heter också \term{mkdir} respektive 
+  \term{rmdir}.)
+  \begin{solution}
+    Skapar respektive tar bort tomma kataloger.
+  \end{solution}
 
-	\question\label{q:rm}
-	Vad gör kommandot rm(1)?
-	Läs manualsidan och testa själv med och utan olika argument.
-	(Motsvarigheten i Windows heter \emph{del}.)
-	\begin{solution}
-		Tar bort filer och även kataloger om rätt argument används.
-	\end{solution}
+  \question\label{q:rm}
+  Vad gör kommandot \term{rm(1)}?
+  Läs manualsidan och testa själv med och utan olika argument.
+  (Motsvarigheten i Windows heter \term{del}.)
+  \begin{solution}
+    Tar bort filer och även kataloger om rätt argument används.
+  \end{solution}
 
-	\question\label{q:gedit}
-	Vad gör följande kommandorad?
-	\begin{terminal}
+  \question\label{q:gedit}
+  Vad gör följande kommandorad?
+  \begin{terminal}
 $ gedit test.txt
 $
-	\end{terminal}
-	\begin{solution}
-		Öppnar filen test.txt för redigering i en GUI-baserad textredigerare.
-		Om filen inte finns skapas den när den sparas.
-	\end{solution}
+  \end{terminal}
+  \begin{solution}
+    Öppnar filen \term{test.txt} för redigering i en GUI-baserad 
+    textredigerare.
+    Om filen inte finns skapas den när den sparas.
+  \end{solution}
 
-	\question\label{q:cat}
-	Vad gör kommandot cat(1)?
-	Läs manualsidan och testa själv med exempelvis följande kommandorad, om du 
-	har kvar \emph{test.txt} från föregående uppgift.
-	\begin{terminal}
+  \question\label{q:cat}
+  Vad gör kommandot \term{cat(1)}?
+  Läs manualsidan och testa själv med exempelvis följande kommandorad, om du 
+  har kvar \term{test.txt} från föregående uppgift.
+  \begin{terminal}
 $ cat test.txt
 $
-	\end{terminal}
-	\begin{solution}
-		Skriver ut innehållet i filerna som ges som argument till stdout 
-		(vanligtvis terminalen).
-	\end{solution}
+  \end{terminal}
+  \begin{solution}
+    Skriver ut innehållet i filerna som ges som argument till \term{stdout} 
+    (vanligtvis terminalen).
+  \end{solution}
 
-	\question\label{q:echo}
-	Vad gör kommandot echo(1)?
-	Läs manualsidan och testa själv med och utan olika argument.
-	(Motsvarigheten i Windows heter detsamma, men den skiljer sig en aning.)
-	\begin{solution}
-		Skriver ut alla argument till stdout (vanligtvis terminalen).
-	\end{solution}
+  \question\label{q:echo}
+  Vad gör kommandot \term{echo(1)}?
+  Läs manualsidan och testa själv med och utan olika argument.
+  (Motsvarigheten i Windows heter detsamma, men den skiljer sig en aning.)
+  \begin{solution}
+    Skriver ut alla argument till \term{stdout} (vanligtvis terminalen).
+  \end{solution}
 
-	\question\label{q:find}
-	Vad gör kommandot find(1)?
-	Läs manualsidan och testa själv med och utan olika argument.
-	(För motsvarigheten i Windows måste kommandot \emph{dir} användas med 
-	argumentet \emph{/s}.)
-	\begin{solution}
-		Söker igenom filstrukturen efter filer som matchar de givna sökkriterierna.
-	\end{solution}
+  \question\label{q:find}
+  Vad gör kommandot \term{find(1)}?
+  Läs manualsidan och testa själv med och utan olika argument.
+  (För motsvarigheten i Windows måste kommandot \term{dir} användas med 
+  argumentet \term{/s}.)
+  \begin{solution}
+    Söker igenom filstrukturen efter filer som matchar de givna sökkriterierna.
+  \end{solution}
 
-	\question\label{q:findless}
-	Vad gör följande kommandorad?
-	\begin{terminal}
+  \question\label{q:findless}
+  Vad gör följande kommandorad?
+  \begin{terminal}
 $ find / -type d -print | less
 $
-	\end{terminal}
-	Läs manualsidorna för de olika programmen, find(1) respektive less(1), och 
-	testa att köra den.
-	\begin{solution}
-		Sök igenom filstrukturen, med början i roten, efter kataloger.
-		Dessa skickas via en pipeline till less(1) som skriver ut en skärmsida 
-		i taget.
-	\end{solution}
+  \end{terminal}
+  Läs manualsidorna för de olika programmen, \term{find(1)} respektive 
+  \term{less(1)}, och testa att köra dem.
+  \begin{solution}
+    Sök igenom filstrukturen, med början i roten, efter kataloger.
+    Dessa skickas via en pipeline till \term{less(1)} som skriver ut en 
+    skärmsida i taget.
+  \end{solution}
 
-	\question\label{q:fs}
-	\begin{parts}
-		\part\label{qp:relative} Använd ls(1), pwd(1), cd och eventuella andra 
-		program eller kommandon du behöver för att undersöka vad de speciella 
-		katalogerna ''.'' respektive ''..'' som finns i varje katalog är.
-		(Dessa speciella kataloger finns i de flesta filsystem, även i Windows.)
-		\begin{solution}
-			Katalogen ''.'' hänvisar till den nuvarande arbetskatalogen.
-			Katalogen ''..'' hänvisar till föräldern till den nuvarande 
-			arbetskatalogen.
-		\end{solution}
+  \question\label{q:fs}
+  \begin{parts}
+    \part\label{qp:relative} Använd \term{ls(1)}, \term{pwd(1)}, \term{cd} och 
+    eventuella andra program eller kommandon du behöver för att undersöka vad 
+    de speciella katalogerna ''.'' respektive ''..'' som finns i varje katalog 
+    är.
+    (Dessa speciella kataloger finns i de flesta filsystem, även i Windows.)
+    \begin{solution}
+      Katalogen ''.'' hänvisar till den nuvarande arbetskatalogen.
+      Katalogen ''..'' hänvisar till föräldern till den nuvarande 
+      arbetskatalogen.
+    \end{solution}
 
-		\part\label{qp:exploring} Gör detta för din egen skull, denna deluppgift 
-		fordrar inget svar.
-		Använd cd och ls(1) för att utforska filsystemet.
-		Använd den grafiska filhanteraren för att göra samma utforskning parallelt, 
-		på så vis tappar du inte lika lätt orienteringen om du är ovan.
-	\end{parts}
+    \part\label{qp:exploring} Gör detta för din egen skull, denna deluppgift 
+    fordrar inget svar.
+    Använd \term{cd} och \term{ls(1)} för att utforska filsystemet.
+    Använd den grafiska filhanteraren för att göra samma utforskning parallelt, 
+    på så vis tappar du inte lika lätt orienteringen om du är ovan.
+  \end{parts}
 
-	\question\label{q:RelativeWWW}
-	Använd din webbläsare och gå in på adressen
-	\begin{center}
-		\url{http://www.miun.se/denna/sida/finns/ej/}.
-	\end{center}
-	Jämför och förklara skillnaden när du istället går in på adressen
-	\begin{center}
-		\url{http://www.miun.se/denna/sida/finns/ej/../../../../}.
-	\end{center}
-	\begin{solution}
-		Den andra adressen leder tillbaka till huvudsidan tack vare de relativa
-		sökvägarna ''..''.
-	\end{solution}
-	\begin{solution}
-		Den senare URL:en är en relativ sökväg till webbplatsens rotkatalog, vilket 
-		gör att webbläsaren visar universitetets startsida.
-	\end{solution}
+  \question\label{q:RelativeWWW}
+  Använd din webbläsare och gå in på adressen
+  \begin{center}
+    \url{http://www.miun.se/denna/sida/finns/ej/}.
+  \end{center}
+  Jämför och förklara skillnaden när du istället går in på adressen
+  \begin{center}
+    \url{http://www.miun.se/denna/sida/finns/ej/../../../../}.
+  \end{center}
+  \begin{solution}
+    Den andra adressen leder tillbaka till huvudsidan tack vare de relativa
+    sökvägarna ''..''.
+    Den senare URL:en är en relativ sökväg till webbplatsens rotkatalog, vilket 
+    gör att webbläsaren visar universitetets startsida.
+  \end{solution}
 
-	\uplevel{%
-		När skalet tolkar kommandoraden läses första ordet som filnamnet för ett 
-		program.
-		För att veta vilket program, med sökväg, som ska köras finns ett flertal 
-		kataloger inlagda i miljövariabeln \emph{PATH}.
-		Dessa kataloger söks igenom i ordning och en programfil med rätt namn 
-		eftersöks.
-		Kommandot which(1) kan användas för att undersöka vilket program, med 
-		fullständig sökväg, som skulle köras om ett visst kommando angavs i skalet.
-	}
-	\question\label{q:which}
-	Undersök sökvägarna till de olika programmen du använt under denna 
-	laboration.
-	Läs om which(1) för att veta hur programmet fungerar.
-	\begin{solution}
-		\begin{terminal}
+  \question\label{q:which}
+  När skalet tolkar kommandoraden läses första ordet som filnamnet för ett 
+  program.
+  För att veta vilket program, med sökväg, som ska köras finns ett flertal 
+  kataloger inlagda i miljövariabeln \term{PATH}.
+  Dessa kataloger söks igenom i ordning och en programfil med rätt namn 
+  eftersöks.
+  Kommandot \term{which(1)} kan användas för att undersöka vilket program, med 
+  fullständig sökväg, som skulle köras om ett visst kommando angavs i skalet.
+  Undersök sökvägarna till de olika programmen du använt under denna 
+  laboration.
+  Läs om \term{which(1)} för att veta hur programmet fungerar.
+  \begin{solution}
+    \begin{terminal}
 (0):danbos@ID20809793:assgn-terminal$ which ls cat mkdir rmdir rm gedit \
 > find echo bash pwd
 /bin/ls
@@ -282,16 +291,16 @@ $
 /bin/bash
 /bin/pwd
 (0):danbos@ID20809793:assgn-terminal$
-		\end{terminal}
-	\end{solution}
+    \end{terminal}
+  \end{solution}
 
 %%\question\label{q:tar}
 %%Vad gör kommandot tar(1)?
 %%Läs manualsidan och testa själv med och utan olika argument.
 %%\begin{solution}
-%%	Kommandot används för att skapa filarkiv.
-%%	Ett flertal filer och kataloger kan packas ihop till en fil.
-%%	Denna fil kan vara komprimerad eller okomprimerad.
+%%  Kommandot används för att skapa filarkiv.
+%%  Ett flertal filer och kataloger kan packas ihop till en fil.
+%%  Denna fil kan vara komprimerad eller okomprimerad.
 %%\end{solution}
 
 \end{questions}

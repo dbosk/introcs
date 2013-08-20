@@ -1,5 +1,5 @@
 CATEGORY=	itgrund/assignments
-FILES=		computer.tex literature.bib
+FILES=		computer.tex literature.tex aims.tex literature.bib
 DOCUMENTS=	computer.pdf
 
 USE_LATEXMK= 	yes

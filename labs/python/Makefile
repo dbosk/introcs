@@ -3,7 +3,7 @@ FILES=		python.tex aims.tex literature.tex literature.bib
 DOCUMENTS=	python.pdf
 
 PACKAGE=		python-src
-PACKAGE_FILES=	${FILES}
+TARBALL_FILES=	${FILES}
 
 PUB_FILES=		${PACKAGE}.tar.gz ${DOCUMENTS}
 
@@ -14,8 +14,9 @@ USE_BIBLATEX= 	yes
 
 #export no
 
-PACKAGE_FILES= 	${FILES:.tex=.exporttex} Makefile.export
+TARBALL_FILES= 	${FILES:.tex=.exporttex} Makefile.export
 
+Makefile.export: Makefile
 literature.bib: ../../literature.bib
 	${CP} $^ $@
 

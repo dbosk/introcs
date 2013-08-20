@@ -7,6 +7,7 @@
 \usepackage{hyperref}
 \usepackage[today,nofancy]{svninfo}
 \usepackage{booktabs}
+\usepackage{csquotes}
 \usepackage[natbib,style=numeric-comp,maxbibnames=99]{biblatex}
 \addbibresource{literature.bib}
 \usepackage{listings}
@@ -40,7 +41,7 @@ och terminologier samt mjukvara.
 Kursen fokuserar på praktisk användning av datorer och programvaror.
 Kursen ger även en introduktion till rapportskrivande och presentationer.
 
-Mer specifikt ska du efter genomgången kurs uppfylla följande mål:
+Mer specifikt, efter genomgången kurs ska du kunna:
 \begin{itemize}
   \input{install-aim.tex}
   \input{term-aim.tex}
@@ -53,15 +54,14 @@ Mer specifikt ska du efter genomgången kurs uppfylla följande mål:
 \section{Kursupplägg}
 \label{sec:outline}
 Den bok som används som huvudlitteratur på kursen är Brookshears bok 
-\emph{Computer Science: An Overview} \cite{Brookshear2012csa}.
+\citetitle{Brookshear2012csa} \cite{Brookshear2012csa}.
 Därutöver tillkommer litteratur för en del av laborationerna, denna framgår av 
 läsanvisningarna nedan och i respektive laboration.
 
 \citet{Brookshear2012csa} tar upp grunden inom datateknik, den är värd att läsa 
 i sin helhet -- detta rekommenderas!
-De kapitel och avsnitt som behandas i denna kurs är dock enbart kapitlen 0 till 
-och med 5 i sina helheter, avsnitten 6.1 till och med 6.4, samt avsnitten 9.1 
-och 9.2.
+De kapitel och avsnitt som behandas i denna kurs är dock enbart kapitlen 0--5 
+i sina helheter, avsnitten 6.1--6.4, samt avsnitten 9.1 och 9.2.
 
 Det går att använda tidigare upplagor av boken, kapitlen som behandlas i kursen 
 utgår från den senaste upplagan \citep{Brookshear2012csa} och de behandlar 
@@ -71,10 +71,9 @@ följande områden:
 	\item kapitel 1: datalagring och -representation,
 	\item kapitel 2: datamanipulering, datorarkitektur, programexekvering,
 	\item kapitel 3: operativsystem,
-	\item kapitel 4: nätverk och internet,
-	\item kapitel 5: algoritmer,
-	\item avsnitten 6.1 till och med 6.4: programspråk och programmering,
-	\item avsnitten 9.1 och 9.2: grunder för databaser och relationsdatabaser.
+  \item kapitel 5: algoritmer,
+  \item avsnitten 6.1--6.4: programspråk och programmering, samt
+  \item avsnitten 9.1 och 9.2: databaser.
 \end{itemize}
 
 Litteraturläsningen kompletteras av ett antal föreläsningar och övningar som 
@@ -84,10 +83,10 @@ litteraturen enligt anvisningarna nedan.
 
 Kursens lärandemål kommer att examineras med ett antal laborationer och 
 avslutas med ett mindre projekt.
-Detta projekt motsvaras av två veckors heltidsarbete.
+Detta projekt motsvaras av strax över två veckors heltidsarbete.
 Den som nyligen kommer från gymnasieskolan kan ha som referens att detta 
-motsvaras precis av projektarbetet för gymnasieskolan, dock med högre krav på 
-innehållet.
+motsvarar en något större omfattning än projektarbetet för gymnasieskolan, dock 
+med högre krav på innehållet.
 
 \subsection{Schema}
 \label{sec:schedule}
@@ -188,7 +187,6 @@ Det tillkommer därför delvis valfri litteratur i detta moment.
 
 \section{Examination}
 \label{sec:exam}
-\noindent
 Kursen examineras med med laborationer och ett projekt, se lydelsen för 
 respektive uppgift för detaljer.
 Projektet examineras genom en skriftlig rapport och en muntlig presentation.
@@ -199,7 +197,6 @@ Projektrapporten betygsätts A--E för godkänt eller F--Fx för underkänt.
 
 \section{Vad händer om jag ej blir klar i tid?}
 \label{sec:late}
-\noindent
 Slutdatumena på denna kurs är av yttersta vikt.
 Du måste ha genomfört introduktionsuppgiften inom dess givna slutdatum, om du 
 inte gör detta kommer du att avregistreras från kursen och din plats kommer att 

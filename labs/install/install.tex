@@ -9,7 +9,8 @@
 \usepackage{prettyref,varioref}
 \usepackage{listings}
 \usepackage[today,nofancy]{svninfo}
-\usepackage[natbib,style=alphabetic]{biblatex}
+\usepackage{csquotes}
+\usepackage[natbib,style=numeric-comp,maxbibnames=99]{biblatex}
 \addbibresource{literature.bib}
 \usepackage[varioref,prettyref,listings]{miunmisc}
 
@@ -45,13 +46,13 @@ De programvaror du kommer att installera är följande:
 \begin{itemize}
 	\item TeX Live för Ubuntu och eventuellt MikTeX för Windows,
 	\item eventuellt LibreOffice för Windows (redan installerat för Ubuntu), och
-	\item 7-zip för Windows.
+  \item eventuellt 7-zip för Windows.
 \end{itemize}
 
 
 \section{Syfte}
 \label{sec:Syfte}
-Syftet med laborationen är:
+Syftet med laborationen är att examinera att studenten kan:
 \begin{itemize}
   \input{aims.tex}
 \end{itemize}
@@ -69,7 +70,7 @@ Det rekommenderas att du läser igenom hela genomförandet innan du sätter igå
 
 Hela instruktionen är skriven för Ubuntu, men det är valfritt vilket UNIX-likt 
 operativsystem som används.
-Exempel på andra UNIK-lika system är Debian och OpenBSD.
+Exempel på andra UNIX-lika system är Debian, FreeBSD och OpenBSD.
 
 \subsection{Ubuntu Desktop}
 \noindent
@@ -81,8 +82,8 @@ Ubuntu går att ladda hem på URL
 Det rekommenderas att du installerar Ubuntu parallelt med redan befintligt 
 operativsystem om du har ett sådant, men du väljer själv vilken form du vill 
 installera \citep[för detaljer, se][]{UbuntuInstall}.
-Att enbart använda LiveCD rekommenderas inte eftersom att det blir problem med 
-att installera programvaror och att du inte kan spara filer annat än på 
+Att enbart använda LiveCD rekommenderas inte eftersom att det då blir problem 
+med att installera programvaror och att du inte kan spara filer annat än på 
 USB-minnen.
 
 \subsection{Programvaror}
@@ -91,10 +92,10 @@ När du har loggat in i din Ubuntu-installation är det dags att installera de
 programvaror du behöver.
 Den enda programvara du behöver installera i Ubuntu är TeX Live för att senare 
 kunna använda \LaTeX.
-I GNU/Linux\footnote{%
-	Ubuntu är en linuxdistribution, det vill säga det är Linux som används som 
-	kärna.
-} kallas installationsfiler för paket och de installeras med en pakethanterare.
+I UNIX-lika operativsystem kallas installationsfiler normalt för paket och de 
+installeras med en pakethanterare.
+(Google Play är ett exempel på pakethanterare för Android och ''appar'' är där 
+exempel på paket, även om de använder en mer populärorienterad terminologi.)
 Det finns flera sätt att installera paket.
 Det sätt som rekommenderas enligt \citet{UbuntuDesktop} för nya användare av 
 Ubuntu är att använda Ubuntu Software Centre.
@@ -124,7 +125,7 @@ Om du vill ha tillgång till dessa program i Windows kan du installera MikTeX
 	URL: \url{http://www.libreoffice.org/}.
 }.
 För MikTeX kan du hoppa över steget att installera universitetets 
-dokumentklasser, detta tas upp i en senare laboration.
+dokumentklasser.
 Du behöver också programmet 7-zip för Windows, detta finns tillgängligt från 
 URL
 \begin{center}
@@ -134,7 +135,7 @@ URL
 
 \section{Examination}
 \label{sec:Examination}
-Skriv en sammanfattande text med dina erfarenheter av denna laboration och ger 
+Skriv en sammanfattande text med dina erfarenheter av denna laboration och ge 
 en kort jämförelse mellan Ubuntu och Windows, eller MacOS om du har mer 
 erfarenhet av det än av Windows.
 Du kan skriva texten direkt i inlämningslådan i lärplattformen.

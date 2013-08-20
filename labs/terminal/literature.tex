@@ -5,15 +5,16 @@ För att genomföra denna laboration bör du ha läst kapitlet om operativsystem
 Det rekommenderas att du även läser kapitel 1, 12.1, 12.5--12.7 och 12.10 
 i \citetitle{nemeth2011ual} \cite{nemeth2011ual}.
 Den senare boken ingår egentligen inte i kurslitteraturen för denna kurs, men 
-då boken ingår i kommande kurser kan ni nyttja den redan nu.
+då boken ingår i kommande kurser kan ni med fördel nyttja den redan nu.
 
 För dokumentation om olika program i UNIX-lika system används kommandot 
-\emph{man}.
+\term{man}.
 Det tar namnet på att annat kommando som du vill ha dokumentation för som 
 argument.
-Om vi till exempel vill ha dokumentation om just \emph{man} självt skriver vi 
-\emph{man man} och får resultatet i \prettyref{lst:manman}.
-\begin{terminal}[float=tb,label={lst:manman},caption={Listningen av resultatet vid körningen av kommandot \code{man man}.}]
+Om vi till exempel vill ha dokumentation om just \term{man} självt skriver vi 
+\term{man man} och får resultatet i \prettyref{lst:manman}.
+\begin{terminal}[float,label={lst:manman},caption={Listningen av resultatet vid 
+  körningen av kommandot \term{man man}.}]
 /home/danbos$ man man
 MAN(1)						Manual pager utils						MAN(1)
 
@@ -52,20 +53,20 @@ DESCRIPTION
 /home/danbos$
 \end{terminal}
 Manualsidorna är indelade i sektioner, denna ges som en siffra inom parentes 
-efter namnet på manualsidan -- exempelvis \emph{man(1)}.
+efter namnet på manualsidan -- exempelvis \term{man(1)}.
 För att specificera en särskild sektion anges sektionen innan namnet på 
-manualsidan (kommandot) som argument till \emph{man}, exempelvis \emph{man 
+manualsidan (kommandot) som argument till \term{man}, exempelvis \term{man 
 1 man}.
 Oftast behövs dock inte detta, det är bara när ett uppslagsnamn finns i flera 
 sektioner.
-Det framgår i \prettyref{lst:manman} att det är man(1) som ges av \emph{man 
-man}, alltså samma resultat som vid \emph{man 1 man}.
+Det framgår i \prettyref{lst:manman} att det är \term{man(1)} som ges av 
+\term{man man}, alltså samma resultat som vid \term{man 1 man}.
 Dessa manualer finns även tillgängliga online på URL
 \begin{center}
 	\url{https://www.kernel.org/doc/man-pages/}.
 \end{center}
-Då finns de att läsa som förberedelse till genomförandet.
-De manualsidor som bör läsas översiktligt i förväg är bash(1) och man(1).
+De manualsidor som bör läsas översiktligt i förväg är \term{bash(1)} och 
+\term{man(1)}.
 
 För dokumentation om kommandona i Windows kan följande sida användas:
 \begin{quote}

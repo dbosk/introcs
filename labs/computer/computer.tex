@@ -4,10 +4,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english,swedish]{babel}
-\usepackage{url,hyperref}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
 \usepackage{prettyref,varioref}
 \usepackage{listings}
 \usepackage[today,nofancy]{svninfo}
+\usepackage{csquotes}
 \usepackage[natbib,style=numeric-comp,maxbibnames=99]{biblatex}
 \addbibresource{literature.bib}
 \usepackage[varioref,prettyref,listings]{miunmisc}
@@ -42,7 +44,12 @@
 \section{Syfte}
 \label{sec:Syfte}
 \noindent
-\dots
+Syftet med denna laboration är att examinera att du kan:
+\begin{itemize}
+  \input{aims.tex}
+\end{itemize}
+Utöver detta syftar uppgiften till att vara förberedande för kursens avslutande 
+projekt.
 
 
 \section{Läsanvisningar}
