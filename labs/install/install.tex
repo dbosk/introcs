@@ -102,8 +102,10 @@ Ubuntu är att använda Ubuntu Software Centre.
 Det alternativa sättet är att använda pakethanteraren direkt från terminalen.
 Detta görs genom att först starta ett terminalfönster, det vill säga starta 
 programmet \emph{Terminal}, därefter skrivs \emph{sudo apt-get install vim}, 
-för att installera paketet \emph{vim}, med följande som resultat:
-\begin{terminal}
+för att installera paketet \emph{vim}, resultatet kan ses 
+i \prettyref{fig:installvim}.
+\begin{terminal}[float,label={fig:installvim},caption={Exempel från terminalen 
+  vid installation av \term{vim(1)}.}]
 $ sudo apt-get install vim
 [sudo] password for danbos: 
 Reading package lists... Done
@@ -117,7 +119,6 @@ Use 'apt-get autoremove' to remove them.
 $
 \end{terminal}
 (Observera att dollartecknet är en del av prompten.)
-
 Med valfritt tillvägagångssätt, installera paketet \texttt{texlive-full}.
 
 Om du vill ha tillgång till dessa program i Windows kan du installera MikTeX 
@@ -125,7 +126,7 @@ Om du vill ha tillgång till dessa program i Windows kan du installera MikTeX
 	URL: \url{http://www.libreoffice.org/}.
 }.
 För MikTeX kan du hoppa över steget att installera universitetets 
-dokumentklasser.
+dokumentklasser som finns med i instruktionen.
 Du behöver också programmet 7-zip för Windows, detta finns tillgängligt från 
 URL
 \begin{center}
