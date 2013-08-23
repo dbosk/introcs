@@ -8,7 +8,7 @@ PACKAGE=	studyguide-src
 PACKAGE_FILES=	${FILES} Makefile
 PUB_FILES=	${DOCUMENTS} ${PACKAGE}.tar.gz
 
-LABS=		install-aim.tex install-lit.tex
+LABS=		inst-aim.tex inst-lit.tex
 LABS+= 		term-aim.tex term-lit.tex
 LABS+= 		pylab-aim.tex pylab-lit.tex
 LABS+= 		computer-aim.tex computer-lit.tex
@@ -36,7 +36,7 @@ PACKAGE_FILES=	${FILES:.tex=.exporttex} Makefile.export
 literature.bib: ../literature.bib
 	${CP} $^ $@
 
-install-aim.tex: ../labs/install/aims.tex
+inst-aim.tex: ../labs/install/aims.tex
 term-aim.tex: ../labs/terminal/aims.tex
 pylab-aim.tex: ../labs/python/aims.tex
 latex-aim.tex: ../labs/latex/aims.tex
@@ -44,7 +44,7 @@ computer-aim.tex: ../labs/computer/aims.tex
 sftp-aim.tex: ../labs/sftp/aims.tex
 project-aim.tex: ../project/aims.tex
 
-install-lit.tex: ../labs/install/literature.tex
+inst-lit.tex: ../labs/install/literature.tex
 term-lit.tex: ../labs/terminal/literature.tex
 pylab-lit.tex: ../labs/python/literature.tex
 latex-lit.tex: ../labs/latex/literature.tex
