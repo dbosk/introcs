@@ -14,6 +14,9 @@ Makefile.export: Makefile
 
 TARBALL_FILES= 	${FILES:.tex=.exporttex} Makefile.export
 PUB_FILES= 		${PACKAGE}.tar.gz ${DOCUMENTS}
+
+clean:
+	${RM} literature.bib
 #endexport
 
 miun.depend.mk:
