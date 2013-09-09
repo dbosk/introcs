@@ -1,0 +1,182 @@
+% $Id$
+% Author:  Daniel Bosk <daniel.bosk@miun.se>
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,swedish]{babel}
+\usepackage{url}
+\usepackage{varioref,prettyref}
+\usepackage{graphicx}
+\usepackage[today,nofancy]{svninfo}
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage[varioref,prettyref]{miunmisc}
+\setcitestyle{numbers,square}
+\bibliographystyle{swealpha}
+
+\renewcommand{\qedsymbol}{Q.E.D.}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\powerset}{\mathcal{P}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\tnot}{icke}
+\DeclareMathOperator{\tor}{eller}
+\DeclareMathOperator{\tand}{och}
+\DeclareMathOperator{\lequiv}{\Longleftrightarrow}
+\DeclareMathOperator{\congruent}{\equiv}
+\DeclareMathOperator{\xor}{\oplus}
+
+\providetranslation[to=swedish]{Theorem}{Sats}
+\providetranslation[to=swedish]{Corollary}{Korollarium}
+\theoremstyle{definition}
+\newenvironment{axiom}[1]{\begin{block}{Postulat (#1)}}{\end{block}}
+\providetranslation[to=swedish]{Example}{Exempel}
+\newtheorem{exercise}{Övning}
+\theoremstyle{remark}
+\newtheorem{remark}{Anmärkning}
+
+\svnInfo $Id$
+
+\mode<presentation>
+{
+  \usetheme{Frankfurt}
+  \setbeamercovered{transparent}
+  \usecolortheme{seagull}
+}
+\setbeamertemplate{footline}{\insertframenumber}
+
+\title{%
+  Datorarkitektur
+}
+\author{Daniel Bosk\footnote{%
+  \tiny
+  Detta verk är tillgängliggjort under licensen Creative Commons 
+  Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
+  För att se en sammanfattning och kopia av licenstexten besök URL 
+  \url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
+}}
+\institute[MIUN ITM]{%
+  %Department of Information and Communication Systems (ICS),\\
+  %Mid Sweden University, Sundsvall.
+  %
+  Avdelningen för informations- och kommunikationssytem (IKS),\\
+  Mittuniversitetet, Sundsvall.
+}
+\date{\svnId}
+
+\pgfdeclareimage[height=0.65cm]{university-logo}{MU_logotyp_int_CMYK.pdf}
+\logo{\pgfuseimage{university-logo}}
+
+\AtBeginSection[]{%
+  \begin{frame}<beamer>{Översikt}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Översikt}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+\begin{frame}
+  \input{literature.tex}
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+
+\section{Processorn}
+
+\subsection{CPU}
+
+\begin{frame}{\insertsubsectionhead}
+\end{frame}
+
+\subsection{Maskinkod}
+
+\begin{frame}{\insertsubsectionhead}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Representera data}
+  \begin{description}
+    \item[Little endian] \dots
+    \item[Big endian] \dots
+  \end{description}
+\end{frame}
+
+\subsection{Programexekvering}
+
+\begin{frame}{\insertsubsectionhead}
+\end{frame}
+
+
+\section{Minne}
+
+\subsection{Primärminne}
+
+\begin{frame}{\insertsubsectionhead}{Kapacitet}
+\end{frame}
+
+\subsection{Sekundärminne}
+
+\begin{frame}{\insertsubsectionhead}{Magnetiska system}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Optiska system}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Flashbaserade system}
+\end{frame}
+
+\subsection{Representera data}
+
+\begin{frame}{\insertsubsectionhead}{Bitmönster och teckenkodning}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Tvåkomplementsnotation}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Flyttal}
+\end{frame}
+
+\subsection{Filsystem}
+
+\begin{frame}{\insertsubsectionhead}{Filer}
+\end{frame}
+
+
+\section{Andra enheter}
+
+\subsection{Kontrollerenheter}
+
+\begin{frame}{\insertsubsectionhead}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Referenser}
+  \bibliography{literature}
+\end{frame}
+
+\end{document}
+
