@@ -1,4 +1,4 @@
-CATEGORY=	itgrund/assignments
+CATEGORY=	itgrund/labs
 FILES=		computer.tex literature.tex aims.tex literature.bib
 DOCUMENTS=	computer.pdf
 
