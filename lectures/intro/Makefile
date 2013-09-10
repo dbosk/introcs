@@ -11,16 +11,15 @@ USE_BIBLATEX= 	yes
 intro.pdf intro.ps: ${FILES}
 
 #export no
-
 TARBALL_FILES= 	Makefile.export ${FILES:.tex=.exporttex}
 PUB_FILES= 		${PACKAGE}.tar.gz ${DOCUMENTS}
 
+Makefile.export: Makefile
 literature.bib: ../../literature.bib
 	${CP} $^ $@
 
 clean:
 	${RM} ${DOCUMENTS} literature.bib
-
 #endexport
 
 miun.depend.mk:
