@@ -1,11 +1,11 @@
 SUBDIR= 	intro
 SUBDIR+= 	datarep
 SUBDIR+= 	arch
-SUBDIR+= 	shell
-SUBDIR+= 	python
-SUBDIR+= 	latex
-#SUBDIR+= 	internet
-#SUBDIR+= 	security
-SUBDIR+= 	present
+#SUBDIR+= 	shell
+#SUBDIR+= 	python
+#SUBDIR+= 	latex
+##SUBDIR+= 	internet
+##SUBDIR+= 	security
+#SUBDIR+= 	present
 
 include miun.subdir.mk
