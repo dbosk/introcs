@@ -1,7 +1,6 @@
 % $Id$
 % Author:	Daniel Bosk <daniel.bosk@miun.se>
 \documentclass[handout]{beamer}
-%\documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[swedish,english]{babel}
@@ -33,17 +32,15 @@
 	Lecture on UNIX-like shells
 }
 \author{Daniel Bosk\footnote{%
-	Detta verk är tillgängliggjort under licensen Creative Commons 
-	Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
-	För att se en sammanfattning och kopia av licenstexten besök URL 
-	\url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
+  This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 
+  Unported license.
+	To view a copy of this license, visit 
+	\url{http://creativecommons.org/licenses/by-sa/3.0/}.
 }}
 \institute{%
-	%Division of Information and Communication Systems (ICS),\\
+  Department of Information and Communication Systems (ICS),\\
 	%Avdelningen för informations- och kommunikationssytem (IKS),\\
-	Department of Information Technology and Media (ITM),\\
-	%Institutionen för informationsteknologi och medier (ITM),\\
-	Mid Sweden University, Sundsvall.
+  Mid Sweden University, Sundsvall.
 	%Mittuniversitetet, Sundsvall.
 }
 \date{\svnId}
@@ -81,14 +78,21 @@
 
 
 \section{UNIX shells}
+
+\subsection{Introduction}
+
 \begin{frame}{UNIX shells}
 	\begin{itemize}
 		\item<1> The shell interprets commands from the user and executes them.
+
 		\item<2> The UNIX design of the shell is to implement all commands as 
 			separate programs -- \emph{each of which does one thing and does that 
 			thing well}.
+
 		\item<3> These programs are located in /bin, /sbin, /usr/bin, etc.
+
 		\item<4> Shells are also programs, standard shells are located in /bin.
+
 		\item<5> The simplistic design of UNIX makes many different shells 
 			available, e.g.
 			\begin{itemize}
@@ -97,29 +101,35 @@
 				\item Bourne Again Shell, bash(1), and
 				\item the X window system (X11), Xorg(1).
 			\end{itemize}
+
 	\end{itemize}
 \end{frame}
+
 \begin{frame}[fragile]{UNIX shells}{Manual pages}
 	\begin{itemize}
 		\item<1-2> Access manual pages (man-pages) by using the command man(1).
+
 		\item<2> Usage: \code{man [section] name}
+
 		\item<3> The section is given within parentheses directly after the command 
 			name, e.g. man(1) or sh(1).
-			\begin{lstlisting}
+      \begin{terminal}
 $ man 1 sh
 [man-page of sh]
 $ man sh
 [man-page of sh]
-$
-			\end{lstlisting}
+      \end{terminal}
+
 		\item<4> A man-page with the same name can occur in different sections, 
 			e.g. printf(1) and printf(3).
+
 	\end{itemize}
 \end{frame}
+
 \begin{frame}[fragile]{UNIX shells}{apropos(1)}
 	apropos(1) can be used to search in man-page titles and descriptions.
 	\small
-	\begin{lstlisting}
+  \begin{terminal}
 $ apropos print
 cat (1)              - concatenate files and print on the standard output
 lp (1)               - print files
@@ -131,10 +141,12 @@ lpstat (1)           - print cups status information
 printf (1)           - format and print data
 printf (3)           - formatted output conversion
 whoami (1)           - print effective userid
-	\end{lstlisting}
+$
+  \end{terminal}
 \end{frame}
 
 \subsection{Input, output and error streams}
+
 \begin{frame}{Input, output and error streams}
 	\begin{itemize}
 		\item<1-> Three special (and always open) files (streams):
@@ -143,8 +155,10 @@ whoami (1)           - print effective userid
 				\item[stdout] output from process to e.g. to terminal (i.e.  display).
 				\item[stderr] error messages are written to stderr.
 			\end{description}
+
 		\item<2> Both stdout and stderr are output streams usually displayed in the 
 			terminal.
+
 		\item<3> Occationally these three streams are referred to by numbers, their 
 			file descriptors:
 			\begin{description}
@@ -152,36 +166,40 @@ whoami (1)           - print effective userid
 				\item[stdout] filedescriptor 1
 				\item[stderr] filedescriptor 2
 			\end{description}
+
 	\end{itemize}
 \end{frame}
 
 \subsection{Redirections}
+
 \begin{frame}[fragile]{Redirections}
 	\begin{itemize}
 		\item<1> $>$ redirects output.
-			\begin{lstlisting}
+      \begin{terminal}
 $ echo testing to redirect some output > /tmp/test.txt
 $ cat /tmp/test.txt
 testing to redirect some output
 $
-			\end{lstlisting}
+      \end{terminal}
+
 		\item<2> $<$ redirects input.
-			\begin{lstlisting}
+      \begin{terminal}
 $ cat
 test 1 2 3
 test 1 2 3
 $ cat < /tmp/test.txt
 testing to redirect some output
 $
-			\end{lstlisting}
+      \end{terminal}
 	\end{itemize}
 \end{frame}
 
 \subsection{Pipelines}
+
 \begin{frame}[fragile]{Pipelines}
 	\begin{itemize}
 		\item The pipe: redirects stdout of one process to stdin of another.
-			\begin{lstlisting}
+      \begin{terminal}
 $ echo test 1 2 3 | cat
 test 1 2 3
 $ ls / | cat
@@ -190,14 +208,16 @@ etc
 usr
 [...]
 $
-			\end{lstlisting}
+      \end{terminal}
 	\end{itemize}
 \end{frame}
 
 \subsection{Environment variables}
+
 \begin{frame}{Environment variables}
 	\begin{itemize}
 		\item<1> Can be accessed by all processes.
+
 		\item<2> Can be used to store settings for some tools and utilities.
 			\begin{description}
 				\item[PAGER] path to user's preferred pager.
@@ -208,29 +228,38 @@ $
 				\item[HOME] the path to the user's home directory.
 				\item[PS1] sets prompt of the shell, see e.g. sh(1).
 			\end{description}
+
 		\item<3> More can be read about this in the man-page for your shell and 
 			environ(7).
+
 	\end{itemize}
 \end{frame}
+
 \begin{frame}{Variable substitution}
 	\begin{itemize}
 		\item<1-3> A variable is created and assigned by doing: 
 			\code{VARIABLE=value}.
+
 		\item<2-3> A variable can be referenced by its name prefixed with 
 			a dollar-sign (\$), i.e. \code{\$VARIABLE}.
+
 		\item<2-3> An alternative way is \code{\$\{VARIABLE\}}.
+
 		\item<3> The variable reference is substituted with the value of the 
 			variable.
+
 		\item<4> There are some special purpose variables:
 			\begin{description}
 				\item[*] expands to all positional parameters \code{\$1 \$2 \$3 ...}.
 				\item[\#] expands to the number of positional parameters.
 				\item[0] expands to the name of the shell or shell script.
 			\end{description}
+
 	\end{itemize}
 \end{frame}
+
 \begin{frame}[fragile]{Variable substitution, continued}
-	\begin{lstlisting}
+  \begin{terminal}
 $ export EDITOR=vim
 $ export PATH=${HOME}/bin:${PATH}
 $ echo $PATH
@@ -241,14 +270,17 @@ $ EDITOR=emacs $EDITOR /tmp/test.txt
 $ echo $0 ${0}
 /bin/pdksh /bin/pdksh
 $
-	\end{lstlisting}
+$
+  \end{terminal}
 \end{frame}
+
 \begin{frame}[fragile]{Command substitution}
 	\begin{itemize}
 		\item<1-2> Output from commands can be substituted into environment 
 			variables.
+
 		\item<2> This is done using \code{\$(<command> <arguments>)}.
-			\begin{lstlisting}
+      \begin{terminal}
 $ username=$(whoami)
 $ echo $username
 danbos
@@ -257,12 +289,17 @@ $ old_time=$(date)
 $ sleep 5
 $ echo the time 5 seconds ago was $old_time
 the time 5 seconds ago was Fri Apr 13 06:56:57 CEST 2012
-			\end{lstlisting}
+$
+$
+      \end{terminal}
 	\end{itemize}
 \end{frame}
 
 
 \section{Some useful tools}
+
+\subsection{Overview}
+
 \begin{frame}{Some useful tools}
 	\begin{description}
 		\item[echo(1)] display a line of text
@@ -336,40 +373,60 @@ $
 \end{comment}
 
 \subsection{Regular expressions (regex)}
+
 \begin{frame}{Regular expressions (regex)}
 	\begin{itemize}
 		\item Is a pattern matching language, some details in regex(7).
+
 		\item Both grep(1) and sed(1) uses regular expressions.
+
 		\item Searching within man-pages are done using regex.
+
 	\end{itemize}
 \end{frame}
+
 \begin{frame}{Regex, continued}
 	\begin{itemize}
 		\item Ordinary characters are matched by themselves.
+
 		\item There are special characters which must be escaped:
 			\begin{center}
 				\code{\{\}[].*^\$?()\|}.
 			\end{center}
+
 	\end{itemize}
 \end{frame}
+
 \begin{frame}{Regex, continued}{Quantifiers}
 	\begin{itemize}
 		\item Asterisk (*): 0 or more.
+
 		\item Question mark (?): 0 or 1.
+
 		\item Braces (\(\{n\}\)): exactly \(n\).
+
 		\item Braces (\(\{n,m\}\)): either \(n, n+1, \ldots,\) or \(m\).
+
 		\item Braces (\(\{n,\}\)): \(n\) or more.
+
 	\end{itemize}
 \end{frame}
+
 \begin{frame}{Regex, continued}{Ranges}
 	\begin{itemize}
 		\item Dot (.): any character.
+
 		\item Parantheses ((a$|$b)): a or b.
+
 		\item Square parantheses ([abc]): either a or b or c.
+
 		\item Square parantheses ([\^\,abc]): not a nor b nor c.
+
 		\item Square parantheses ([a-z]): one letter between a and z.
+
 	\end{itemize}
 \end{frame}
+
 \begin{frame}{Regex examples}
 	\uncover<1>{
 		The assignment instruction said \emph{hand in three files named 
@@ -403,12 +460,10 @@ $
 \end{frame}
 \end{comment}
 
-
-\section{Some shell examples}
-
 \subsection{A shell example courtesy of McIlroy}
+
 \begin{frame}[fragile]{A shell example courtesy of McIlroy}
-	\begin{lstlisting}
+  \begin{terminal}
 $ cat long_text.txt | \
 > tr -cs A-Za-z '\n' | \
 > tr A-Z a-z | \
@@ -418,50 +473,60 @@ $ cat long_text.txt | \
 > head
 [ten lines of output]
 $
-	\end{lstlisting}
+  \end{terminal}
 \end{frame}
 
 \subsection{How to transfer a set of files}
+
 \begin{frame}[fragile]{How to transfer a set of files}
-	\begin{lstlisting}
+  \begin{terminal}
 $ tar -zcf - /path/to/files | \
 > ssh user@host.domain.tld tar -zxf -
 $
-	\end{lstlisting}
+  \end{terminal}
 \end{frame}
 
 \subsection{How to create a simple VoIP system}
+
 \begin{frame}[fragile]{How to create a simple VoIP system}
 	From OpenBSD to OpenBSD:
-	\begin{lstlisting}
+  \begin{terminal}
 $ cat /dev/audio | compress | \
 > ssh user@host.domain.tld "uncompress > /dev/audio" &
 $
-	\end{lstlisting}
+  \end{terminal}
 
 	\pause
 	From Ubuntu to Ubuntu:
-	\begin{lstlisting}
+  \begin{terminal}
 $ arecord | gzip | ssh user@host.domain.tld "uncompress | aplay" &
 $
-	\end{lstlisting}
+  \end{terminal}
 \end{frame}
 
 
 \section{Shell scripting}
+
+\subsection{Introduction}
+
 \begin{frame}{Shell scripting}
 	\begin{itemize}
 		\item<1-> Just shell commands, redirections, pipes etc. written to a file.
+
 		\item<2> Thanks to the UNIX design, there is no difference reading from 
 			stdin with stdin being the keyboard and stdin being redirected from 
 			a file.
+
 		\item<3-4> The file is hence read by the shell process and executed.
+
 		\item<4> Note that it opens the file separately, it does not redirect it to 
 			stdin -- although this is fully possible.
+
 	\end{itemize}
 \end{frame}
 
 \subsection{Execution flow-control constructs}
+
 \begin{frame}{Execution flow-control constructs}
 	\begin{itemize}
 		\item if-then, elif-then, else
@@ -471,8 +536,9 @@ $
 	\end{itemize}
 	These can be read about in the man-page of the shell, e.g. sh(1).
 \end{frame}
+
 \begin{frame}[fragile]{if-then, elif-then, else}
-	\begin{lstlisting}
+  \begin{terminal}
 $ VARIABLE=Yes
 $ if [ "$VARIABLE" = "Yes" ]; then \
 > echo "OK"; \
@@ -483,10 +549,11 @@ $ if [ "$VARIABLE" = "Yes" ]; then \
 > fi
 OK
 $
-	\end{lstlisting}
+  \end{terminal}
 \end{frame}
+
 \begin{frame}[fragile]{for-do}
-	\begin{lstlisting}
+  \begin{terminal}
 $ for i in 1 2 3; do \
 > echo $i; \
 > done
@@ -494,8 +561,9 @@ $ for i in 1 2 3; do \
 2
 3
 $
-	\end{lstlisting}
+  \end{terminal}
 \end{frame}
+
 \begin{comment}
 \begin{frame}[fragile]{while-do}
 	\begin{lstlisting}
@@ -510,11 +578,14 @@ $
 \end{comment}
 
 \subsection{Some example shell scripts}
+
 \begin{frame}{Some example shell scripts}
 	\begin{description}
 		\item[libris] a script which fetches book information based on ISBN 
 			\citep[for source see][]{Bosk2010libris}.
+
 		\item[rm] a delayed remove command \citep[for source see][]{Bosk2012rm}.
+
 	\end{description}
 \end{frame}
 
@@ -522,7 +593,7 @@ $
 %%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{References}
-	\bibliography{../../literature}
+  \bibliography{literature}
 \end{frame}
 
 \end{document}
