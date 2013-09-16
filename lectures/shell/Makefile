@@ -16,6 +16,9 @@ literature.bib: ../../literature.bib
 TARBALL_FILES= 	Makefile.export ${FILES:.tex=.exporttex}
 
 Makefile.export: Makefile
+
+clean:
+	${RM} literature.bib
 #endexport
 
 miun.depend.mk:
