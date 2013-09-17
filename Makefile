@@ -2,6 +2,7 @@ SUBDIR= 	studyguide
 SUBDIR+= 	labs
 SUBDIR+= 	project
 SUBDIR+= 	lectures
+SUBDIR+= 	workshops
 #SUBDIR+= 	compendii
 
 CATEGORY=	itgrund
