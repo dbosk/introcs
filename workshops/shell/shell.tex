@@ -1,0 +1,109 @@
+% $Id$
+% Author:	Daniel Bosk <daniel.bosk@miun.se>
+\documentclass[handout]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[swedish,english]{babel}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{natbib}
+\usepackage{varioref,prettyref}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[amssymb,noams,binary]{SIunits}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[today,nofancy]{svninfo}
+\usepackage[listings,varioref,prettyref]{miunmisc}
+\setcitestyle{numbers,square}
+\bibliographystyle{alpha}
+
+\svnInfo $Id$
+
+\lstset{style=text}
+
+\mode<presentation>
+{
+	\usetheme{Frankfurt}
+	\setbeamercovered{transparent}
+	\usecolortheme{seagull}
+}
+
+\title{%
+  Övningar för UNIX-lika skal
+}
+\author{Daniel Bosk\footnote{%
+  Detta verk är tillgängliggjort under licensen Creative Commons 
+  Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
+	För att se en sammanfattning och kopia av licenstexten besök URL 
+	\url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
+}}
+\institute{%
+  %Department of Information and Communication Systems (ICS),\\
+  %Mid Sweden University, Sundsvall.
+  Avdelningen för informations- och kommunikationssytem (IKS),\\
+  Mittuniversitetet, Sundsvall.
+}
+\date{\svnId}
+
+\pgfdeclareimage[height=0.65cm]{university-logo}{MU_logotyp_int_CMYK.pdf}
+\logo{\pgfuseimage{university-logo}}
+
+\AtBeginSection[]{%
+	\begin{frame}<beamer>{Overview}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%\begin{frame}{Läsning}
+%  \input{literature.tex}
+%\end{frame}
+
+\begin{frame}{Användbara verktyg}
+	\begin{description}
+		\item[echo(1)] display a line of text
+		\item[test(1)] check file types and compare values
+		\item[find(1)] search for files in a directory hierarchy
+		\item[tr(1)] translate or delete characters
+		\item[uniq(1)] report or omit repeated lines
+		\item[sort(1)] sort lines of text files
+		\item[wc(1)] print newline, word, and byte counts for each file
+		\item[cut(1)] remove sections from each line of files
+		\item[join(1)] join lines of two files on a common field
+		\item[paste(1)] merge lines of files
+		\item[xargs(1)] build and execute command lines from standard input
+		\item[grep(1)] print lines matching a pattern
+		\item[sed(1)] stream editor for filtering and transforming text
+	\end{description}
+\end{frame}
+
+\begin{frame}{Övningar}
+  \begin{enumerate}
+    \item Titta på några olika skal: bash(1), ksh(1), sh(1), csh(1).
+    \item Titta på manualsidorna för skalen.
+    \item Vilket kommando kan användas för att hitta filer vid namn?
+    \item Spara listan av filer i rotkatalogen till en fil.
+    \item Vad gör kommandot yes(1)?
+    \item Från listan av filer i rotkatalogen, filtrera ut alla filnamn som är 
+      exakt fyra tecken långa.
+    \item Vad innehåller miljövariablerna \term{HOME}, \term{PATH} och 
+      \term{EDITOR}?
+    \item Titta på \term{.profile}, \term{.kshrc} och \term{.bashrc}.
+    \item Undersök \term{rm} och \term{libris}.
+  \end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}{References}
+%  \bibliography{literature}
+%\end{frame}
+
+\end{document}
+
