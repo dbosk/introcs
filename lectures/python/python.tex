@@ -1,0 +1,366 @@
+% $Id$
+% Author:  Daniel Bosk <daniel.bosk@miun.se>
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,swedish]{babel}
+\usepackage{url}
+\usepackage{varioref,prettyref}
+\usepackage{graphicx}
+\usepackage[today,nofancy]{svninfo}
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage[listings,varioref,prettyref]{miunmisc}
+\setcitestyle{numbers,square}
+\bibliographystyle{swealpha}
+
+\svnInfo $Id$
+
+\mode<presentation>
+{
+  \usetheme{Frankfurt}
+  \setbeamercovered{transparent}
+  \usecolortheme{seagull}
+}
+\setbeamertemplate{footline}{\insertframenumber}
+
+\title{%
+  Python del 1
+}
+\author{Daniel Bosk\footnote{%
+  \tiny
+  Detta verk är tillgängliggjort under licensen Creative Commons 
+  Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
+  För att se en sammanfattning och kopia av licenstexten besök URL 
+  \url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
+}}
+\institute[MIUN IKS]{%
+  %Department of Information and Communication Systems (ICS),\\
+  %Mid Sweden University, Sundsvall.
+  %
+  Avdelningen för informations- och kommunikationssytem (IKS),\\
+  Mittuniversitetet, Sundsvall.
+}
+\date{\svnId}
+
+\pgfdeclareimage[height=0.65cm]{university-logo}{MU_logotyp_int_CMYK.pdf}
+\logo{\pgfuseimage{university-logo}}
+
+\AtBeginSection[]{%
+  \begin{frame}<beamer>{Översikt}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Översikt}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+%\begin{frame}
+%  \input{literature.tex}
+%\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+
+\section{Introduktion}
+
+\subsection{Vad är programmering?}
+
+\begin{frame}{\insertsubsectionhead}
+\end{frame}
+
+\subsection{Ett enkelt exempel}
+
+\begin{frame}{\insertsubsectionhead}
+\end{frame}
+
+
+\section{Variabler}
+
+\subsection{Datatyper}
+
+\begin{frame}{\insertsubsectionhead}
+  Man kan säga att nästan allt i Python är av någon datatyp. Dessa datatyper
+  håller Python själv reda på, men man måste även som programmerare hålla koll
+  på dessa för att programmet ska fungera som man vill.
+
+  De datatyper som Python definierar är bl.a.
+  \begin{description}
+    \item[int] Heltal (Integers),
+    \item[float] Flyttal (Floating point numbers),
+    \item[str] Strängar (Strings).
+  \end{description}
+\end{frame}
+
+
+\subsection{Aritmetiska operatorer}
+
+\begin{frame}{\insertsubsectionhead}
+  På dessa datatyper finns operatorer definierade, t.ex. \code{+} är en 
+  operator definierad för heltal.
+  Andra operatorer som finns är \code{+ - * / // \%}.
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  Några exempel (som körs i Pythons tolk från terminalen):
+  \begin{terminal}
+\$ python
+Python 2.2.3 (#1, Jan  5 2005, 16:36:30)
+[GCC 3.4.2] on sunos5
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 5+5
+10
+>>> 3*2
+6
+>>> 5//3
+1
+>>> 5\%3
+2
+>>> "hej"+"svejs"
+'hejsvejs'
+>>> "hej"*3
+'hejhejhej'
+>>>
+  \end{terminal}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  Alla operatorer är dock inte definierade för alla datatyper, en mycket kort
+  och ej fullständig sammanfattning är:
+  \begin{description}
+    \item[Heltal] kan använda operatorerna \code{+ - * / // \%},
+    \item[Flyttal] kan använda operatorerna \code{+ - * /}, heltalsdivision
+    och modulo går inte att beräkna för flyttal,
+    \item[Strängar] har bara operatorerna \code{+ *}.
+  \end{description}
+\end{frame}
+
+
+%\section{Konstanter}
+%\noindent
+%För att förenkla beräkningar etc. har vi något som kallas för konstanter.
+%Dessa används för att underlätta när vi har återkommande värden, t.ex. \(\pi\).
+%En konstant i Python skapas på följande vis \code{PI=3.14}, och kan sedan
+%användas genom att man skriver \code{PI} istället för \code{3.14} överallt i
+%sin kod. En exempelkörning i Python kan se ut enligt följande.
+%\begin{lstlisting}[style=text]
+%>>> PI=3.14
+%>>> 2*PI
+%6.2800000000000002
+%>>>
+%\end{lstlisting}
+%
+%Konstanter kan också användas för vissa restriktioner som man kanske har i sin
+%kod, t.ex. att ett namn måste vara 32 tecken. Om man senare kommer på att
+%namnet borde kunna vara 64 tecken långt behöver man bara ändra värdet på
+%konstanten\footnote{Med att ändra värde på konstanten menare jag att man ändrar
+%i koden, värdet på en konstant kan inte ändras under programkörning.} istället
+%för att leta upp alla ställen i koden där det används.
+
+
+\subsection{Identifierare}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Vilka regler gäller då för namnet på konstanterna?
+    \item De får bestå av bokstäver, siffror och även understreck (\code{_}).
+    \item Men de får dock inte börja med siffror.
+    \item De får heller inte vara något av följande reserverade ord:
+      \begin{code}
+and assert break class continue def del elif
+else except exec finally for from global if
+import in is lambda not or pass print raise
+return try while
+      \end{code}
+    \item Viktigt att tänka på är att man skiljer på gemener och versaler, 
+      d.v.s.\ \code{PI} är inte samma sak som \code{Pi}.
+  \end{itemize}
+\end{frame}
+
+\subsection{Variabler}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item En variabel är en identifierare.
+    \item Den representerar ett ett minnesutrymme i vilket man kan lagra data.
+    \item Namnet uppfyller kravet för en identifierare, men får inte vara 
+      enbart versaler (för det tolkar Python som en konstant).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  \begin{terminal}
+>>> x=5
+>>> y=3
+>>> z=x*y*3
+>>> print x, y, z
+5 3 45
+>>> print x
+5
+>>> print y
+3
+>>> print z
+45
+>>> x=x+1
+>>> print x
+6
+>>> print z
+45
+>>>
+  \end{terminal}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Notera att värdet på \code{z} inte ändras när vi ändrar värdet på 
+      \code{x}.
+    \item Detta för att det är värdet \code{45} som lagras i \code{z} och inte 
+      relationen \code{x*y*3}.
+  \end{itemize}
+\end{frame}
+
+\subsection{Typkonvertering}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Ibland kan man vilja konvertera vissa typer till andra.
+    \item Det kan vara att man läst in en sträng från tangentbordet och vill 
+      konvertera den till ett tag (om användaren matade in ett tal).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  \begin{terminal}
+>>> x="3.14"
+>>> pi=float(x)
+>>> print pi
+3.14
+>>> print x+2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+  TypeError: cannot concatenate 'str' and 'int' objects
+>>> print pi+2
+5.14
+>>>
+  \end{terminal}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  Ett annat bra exempel är procentberäkningar,
+  \begin{terminal}
+>>> 99/100*100
+0
+>>> float(99)/100*100
+99.0
+>>>
+  \end{terminal}
+  där man får fel svar om man inte explicit typkonverterar.
+\end{frame}
+
+
+\section{Funktioner}
+
+\subsection{Översikt}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  \begin{itemize}
+    \item Funktioner utgör en viktig byggsten i programmeringen.
+    \item Liksom inom matematiken kan den användas för att dela upp större 
+      problem i mindre och bidra till en bättre ordning.
+    \item De används dessutom på samma sätt.
+    \item \(f(x) = 2 \cdot g(x) + 3\) och \(g(x) = x^2\) inom matematiken 
+      skulle kunna skrivas i Python som
+      \begin{code}
+def g(x):
+    return x*x
+
+def f(x):
+    return 2*g(x)+3
+      \end{code}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item När vi talar om funktioner består de av flera delar, funktionen 
+      består av ett funktionshuvud och en funktionskropp.
+    \item Funktionshuvudet är den första raden i funktionsdefinitionen.
+    \item Den består av funktionsnamn och formella parametrar.
+      D.v.s.
+  \[
+  \overbrace{\text{def functionname(}
+    \underbrace{\text{argument1, argument2, ...}}_{\text{formella
+      parametrar}}\text{):}}^{\text{funktionshuvud}}
+  \]
+    \item Resten av funktionen är funktionskroppen, d.v.s.\ all kod som hör 
+      funktionen till.
+  \end{itemize}
+\end{frame}
+
+
+\section{Ett programexempel}
+
+\subsection{Beräkning av energi hos en boll}
+
+\begin{frame}[allowframebreaks,fragile]{\insertsubsectionhead}
+  \lstinputlisting[language=Python]{./O1.py}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  En körning av detta program (från en terminal) kan se ut så här:
+  \begin{terminal}
+  $ python O1.py
+  Ange bollens massa: 2
+  Ange bollens höjd: 3
+  Ange bollens hastighet: 4
+  Bollens rörelseenergi =  16.0 Joule
+  Bollens potentiella energi 58.92 Joule
+  $
+
+  \end{terminal}
+\end{frame}
+
+
+\subsection{Tips och kommentarer}
+
+\begin{frame}{\insertsubsectionhead}
+  Några punkter att tänka på:
+  \begin{itemize}
+    \item Blanda aldrig språk, antingen skriver ni alla variabelnamn och
+    funktioner på engelska eller på svenska -- aldrig båda!
+    \item Använd förklarande namn till alla variabler och funktioner!
+    \item Skriv kommentarer!
+    \item Dela upp programmen i mindre delar -- funktioner! Det blir
+    lättare att följa och det blir snyggare kod, men framför allt mycket
+    enklare att programmera!
+  \end{itemize}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Referenser}
+  \bibliography{literature}
+\end{frame}
+
+\end{document}
+

@@ -1,8 +1,8 @@
 SUBDIR= 	intro
 SUBDIR+= 	datarep
 SUBDIR+= 	arch
-#SUBDIR+= 	shell
-#SUBDIR+= 	python
+SUBDIR+= 	shell
+SUBDIR+= 	python
 #SUBDIR+= 	latex
 ##SUBDIR+= 	internet
 ##SUBDIR+= 	security
