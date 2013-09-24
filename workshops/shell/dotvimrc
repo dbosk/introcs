@@ -1,0 +1,129 @@
+set nocompatible
+set background=dark
+set fileencoding=utf8
+
+" automatically reload .vimrc on updates
+autocmd! bufwritepost .vimrc source %
+call pathogen#infect()
+
+set clipboard=unnamed " yank to the system register (*) by default
+
+" paste-mode on F2
+imap <F2> <ESC><F2>
+set pastetoggle=<F2>
+"nnoremap <F2> :set invpaste paste?<CR>
+
+" allow more keybindings with a ',' prepended
+" handle tabs
+map <leader>n <ESC>:tabprevious<CR>
+map <leader>m <ESC>:tabnext<CR>
+map <leader>N <ESC>:tabnew<CR>
+" move between splits
+"map <c-h> <c-w>h
+"map <c-j> <c-w>j
+"map <c-k> <c-w>k
+"map <c-l> <c-w>l
+" sort selection
+vnoremap <leader>s :sort<CR>
+" better indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" tabbed (F12) or spaced (F11) indents
+nmap <F11> :%s/\t/    /g<CR>
+nmap <F12> :%s/    /\t/g<CR>
+" convert between encodings
+nmap <F9>  :%! iconv -f utf-8 -t latin1
+nmap <F10> :%! iconv -f latin1 -t utf-8
+
+" informative status line
+set statusline=%f%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
+
+" use a scollbuffer of 3 lines
+set scrolloff=3
+" show a cursorline
+set cursorline
+" be able to undo a 1000 times
+set undolevels=1000
+" do not run in vi compatible mode
+set nocompatible
+set nofoldenable
+
+" enable syntax highlighting
+syntax on
+
+set wildmode=longest,list
+set textwidth=79
+" automatic format options, see :help fo-table to have them explained
+"set formatoptions=tcroqwanbl1
+set formatoptions=tlro1aw
+
+" set indent settings
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+"set softtabstop=4
+set shiftround
+" set expandtab, i.e. tab -> whitespaces
+"set expandtab
+" set indent options for C/C++, see :help cinoptions-values for explanation
+set cinoptions=c1,:0,t0,+4,(0,W4
+
+" detect filetypes
+filetype on
+filetype indent on " indent depends on filetype
+
+autocmd FileType mail,text,human setlocal formatoptions-=c textwidth=72 expandtab
+autocmd FileType tex setlocal tabstop=2 shiftwidth=2 formatoptions-=c expandtab nofoldenable
+autocmd FileType bib setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd FileType c,cpp,slang setlocal cindent noexpandtab
+autocmd FileType xml,xsd,xslt,html,xhtml setlocal tabstop=2 shiftwidth=2 noexpandtab
+autocmd FileType make setlocal tabstop=4 shiftwidth=4 noexpandtab
+
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType java set omnifunc=javacomplete#Complete
+
+set printdevice=laserjet
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "context"
+
+" Better navigating through omnicomplete option list
+"set completeopt=longest,menuone
+set completeopt=longest,menuone,preview
+function! OmniPopup(action)
+	if pumvisible()
+		if a:action == 'j'
+			return "\<C-N>"
+		elseif a:action == 'k'
+			return "\<C-P>"
+		endif
+	endif
+	return a:action
+endfunction
+inoremap <silent>j <C-R>=OmniPopup('j')<CR>
+inoremap <silent>k <C-R>=OmniPopup('k')<CR>
+
+let g:jedi#related_names_command = "<leader>z"
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+map <leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+let g:Tex_SmartKeyDot = 0
+let g:Tex_SmartKeyQuote = 0
+let g:Tex_SmartKeyBS = 0
+let g:Tex_Leader = '`tex'
+let g:Tex_Leader2 = ',tex'
+"let g:Imap_FreezeImap=1
+"let g:Imap_UsePlaceHolders=0
+imap <buffer> <leader>tm <Plug>Tex_InsertItemOnThisLine
+
+let g:ctrlp_max_height = 30

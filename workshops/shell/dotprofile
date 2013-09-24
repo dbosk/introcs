@@ -1,0 +1,55 @@
+# $OpenBSD: dot.profile,v 1.4 2005/02/16 06:56:57 matthieu Exp $
+#
+# sh/ksh initialization
+
+set -o vi
+umask 27
+
+MATTISHOME=${HOME}/work/miun/code/shell/mattis
+TEXLIVE=/usr/local/texlive/2013/bin/x86_64-linux/
+export MATTISHOME
+PATH=${HOME}/bin:${MATTISHOME}:${TEXLIVE}:${PATH}
+CVSROOT=dbosk@jarvis.bosk.se:/sec/dbosk/cvs
+SVNROOT=svn+ssh://dbosk@jarvis.bosk.se/sec/dbosk/svn
+BSDCVS=anoncvs@anoncvs.se.openbsd.org:/cvs
+KTHCVS=dbosk@my.nada.kth.se:/afs/nada.kth.se/home/x/u13aecix/cvs
+MIUNCVS=danbos@ver.miun.se:/home/danbos/cvs
+MIUNSVN=svn+ssh://danbos@ver.miun.se/home/danbos/svn
+export PATH HOME CVSROOT SVNROOT BSDCVS KTHCVS MIUNCVS MIUNSVN
+
+export ENV=${HOME}/.kshrc
+#PS1=\u@\h:\w\$
+#x=$(print \\001)
+host=$(hostname -s)
+curdir="\$( echo \${PWD##*/} | sed -E '/^.{10}.{3,}.{3}$/s/^(.{10}).{3,}(.{3})$/\1\.\.\.\2/' )"
+#PS1="$x$(print \\r)$x$(tput smso)$x(\$?):\$USER@\$host:${curdir}$x$(tput rmso)$x\$ "
+PS1="\[$(tput smso)\](\$?):\$USER@\$host:${curdir}\[$(tput rmso)\]\$ "
+HISTFILE=${HOME}/.history
+HISTSIZE=500
+
+TRASH=${HOME}/.trash
+MINUTES_IN_TRASH=30
+export TRASH MINUTES_IN_TRASH
+
+RM=/bin/rm
+EDITOR=vim
+VISUAL=vim
+BROWSER=firefox
+export EDITOR VISUAL BROWSER
+
+PGPPATH=${HOME}/.gnupg
+GNUPGHOME=${HOME}/.gnupg
+export PGPPATH GNUPGHOME
+
+MAILER="mutt -s \"resultat \${COURSE}\" -a \${report} -- \${EXPADDR}"
+export MAILER
+
+export LOCALE="sv_SE"
+#export LANG="en_GB"
+#export LC_MESSAGES="en_GB"
+#export LC_CTYPE="en_GB"
+#export LC_COLLATE="en_GB"
+
+if [ "$0" = "-bash" ]; then
+	. ${HOME}/.bashrc
+fi

@@ -1,5 +1,5 @@
 CATEGORY=	itgrund/workshops
-FILES=		shell.tex literature.bib
+FILES=		shell.tex literature.bib dotprofile dotvimrc
 DOCUMENTS=	shell.pdf
 
 PACKAGE=		shell-src
