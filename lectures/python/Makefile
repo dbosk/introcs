@@ -5,7 +5,7 @@ DOCUMENTS=	python1.pdf
 PACKAGE= 		python-src
 TARBALL_FILES= 	${FILES} Makefile
 
-python.pdf: ${FILES}
+python1.pdf: ${FILES}
 
 #export no
 literature.bib: ../../literature.bib
