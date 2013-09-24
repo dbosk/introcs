@@ -1,5 +1,5 @@
 CATEGORY=	itgrund/lectures
-FILES=		python.tex literature.bib
+FILES=		python.tex literature.bib O1.py
 DOCUMENTS=	python.pdf
 
 PACKAGE= 		python-src
