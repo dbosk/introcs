@@ -21,7 +21,7 @@ LECTURES+= 	arch-lit.tex datarep-lit.tex
 LECTURES+= 	shell-lit.tex
 LECTURES+= 	python-lit.tex
 LECTURES+= 	tex-lit.tex
-LECTURES+= 	present-lit.tex
+LECTURES+= 	report-lit.tex
 
 USE_LATEXMK= 	yes
 USE_BIBLATEX= 	yes
@@ -57,7 +57,7 @@ arch-lit.tex: ../lectures/arch/literature.tex
 shell-lit.tex: ../lectures/shell/literature.tex
 python-lit.tex: ../lectures/python/literature.tex
 tex-lit.tex: ../lectures/latex/literature.tex
-present-lit.tex: ../lectures/present/literature.tex
+report-lit.tex: ../lectures/report/literature.tex
 
 ${LABS} ${PM} ${SEMINARS} ${PROJECT} ${LECTURES}:
 	${CP} $^ $@

@@ -6,6 +6,6 @@ SUBDIR+= 	python
 #SUBDIR+= 	latex
 ##SUBDIR+= 	internet
 ##SUBDIR+= 	security
-#SUBDIR+= 	present
+#SUBDIR+= 	report
 
 include miun.subdir.mk
