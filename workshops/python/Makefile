@@ -1,13 +1,13 @@
 CATEGORY=	itgrund/workshops
-FILES=		python.tex literature.bib
-DOCUMENTS=	python.pdf
+FILES=		python1.tex literature.bib
+DOCUMENTS=	python1.pdf
 
 PACKAGE=		python-src
 TARBALL_FILES=	${FILES} Makefile
 
 PUB_FILES=	${PACKAGE}.tar.gz ${DOCUMENTS}
 
-python.pdf: ${FILES}
+python1.pdf: ${FILES}
 
 #export no
 literature.bib: ../../literature.bib

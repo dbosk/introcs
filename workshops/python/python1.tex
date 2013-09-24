@@ -1,0 +1,94 @@
+% $Id$
+% Author:	Daniel Bosk <daniel.bosk@miun.se>
+\documentclass[handout]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[swedish,english]{babel}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{natbib}
+\usepackage{varioref,prettyref}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[amssymb,noams,binary]{SIunits}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[today,nofancy]{svninfo}
+\usepackage[binary,amsmath]{SIunits}
+\usepackage[listings,varioref,prettyref]{miunmisc}
+\setcitestyle{numbers,square}
+\bibliographystyle{alpha}
+
+\svnInfo $Id$
+
+\lstset{style=text}
+
+\mode<presentation>
+{
+	\usetheme{Frankfurt}
+	\setbeamercovered{transparent}
+	\usecolortheme{seagull}
+}
+
+\title{%
+  Övningar för Python, del 1
+}
+\author{Daniel Bosk\footnote{%
+  Detta verk är tillgängliggjort under licensen Creative Commons 
+  Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
+	För att se en sammanfattning och kopia av licenstexten besök URL 
+	\url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
+}}
+\institute{%
+  %Department of Information and Communication Systems (ICS),\\
+  %Mid Sweden University, Sundsvall.
+  Avdelningen för informations- och kommunikationssytem (IKS),\\
+  Mittuniversitetet, Sundsvall.
+}
+\date{\svnId}
+
+\pgfdeclareimage[height=0.65cm]{university-logo}{MU_logotyp_int_CMYK.pdf}
+\logo{\pgfuseimage{university-logo}}
+
+\AtBeginSection[]{%
+	\begin{frame}<beamer>{Overview}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%\begin{frame}{Läsning}
+%  \input{literature.tex}
+%\end{frame}
+
+\begin{frame}{Övningar}
+  \begin{enumerate}
+    \item Skriv ett program som beräknar överföringshastigheter.
+      Användaren ska mata in mängden data och tiden överföringen ska kunna 
+      genomföras på.
+      Ange alltid i enheten \mega\bit\per\second.
+
+    \item Skriv funktioner som konverterar mellan \mega\bit\per\second och 
+      \mebi\bit\per\second.
+
+    \item Skriv funktioner som konverterar mellan \mega\bit\per\second och 
+      \bit\per\second, etcetera.
+
+    \item Automatiskt välj en lämplig hastighet att skriva ut med.
+      (Introduktion av flödeskontrollsatser.)
+  \end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}{References}
+%  \bibliography{literature}
+%\end{frame}
+
+\end{document}
+
