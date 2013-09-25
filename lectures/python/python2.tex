@@ -1,0 +1,774 @@
+% $Id$
+% Author:  Daniel Bosk <daniel.bosk@miun.se>
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,swedish]{babel}
+\usepackage{url}
+\usepackage{varioref,prettyref}
+\usepackage{graphicx}
+\usepackage[today,nofancy]{svninfo}
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage[listings,varioref,prettyref]{miunmisc}
+\setcitestyle{numbers,square}
+\bibliographystyle{swealpha}
+
+\lstset{language=python}
+
+\svnInfo $Id$
+
+\mode<presentation>
+{
+  \usetheme{Frankfurt}
+  \setbeamercovered{transparent}
+  \usecolortheme{seagull}
+}
+\setbeamertemplate{footline}{\insertframenumber}
+
+\title{%
+  Python, del 2
+}
+\author{Daniel Bosk\footnote{%
+  \tiny
+  Detta verk är tillgängliggjort under licensen Creative Commons 
+  Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
+  För att se en sammanfattning och kopia av licenstexten besök URL 
+  \url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
+}}
+\institute[MIUN IKS]{%
+  %Department of Information and Communication Systems (ICS),\\
+  %Mid Sweden University, Sundsvall.
+  %
+  Avdelningen för informations- och kommunikationssytem (IKS),\\
+  Mittuniversitetet, Sundsvall.
+}
+\date{\svnId}
+
+\pgfdeclareimage[height=0.65cm]{university-logo}{MU_logotyp_int_CMYK.pdf}
+\logo{\pgfuseimage{university-logo}}
+
+\AtBeginSection[]{%
+  \begin{frame}<beamer>{Översikt}
+    \begin{multicols}{2}
+      \tableofcontents[currentsection]
+    \end{multicols}
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Översikt}
+  \begin{multicols}{2}
+    \tableofcontents
+    % You might wish to add the option [pausesections]
+  \end{multicols}
+\end{frame}
+
+%\begin{frame}
+%  \input{literature.tex}
+%\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+
+\section{Logik}
+
+\subsection{Datatypen bool}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item \code{bool} är en datatyp.
+
+    \item Till skillnad från t.ex.\ \code{int}, kan ta enbart två olika värden.
+      \begin{itemize}
+        \item \code{True} och \code{False} (skrivs också vanligtvis som 
+          1 respektive 0)\footnote{Detta genom typkonvertering.}.
+      \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+\subsection{Logiska operatorer}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item På denna datatyp \code{bool} finns några operatorer definierade, likt 
+      \code{+ - * /} för flyttal.
+    \item Dessa operatorer är \code{and or not}.
+    \item \code{not} är en operator som skiljer sig något från de tidigare; den 
+      är unär, d.v.s. den opererar enbart på en operand.
+    \item (Till skillnad från binära operatorer som opererar på två operander.)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{table}[h]
+    \begin{tabular}{l|l}
+      Operation & Resultat \\
+      \hline
+      not True & False \\
+      not False & True
+    \end{tabular}
+    \label{tbl:not}
+    \caption{Sanningtabell för Not}
+  \end{table}
+
+  \begin{table}[h]
+    \begin{tabular}{l|ll}
+      and & True & False \\
+      \hline
+      True & True & False \\
+      False & False & False
+    \end{tabular}
+    \begin{tabular}{l|ll}
+      or & True & False \\
+      \hline
+      True & True & True \\
+      False & True & False
+    \end{tabular}
+    \label{tbl:andor}
+    \caption{Sanningstabeller för And och Or}
+  \end{table}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]{\insertsubsectionhead}
+  Några exempel från Python-tolken:
+  \begin{terminal}
+Python 2.2.3 (#1, Jan  5 2005, 16:36:30)
+[GCC 3.4.2] on sunos5
+Type "help", "copyright", "credits" or "license" for more information.
+>>> True or False
+True
+>>> True and False
+False
+>>> not True
+False
+>>> not False
+True
+>>> not True and False
+False
+>>> not (True and False)
+True
+>>> not False and True
+True
+>>> not (False and True)
+True
+>>>
+  \end{terminal}
+\end{frame}
+
+\subsection{Jämförelseoperationer}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Precis som de aritmetiska och logiska operatorerna finns det 
+      operatorer för jämförelse definierade för de vanliga datatyperna 
+      i Python.
+
+    \item Dessa är \code{== < > <= >= !=}.
+
+    \item De används på samma sätt som de aritmetiska operatorerna, men skiljer 
+      sig genom att de ger upphov till ett värde som är av boolesk typ 
+      (\code{bool}) istället för ett värde av samma typ som operanderna.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  Några exempel:
+  \begin{terminal}
+>>> 5+5
+10
+>>> 5 < 5
+False
+>>> 3 < 5
+True
+>>> 5 == 5
+True
+>>> 4 <= 5
+True
+>>> 5 <= 5
+True
+>>>
+  \end{terminal}
+\end{frame}
+
+
+\section{Villkorssatser och slingor}
+
+\subsection{Villkorssatser}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Villkorssatser används för att kontrollera programflödet, d.v.s.  
+      i vissa fall vill vi att programmet ska göra en sak och i andra fall 
+      något annat.
+
+    \item För detta behöver vi olika villkor.
+
+    \item Ett villkor är ett uttryck som kan evalueras till antingen 
+      \code{True} eller \code{False}.
+
+    \item Exempelvis \code{x < 5} eller \code{x < 5 and x != 0}.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  \begin{itemize}
+    \item En typ av villkorssats är \code{if-elif-else}-satsen.
+
+    \item Den fungerar på följande sätt:
+      \begin{src}[language=python]
+if <villkor>:
+    # kod
+# en eller flera elif-satser
+elif <annat_villkor>:
+    # kod
+else:
+    # kod
+      \end{src}
+
+    \item Notera att man inte nödvändigtvis behöver ha med varken \code{elif} 
+      eller \code{else}, och man kan ta med hur många \code{elif} man önskar.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  \begin{itemize}
+    \item När något villkor är sant ignoreras alla efterföljande \code{elif} 
+      och \code{else} även om deras villkor skulle vara sanna.
+
+    \item Ett exempel:
+      \begin{terminal}
+>>> x=5
+>>> if x < 5:
+...     print( "less than 5" )
+... elif x < 10:
+...     print( "less than 10" )
+... else:
+...     print( "too large" )
+...
+less than 10
+>>>
+    \end{terminal}
+
+  \end{itemize}
+\end{frame}
+
+\subsection{Slingor}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Slingor används för att få dynamiska upprepningar i programmet, 
+      t.ex.\ när vi vill läsa in en fil eller gå igenom en lista.
+
+    \item Det finns två olika iterationskonstruktioner som tas upp här, de är 
+      \code{for}- och \code{while}-satserna.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  \begin{itemize}
+    \item \code{for}-satsen fungerar på följande sätt:
+      \begin{src}[language=python]
+for <variabel> in <lista>:
+   # kod
+      \end{src}
+
+    \item Koden i \code{for}-satsen kommer att köras en gång för varje element 
+      i listan, varje gång kommer variabeln ha värdet av ett element i listan.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  Ett exempel i python-tolken:
+  \begin{terminal}
+>>> for x in [1, 2, 3]:
+...     print( "hej"*x )
+...
+hej
+hejhej
+hejhejhej
+>>> for i in range(10):
+...     print( i )
+...
+0 1 2 3 4 5 6 7 8 9
+>>>
+  \end{terminal}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  \begin{itemize}
+    \item Den andra iterationskonstruktionen är \code{while}-satsen.
+
+    \item Den kör sin kod så länge ett givet villkor är sant.
+
+    \item Den börjar med att kolla villkoret, om det är sant körs koden, annars 
+      fortsätter exekveringen direkt efter while-loopen.
+      \begin{src}[language=python]
+while <villkor>:
+   # kod
+      \end{src}
+
+    \item Notera att den enbart kollar villkoret en gång per varv, så hela 
+      koden körs trots att villkorets värde ändras under körningens gång.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  Exempel:
+  \begin{terminal}
+>>> i=0
+>>> while i<10:
+...     print( i )
+...     i += 1
+...
+0 1 2 3 4 5 6 7 8 9
+>>>
+  \end{terminal}
+\end{frame}
+
+\subsection{Programexempel}
+
+\begin{frame}[fragile,allowframebreaks]{\insertsubsectionhead}{Beräkna porto}
+  \lstinputlisting[style=code,language=Python]{porto.py}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  \begin{terminal}
+(0):danbos@ID20809793:python\$ python porto.py
+Välkommen till Brevvågen
+Hur många brev vill du beräkna porto för (0 för att avsluta): 4
+Hur mycket väger brev 1: 123
+Du måste betala 24 SEK i porto.
+Hur mycket väger brev 2: 23
+Du måste betala 12 SEK i porto.
+Hur mycket väger brev 3: 1
+Du måste betala 6 SEK i porto.
+Hur mycket väger brev 4: 10345
+Du måste betala 275 SEK i porto.
+Det blir 317 SEK för alla brev, tack!
+Välkommen till Brevvågen
+Hur många brev vill du beräkna porto för (0 för att avsluta): 0
+(0):danbos@ID20809793:python\$
+  \end{terminal}
+\end{frame}
+
+
+\section{Några fler datatyper}
+
+\subsection{Datatypen list}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item List är ytterligare en datatyp i Python, den kan användas för att 
+      lagra ett godtyckligt antal värden eller objekt i.
+
+    \item T.ex.\ när man samlar data och har en datamängd som är större än ett 
+      (1) element.
+
+    \item En lista har ett antal metoder, en slags funktion definierad på 
+      objektet självt.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  Om vi skapar en tom lista \code{l}, genom att skriva \code{l = list()} 
+  alternativt \code{l = []}, kan vi använda följande metoder:
+
+  \begin{description}
+    \item[l.append(e)] Lägg till \code{e} som ett element sist i listan.
+
+    \item[l.extend(l2)] Lägg till listan \code{l2} sist i listan.
+
+    \item[l.insert(p, e)] Sätt in \code{e} som ett element framför elementet på 
+      positionen \code{p}.
+
+    \item[l.index(e)] Returnera det lägsta möjliga index för elementet som 
+      matchar \code{e}.
+
+    \item[l.remove(e)] Ta bort första förekomsten av ett element som matchar 
+      \code{e}.
+
+  \end{description}
+
+  Man kan också skapa en lista som redan innehåller några element genom koden
+  \code{l = [1, 2, 3, "hej"]}.
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]{\insertsubsectionhead}
+  \begin{terminal}
+Python 2.2.3 (#1, Jan  5 2005, 16:36:30)
+[GCC 3.4.2] on sunos5
+Type "help", "copyright", "credits" or "license" for more information.
+>>> l = [1, 2, 3]
+>>> print( l )
+[1, 2, 3]
+>>> print( l[0] )
+1
+>>> print( l[2] )
+3
+>>> l.append(5)
+>>> print( l )
+[1, 2, 3, 5]
+>>> l.extend([2,3])
+>>> print( l )
+[1, 2, 3, 5, 2, 3]
+>>> l.insert(0, 10)
+>>> print( l )
+[10, 1, 2, 3, 5, 2, 3]
+>>> l.index(3)
+3
+>>> l.remove(3)
+>>> l.index(3)
+5
+>>>
+  \end{terminal}
+\end{frame}
+
+\subsection{Datatypen dictionary}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Ännu en datatyp hos Python, denna kan användas till att para ihop 
+      saker.
+
+    \item T.ex.\ namn och telefonnummer, man kan söka på ett namn och få ut ett 
+      telefonnummer.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  Om vi skapar ett dictionary \code{d}, genom koden \code{d = \{\}}, kan vi 
+  sedan använda följande metoder:
+
+  \begin{description}
+    \item[d.keys()] Returnerar en lista med alla lagrade nycklar.
+
+    \item[d.values()] Returnerar en lista med alla lagrade värden.
+
+    \item[k in d] Evalueras till sant (\code{True}) om nyckeln \code{k} finns 
+      i \code{d}.
+
+  \end{description}
+
+  För att skapa en dictionary innehållandes några par skriver man följande:
+  \code{d = \{"nyckel" : "värde", "programmering" : "python", 1 : -1\}}.
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  \begin{terminal}
+>>> d = {"hej" : "svejs", "kth" : "kungl tekn högskol"}
+>>> d.keys()
+['kth', 'hej']
+>>> d.values()
+['kungl tekn högskol', 'svejs']
+>>> "kth" in d
+1
+>>> "su" in d
+0
+>>>
+  \end{terminal}
+\end{frame}
+
+\subsection{Lite mer om strängar}
+
+\begin{frame}{\insertsubsectionhead}
+  Strängar har, likt listorna och dictionaries, också metoder. Några av dessa
+  metoder beskrivs här:
+
+  \begin{description}
+    \item[s.split(c)] Delar upp strängen vid varje \code{c}, returnerar en 
+      lista med alla delarna.
+
+    \item[s.strip(c)] Returnerar en sträng där alla \code{c} tagits bort från 
+      början och slut av strängen.
+
+    \item[s.rstrip(c)] Samma som strip(), men behandlar enbart slutet av
+      strängen -- början lämnas orörd.
+
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]{\insertsubsectionhead}
+  \begin{terminal}
+>>> "hej svejs i lingonskogen".split()
+['hej', 'svejs', 'i', 'lingonskogen']
+>>> s = "hej svejs i lingonskogen"
+>>> print( s )
+hej svejs i lingonskogen
+>>> s.split()
+['hej', 'svejs', 'i', 'lingonskogen']
+>>> s.split('e')
+['h', 'j sv', 'js i lingonskog', 'n']
+>>> s = "   hej svejs i lingonskogen    "
+>>> print( s.strip() )
+hej svejs i lingonskogen
+>>> print( s.rstrip() )
+   hej svejs i lingonskogen
+>>> s = "...hej svejs i lingonskogen...."
+>>> print( s.strip('.') )
+hej svejs i lingonskogen
+>>> print( s.rstrip('.') )
+...hej svejs i lingonskogen
+>>>
+  \end{terminal}
+\end{frame}
+
+
+\section{Felhantering}
+
+\subsection{Översikt}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Förutom den grundläggande felhantering man kan skriva själv i ett 
+      program finns det vissa fel som man inte lika enkelt kan skydda sig emot, 
+      där erbjuder Python något som kallas för särfall (eng. exceptions).
+
+    \item Ett \emph{särfall} är en slags signal som ''sänds ut'' när ett fel 
+      uppstår, detta särfall kan man sedan fånga upp på ett speciellt ställe 
+      i koden och där behandla.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  Man hanterar särfall enligt följande:
+
+  \begin{src}[language=python]
+try:
+   # kod som kan ge upphov till särfall
+except <typ0>:
+   # kod som ska köras när ett exception av typ <typ0> fångas
+except <typ1>:
+   # körs när man fångar ett exception av typ <typ1>
+except:
+   # kod som körs för alla andra särfall
+  \end{src}
+
+  Det är helt frivilligt hur många \code{except} man använder sig av, men man 
+  måste ha minst ett (1).
+\end{frame}
+
+\subsection{Exempelkod}
+
+\begin{frame}[fragile,allowframebreaks]{\insertsubsectionhead}
+  \begin{terminal}
+Python 2.6.2 (r262:71600, Aug 12 2009, 11:11:06)
+[GCC 3.3.5 (propolice)] on openbsd4
+Type "help", "copyright", "credits" or "license" for more information.
+>>> try:
+...     int("hej")
+... except:
+...     print( "exception" )
+...
+exception
+>>> int("hej")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: 'hej'
+>>> try:
+...     int("hej")
+... except ValueError:
+...     print( "valueerror" )
+... except:
+...     print( "exception" )
+...
+valueerror
+>>> def f(a,b):
+...     return float(a)/float(b)
+...
+>>> f("5","3")
+1.6666666666666667
+>>> f("hej", "du")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in f
+ValueError: invalid literal for float(): hej
+>>> f("5","0")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in f
+ZeroDivisionError: float division
+>>> def f(a,b):
+...     try:
+...             return float(a)/float(b)
+...     except ValueError:
+...             print( "valueerror" )
+...     except ZeroDivisionError:
+...             print( "zerodivisionerror" )
+...
+>>> f("5","4")
+1.25
+>>> f("a","b")
+valueerror
+>>> f("5","0")
+zerodivisionerror
+>>>
+  \end{terminal}
+\end{frame}
+
+
+\section{Filhantering}
+
+\subsection{Översikt}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item Ibland kan man vilja ''komma ihåg'' saker mellan körningarna av 
+      programmet, när alla variabler försvinner när programmet avslutas, eller 
+      läsa in stora mängder data som är otympligt att mata in från 
+      tangentbordet.
+
+    \item Där kommer filhantering lämpligt in i bilden.
+
+    \item Vi kan skriva det vi vill komma ihåg till en fil, och sedan läsa in 
+      den nästa gång vi startar programmet.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  \begin{itemize}
+    \item För att öppna en fil i Python använder man sig av funktionen 
+      \code{open()}, denna funktion tar som första argument en sträng, som är 
+      sökvägen till filen som ska öppnas.
+
+    \item Sökvägen kan vara absolut eller relativ. Om den är relativ utgår man 
+      från den mapp som programfilen finns i.
+
+    \item Det andra argumentet är sättet vi vill öppna filen på, för läsning 
+      eller för skrivning.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsubsectionhead}
+  \begin{itemize}
+    \item Open returnerar ett objekt som representerar filen. Objektet har 
+      några metoder för att kunna läsa och skriva data från respektive till 
+      filen.
+
+    \item Vi öppnar filen \term{testfil.txt} för läsning genom
+      \begin{src}[language=python]
+fil = open("testfil.txt", "r")
+      \end{src}
+
+    \item Vi öppnar filen för skrivning genom
+      \begin{src}[language=python]
+fil = open("testfil.txt", "w")
+      \end{src}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}{Läsning}
+  Följande metoder finns för att utföra olika handlingar på filen:
+
+  \begin{description}
+    \item[text = fil.read()] Läs in hela filens innehåll till variabeln
+      \code{text}.
+
+    \item[rader = fil.readlines()] Läs in hela filen, spara alla rader
+      som separata element i listan \code{rader}.
+
+    \item[rad = fil.readline()] Läs in nästa rad till variabeln
+      \code{rad}.
+
+  \end{description}
+
+  När vi inte längre behöver använda filen stänger vi den med 
+  \code{fil.close()}.
+\end{frame}
+
+\begin{frame}{\insertsubsectionhead}
+  Följande metoder finns för att utföra olika handlingar på filen:
+
+  \begin{description}
+    \item[fil.write(''hello file\textbackslash n'')] Skriv \emph{hello file} 
+      till filen, följt av en radbrytning.
+
+    \item[fil.writelines(rader)] Skriv alla strängar i listan rader till filen, 
+      notera att de inte skrivs på varsin rad om de inte själva innehåller 
+      radbrytningstecken.
+
+  \end{description}
+
+  När vi inte längre behöver använda filen stänger vi den med 
+  \code{fil.close()}.
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]{\insertsubsectionhead}
+  \begin{terminal}
+dbosk@my:/tmp\$ ls testfil.txt
+testfil.txt: No such file or directory
+dbosk@my:/tmp\$ python
+Python 2.2.3 (#1, Jan  5 2005, 16:36:30)
+[GCC 3.4.2] on sunos5
+Type "help", "copyright", "credits" or "license" for more information.
+>>> fil = open("testfil.txt", "w")
+>>> fil.write("hello file\nen rad till")
+>>> fil.close()
+>>> \^D
+dbosk@my:/tmp\$ ls testfil.txt
+testfil.txt
+dbosk@my:/tmp\$ python
+Python 2.2.3 (#1, Jan  5 2005, 16:36:30)
+[GCC 3.4.2] on sunos5
+Type "help", "copyright", "credits" or "license" for more information.
+>>> fil = open("testfil.txt", "r")
+>>> print( fil.read() )
+hello file
+en rad till
+>>> fil.close()
+>>> fil = open("testfil.txt", "r")
+>>> print( fil.readline() )
+hello file
+
+>>> print( fil.readline() )
+en rad till
+>>> print( fil.readline() )
+
+>>> \^D
+dbosk@my:/tmp\$
+  \end{terminal}
+\end{frame}
+
+\subsection{Programexempel}
+
+\begin{frame}[fragile,allowframebreaks]{\insertsubsectionhead}
+  \lstinputlisting[style=code,language=Python]{hist.py}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Referenser}
+  \bibliography{literature}
+\end{frame}
+
+\end{document}
+
