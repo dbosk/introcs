@@ -9,7 +9,6 @@
 \usepackage{graphicx}
 \usepackage[today,nofancy]{svninfo}
 \usepackage{natbib}
-\usepackage{booktabs}
 \usepackage{listings}
 \usepackage[listings,varioref,prettyref]{miunmisc}
 \setcitestyle{numbers,square}
@@ -91,7 +90,7 @@
 
 \subsection{Ett enkelt exempel}
 
-\begin{frame}{\insertsubsectionhead}
+\begin{frame}[fragile]{\insertsubsectionhead}
   \begin{src}[language=python]
 print( "hello world!" )
 name = input( "who are you? " )
