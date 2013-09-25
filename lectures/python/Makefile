@@ -1,7 +1,7 @@
 CATEGORY=	itgrund/lectures
-FILES=		python1.tex literature.bib O1.py
+FILES=		python1.tex literature.bib energy.py
 FILES= 		python2.tex literature.bib porto.py hist.py
-DOCUMENTS=	python1.pdf
+DOCUMENTS=	python1.pdf python2.pdf
 
 PACKAGE= 		python-src
 TARBALL_FILES= 	${FILES} Makefile

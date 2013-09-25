@@ -92,6 +92,11 @@
 \subsection{Ett enkelt exempel}
 
 \begin{frame}{\insertsubsectionhead}
+  \begin{src}[language=python]
+print( "hello world!" )
+name = input( "who are you? " )
+print( "hello " + name + ", how nice to meet you!" )
+  \end{src}
 \end{frame}
 
 
@@ -100,25 +105,33 @@
 \subsection{Datatyper}
 
 \begin{frame}{\insertsubsectionhead}
-  Man kan säga att nästan allt i Python är av någon datatyp. Dessa datatyper
-  håller Python själv reda på, men man måste även som programmerare hålla koll
-  på dessa för att programmet ska fungera som man vill.
+  \begin{itemize}
+    \item Man kan säga att nästan allt i Python är av någon datatyp.
 
-  De datatyper som Python definierar är bl.a.
-  \begin{description}
-    \item[int] Heltal (Integers),
-    \item[float] Flyttal (Floating point numbers),
-    \item[str] Strängar (Strings).
-  \end{description}
+    \item Dessa datatyper håller Python själv reda på, men man måste även som 
+      programmerare hålla koll på dessa för att programmet ska fungera som man 
+      vill.
+
+    \item De datatyper som Python definierar är bl.a.
+      \begin{description}
+        \item[int] Heltal (Integers),
+        \item[float] Flyttal (Floating point numbers),
+        \item[str] Strängar (Strings).
+      \end{description}
+  \end{itemize}
 \end{frame}
 
 
 \subsection{Aritmetiska operatorer}
 
 \begin{frame}{\insertsubsectionhead}
-  På dessa datatyper finns operatorer definierade, t.ex. \code{+} är en 
-  operator definierad för heltal.
-  Andra operatorer som finns är \code{+ - * / // \%}.
+  \begin{itemize}
+    \item På dessa datatyper finns operatorer definierade, t.ex. \code{+} är en 
+      operator definierad för heltal.
+
+    \item Andra operatorer som finns är \code{+ - * / // \%}.
+
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{\insertsubsectionhead}
@@ -147,10 +160,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 \begin{frame}{\insertsubsectionhead}
   Alla operatorer är dock inte definierade för alla datatyper, en mycket kort
   och ej fullständig sammanfattning är:
+
   \begin{description}
     \item[Heltal] kan använda operatorerna \code{+ - * / // \%},
-    \item[Flyttal] kan använda operatorerna \code{+ - * /}, heltalsdivision
-    och modulo går inte att beräkna för flyttal,
+    \item[Flyttal] kan använda operatorerna \code{+ - * /}, heltalsdivision och 
+      modulo går inte att beräkna för flyttal.
     \item[Strängar] har bara operatorerna \code{+ *}.
   \end{description}
 \end{frame}
@@ -213,18 +227,18 @@ return try while
 >>> x=5
 >>> y=3
 >>> z=x*y*3
->>> print x, y, z
+>>> print( x, y, z )
 5 3 45
->>> print x
+>>> print( x )
 5
->>> print y
+>>> print( y )
 3
->>> print z
+>>> print( z )
 45
 >>> x=x+1
->>> print x
+>>> print( x )
 6
->>> print z
+>>> print( z )
 45
 >>>
   \end{terminal}
@@ -234,8 +248,10 @@ return try while
   \begin{itemize}
     \item Notera att värdet på \code{z} inte ändras när vi ändrar värdet på 
       \code{x}.
+
     \item Detta för att det är värdet \code{45} som lagras i \code{z} och inte 
       relationen \code{x*y*3}.
+
   \end{itemize}
 \end{frame}
 
@@ -253,13 +269,13 @@ return try while
   \begin{terminal}
 >>> x="3.14"
 >>> pi=float(x)
->>> print pi
+>>> print( pi )
 3.14
->>> print x+2
+>>> print( x+2 )
 Traceback (most recent call last):
   File "<stdin>", line 1, in ?
   TypeError: cannot concatenate 'str' and 'int' objects
->>> print pi+2
+>>> print( pi+2 )
 5.14
 >>>
   \end{terminal}
@@ -285,18 +301,22 @@ Traceback (most recent call last):
 \begin{frame}[fragile]{\insertsubsectionhead}
   \begin{itemize}
     \item Funktioner utgör en viktig byggsten i programmeringen.
+
     \item Liksom inom matematiken kan den användas för att dela upp större 
       problem i mindre och bidra till en bättre ordning.
+
     \item De används dessutom på samma sätt.
+
     \item \(f(x) = 2 \cdot g(x) + 3\) och \(g(x) = x^2\) inom matematiken 
       skulle kunna skrivas i Python som
-      \begin{code}
+      \begin{src}[language=python]
 def g(x):
     return x*x
 
 def f(x):
     return 2*g(x)+3
-      \end{code}
+      \end{src}
+
   \end{itemize}
 \end{frame}
 
@@ -304,14 +324,16 @@ def f(x):
   \begin{itemize}
     \item När vi talar om funktioner består de av flera delar, funktionen 
       består av ett funktionshuvud och en funktionskropp.
+
     \item Funktionshuvudet är den första raden i funktionsdefinitionen.
+
     \item Den består av funktionsnamn och formella parametrar.
-      D.v.s.
-  \[
-  \overbrace{\text{def functionname(}
-    \underbrace{\text{argument1, argument2, ...}}_{\text{formella
-      parametrar}}\text{):}}^{\text{funktionshuvud}}
-  \]
+      D.v.s. \[
+        \overbrace{\text{def functionname(}
+          \underbrace{\text{argument1, argument2, ...}}_{\text{formella
+            parametrar}}\text{):}}^{\text{funktionshuvud}}
+      \]
+
     \item Resten av funktionen är funktionskroppen, d.v.s.\ all kod som hör 
       funktionen till.
   \end{itemize}
@@ -323,36 +345,38 @@ def f(x):
 \subsection{Beräkning av energi hos en boll}
 
 \begin{frame}[allowframebreaks,fragile]{\insertsubsectionhead}
-  \lstinputlisting[language=Python]{./O1.py}
+  \lstinputlisting[language=Python]{energy.py}
 \end{frame}
 
 \begin{frame}[fragile]{\insertsubsectionhead}
   En körning av detta program (från en terminal) kan se ut så här:
   \begin{terminal}
-  $ python O1.py
-  Ange bollens massa: 2
-  Ange bollens höjd: 3
-  Ange bollens hastighet: 4
-  Bollens rörelseenergi =  16.0 Joule
-  Bollens potentiella energi 58.92 Joule
-  $
-
+\$ python O1.py
+Ange bollens massa: 2
+Ange bollens höjd: 3
+Ange bollens hastighet: 4
+Bollens rörelseenergi =  16.0 Joule
+Bollens potentiella energi 58.92 Joule
+\$
   \end{terminal}
 \end{frame}
-
 
 \subsection{Tips och kommentarer}
 
 \begin{frame}{\insertsubsectionhead}
   Några punkter att tänka på:
   \begin{itemize}
-    \item Blanda aldrig språk, antingen skriver ni alla variabelnamn och
-    funktioner på engelska eller på svenska -- aldrig båda!
+    \item Blanda aldrig språk, antingen skriver ni alla variabelnamn och 
+      funktioner på engelska eller på svenska -- aldrig båda!
+
     \item Använd förklarande namn till alla variabler och funktioner!
+
     \item Skriv kommentarer!
-    \item Dela upp programmen i mindre delar -- funktioner! Det blir
-    lättare att följa och det blir snyggare kod, men framför allt mycket
-    enklare att programmera!
+
+    \item Dela upp programmen i mindre delar -- funktioner! Det blir lättare 
+      att följa och det blir snyggare kod, men framför allt mycket enklare att 
+      programmera!
+
   \end{itemize}
 \end{frame}
 
