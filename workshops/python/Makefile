@@ -1,6 +1,6 @@
 CATEGORY=	itgrund/workshops
 FILES=		python1.tex literature.bib speed1.py
-FILES+= 	python2.tex
+FILES+= 	python2.tex speed2.py
 DOCUMENTS=	python1.pdf python2.pdf
 
 PACKAGE=		python-src
