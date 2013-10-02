@@ -1,33 +1,27 @@
 CATEGORY=	itgrund/workshops
-latexsrc=	latex.tex literature.bib theory.tex thesis.tex \
-			circular_margin.jpg maps.jpg tengwar.jpg music.jpg
-examplessrc=examples.tex literature.bib
-FILES=		${latexsrc} ${examplessrc}
-DOCUMENTS=	latex.pdf latex-examples.pdf
+FILES= 		latex.tex literature.bib
+DOCUMENTS=	latex.pdf
 
 PACKAGE=		latex-src
-TARBALL_FILES=	${FILES}
+TARBALL_FILES=	${FILES} Makefile
 
 PUB_FILES=	${PACKAGE}.tar.gz ${DOCUMENTS}
 
-latex.pdf: ${latexsrc}
-latex-examples.pdf: examples.pdf ${examplessrc}
-	mv examples.pdf $@
+latex.pdf: ${FILES}
 
 #export no
 literature.bib: ../../literature.bib
 	${CP} $^ $@
+Makefile.export: Makefile
+
+TARBALL_FILES= 	${FILES:.tex=.exporttex} Makefile.export
 
 clean:
 	${RM} literature.bib
 #endexport
 
 miun.depend.mk:
-ifeq (${MAKE},gmake)
-	lynx -dump http://ver.miun.se/build/$@ > $@
-else
 	wget http://ver.miun.se/build/$@
-endif
 
 include miun.depend.mk
 include miun.course.mk
