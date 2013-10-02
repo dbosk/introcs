@@ -1,5 +1,5 @@
 SUBDIR= 	shell
 SUBDIR+= 	python
-#SUBDIR+= 	latex
+SUBDIR+= 	latex
 
 include miun.subdir.mk
