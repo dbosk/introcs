@@ -1,6 +1,7 @@
 CATEGORY=	itgrund/workshops
 FILES= 		latex.tex literature.bib
-DOCUMENTS=	latex.pdf
+FILES+= 	dokument.tex
+DOCUMENTS=	latex.pdf dokument.pdf
 
 PACKAGE=		latex-src
 TARBALL_FILES=	${FILES} Makefile
@@ -8,6 +9,7 @@ TARBALL_FILES=	${FILES} Makefile
 PUB_FILES=	${PACKAGE}.tar.gz ${DOCUMENTS}
 
 latex.pdf: ${FILES}
+dokument.pdf: dokument.tex literature.bib
 
 #export no
 literature.bib: ../../literature.bib
