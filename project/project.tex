@@ -12,6 +12,7 @@
 \usepackage[today,nofancy]{svninfo}
 \usepackage[natbib,style=numeric-comp,maxbibnames=99]{biblatex}
 \addbibresource{literature.bib}
+\usepackage{pdfpages}
 \usepackage[varioref,prettyref]{miunmisc}
 
 \svnInfo $Id$
@@ -245,8 +246,9 @@ kan besvaras ska ges.
 
 \section{Examination}
 
-Den färdiga rapporten i PDF-format tillsammans med källkod lämnas in 
-i inlämningslådan i lärplattformen.
+Den färdiga rapporten i PDF-format tillsammans med källkod (alla filer som 
+behövs för kompilering i en tarboll) lämnas in i inlämningslådan 
+i lärplattformen.
 Ladda upp PDF-filen för sig och den komprimerade källkoden med alla figurer 
 etc.\ för sig.
 
@@ -301,4 +303,14 @@ Rapporten betygsätts enligt följande kriterier:
 
 
 \printbibliography
+
+
+\appendix
+\section{Exempelrapport}
+
+Följande sidor är ett exempel på struktur för rapporten, innehållet i sig är 
+\emph{inte} en riktlinje för vad en bra rapport ska innehålla.
+
+\includepdf[pages=-]{report.pdf}
+
 \end{document}

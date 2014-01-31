@@ -1,0 +1,38 @@
+% $Id$
+% Author: Daniel Bosk <daniel.bosk@miun.se>
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,swedish]{babel}
+\usepackage{varioref,prettyref}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{listings}
+\usepackage{booktabs,dcolumn}
+\usepackage[binary,amssymb]{SIunits}
+\usepackage[natbib,style=numeric-comp,sorting=none,maxbibnames=99]{biblatex}
+\addbibresource{literature.bib}
+\addbibresource{rfc.bib}
+\usepackage[varioref,prettyref,listings]{miunmisc}
+
+\title{Dataöverföringshastighet\\med penna och post-it-lappar}
+\author{Daniel Bosk}
+\date{\today}
+
+\begin{document}
+  \maketitle
+  \input{abstract}
+  \tableofcontents
+
+  \input{intro}
+  \input{theory}
+  \input{method}
+  \input{results}
+  \input{discussion}
+
+  \printbibliography
+
+	\appendix
+  \input{data}
+\end{document}
