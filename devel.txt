@@ -1,0 +1,3 @@
+- Add more terminal.
+- Add more programming.
++ Remove project, keep presentation.
