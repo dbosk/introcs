@@ -12,6 +12,7 @@ LABS=		inst-aim.tex inst-lit.tex
 LABS+= 		term-aim.tex term-lit.tex
 LABS+= 		pylab-aim.tex pylab-lit.tex
 LABS+= 		computer-aim.tex computer-lit.tex
+LABS+= 		present-aim.tex present-lit.tex
 #LABS+= 		sftp-aim.tex sftp-lit.tex
 SEMINARS=
 PM=
@@ -41,6 +42,7 @@ term-aim.tex: ../labs/terminal/aims.tex
 pylab-aim.tex: ../labs/python/aims.tex
 latex-aim.tex: ../labs/latex/aims.tex
 computer-aim.tex: ../labs/computer/aims.tex
+present-aim.tex: ../labs/present/aims.tex
 sftp-aim.tex: ../labs/sftp/aims.tex
 project-aim.tex: ../project/aims.tex
 
@@ -49,6 +51,7 @@ term-lit.tex: ../labs/terminal/literature.tex
 pylab-lit.tex: ../labs/python/literature.tex
 latex-lit.tex: ../labs/latex/literature.tex
 computer-lit.tex: ../labs/computer/literature.tex
+present-lit.tex: ../labs/present/literature.tex
 sftp-lit.tex: ../labs/sftp/literature.tex
 
 intro-lit.tex: ../lectures/intro/literature.tex

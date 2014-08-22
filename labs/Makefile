@@ -7,5 +7,6 @@ SUBDIR+= 	computer
 #SUBDIR+= 	internet
 #SUBDIR+= 	security
 #SUBDIR+= 	sftp
+SUBDIR+= 	present
 
 include miun.subdir.mk

@@ -92,21 +92,37 @@ helst inte är insatt i området, och ber dem läsa den och kommentera den.
 
 \section{Examination}
 \label{sec:Examination}
-Du lämnar in ditt dokument med tillhörande källkod i lärplattformen för 
-bedömning.
+Du lämnar in ditt dokument (PDF-format) med tillhörande källkod (alla filer som 
+behövs för kompilering i en tarboll) i lärplattformen för bedömning.
+Ladda upp PDF-dokumentet först och därefter tarbollen med källkoden och 
+figurer.
+
 Krav på dokumentet, utöver att du ska visa att du uppfyller målen 
 i \prettyref{sec:Syfte}, är följande:
 \begin{itemize}
-  \item Alla bilder ska vara figurer med tillhörande figurtexter.
-  \item Tabeller ska även de ha beskrivande texter.
-  \item Dokumentet ska ha en passande titel, författare, datum och 
-    innehållsförteckning.
-    Det ska inte finnas några sidbrytningar, likt i denna lydelse.
-  \item Omfattningen ska vara omkring sex (6) sidor totalt.
-  \item Texten ska vara typsatt med LaTeX, dokumentklassen ska vara 
-    \emph{article}.
+  \item Dokumentet ska vara typsatt med LaTeX, använd dokumentklassen article.
+    Typsnittstorlek och marginaler ska vara LaTeX:s standardinställningar.
+  \item Dokumentet ska ha en passande titel, författare, datum och det ska inte 
+    finnas några sidbrytningar, likt i denna lydelse.
+  \item Alla bilder ska vara numrerade figurer med tillhörande figurtexter, de 
+    ska även hänvisas till från texten.
+  \item Tabeller ska även de vara numrerade med beskrivande texter och 
+    hänvisning.
+  \item Dokumentet ska ha minst en figur eller tabell.
+    Figurerna ska placeras av LaTeX i den övre eller nedre delen av sidan, 
+    alternativt på en ''page of floats''.
+  \item Dokumentets referenser ska göras med diverse \texttt{\textbackslash 
+    cite}-kommandon tillsammans med en BibTeX-databas med alla referenser.
+    Ett tips är att använda kursens BibTeX-databas\footnote{%
+      Du finner kursens BibTeX-databas på URL 
+      \url{http://ver.miun.se/courses/itgrund/literature.bib}.
+    }.
   \item Referenser ska skrivas enligt \citetitle{IEEEcitation} 
     \cite{IEEEcitation}.
+  \item Dokumentets disposition ska vara tydlig och översiktlig i en 
+    innehållsförteckning och dokumentet ska vara skriven på formell akademisk 
+    svenska eller engelska.
+  \item Omfattningen ska vara omkring sex (6) sidor totalt.
 \end{itemize}
 
 

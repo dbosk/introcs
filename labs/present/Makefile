@@ -17,7 +17,6 @@ literature.bib:
 
 clean:
 	${RM} literature.bib
-	${MAKE} -C report clean
 #endexport
 
 miun.depend.mk:
