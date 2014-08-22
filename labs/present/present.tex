@@ -1,0 +1,86 @@
+% $Id$
+% Author: Daniel Bosk <daniel.bosk@miun.se>
+\documentclass[a4paper,nocourse]{miunasgn}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,swedish]{babel}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{prettyref,varioref}
+\usepackage{verbatim}
+\usepackage[binary]{SIunits}
+\usepackage[today,nofancy]{svninfo}
+\usepackage[natbib,style=numeric-comp,maxbibnames=99]{biblatex}
+\addbibresource{literature.bib}
+\usepackage{pdfpages}
+\usepackage[varioref,prettyref]{miunmisc}
+
+\svnInfo $Id$
+
+\courseid{DT001G}
+\course{Informationsteknologi grundkurs}
+\assignmenttype{Laboration}
+\title{Presentationsteknik}
+\author{Daniel Bosk\thanks{%
+	Detta verk är tillgängliggjort under licensen Creative Commons 
+	Erkännande-DelaLika 2.5 Sverige (CC BY-SA 2.5 SE).
+	För att se en sammanfattning och kopia av licenstexten besök URL 
+	\url{http://creativecommons.org/licenses/by-sa/2.5/se/}.
+	}
+}
+\date{\svnId}
+
+\begin{document}
+\maketitle
+\thispagestyle{foot}
+\tableofcontents
+
+
+\section{Introduktion}
+
+Det är inte enbart inom utbildning som presentationer används.
+Dessa kommer till nytta även utanför akademin, exempelvis för att presentera 
+olika lösningsförslag till problem inom företag.
+Det är följaktligen av intresse att öva denna färdighet, speciellt då många är 
+ovana och det krävs en hel del övning för att bli bekväm med att ge 
+presentationer.
+
+
+\section{Syfte}
+
+Syftet med uppgiften är att examinera att studenten ska kunna:
+\begin{itemize}
+  \input{aims.tex}
+\end{itemize}
+
+
+\section{Läsanvisningar}
+
+\input{literature.tex}
+
+
+\section{Genomförande}
+
+Din presentation ska handla om lösningen av ett programmeringsproblem.
+De problem du har att välja mella är övningarna 42, 43, 44, 45 eller 46 
+i \citetitle{pythonkramaren1} \cite{pythonkramaren1}.
+
+När du löst övningen och programmet fungerar som det ska, då skapar du en 5-10 
+minuter lång presentation av problemet och lösningen.
+Du bör även ta upp för- och nackdelar samt förslag på förbättringar till din 
+lösning.
+
+
+\section{Examination}
+
+Presentationen görs muntligen vid tillfälle för helklass, omfattning på 
+presentationen är maximalt 10 minuter.
+Efter 10 minuter blir du avbruten och du får göra om din presentation (efter 
+att du förkortat den) vid senare tillfälle.
+Slides är obligatoriskt för godkänd presentation.
+Du måste även ha webbkamera och giltig legitimation vid 
+presentationstillfället.
+
+
+\printbibliography
+\end{document}
