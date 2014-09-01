@@ -11,6 +11,7 @@ present.pdf: ${FILES}
 TARBALL_FILES= 	${FILES} Makefile.export
 PUB_FILES= 		${PACKAGE}.tar.gz ${DOCUMENTS}
 
+Makefile.export: Makefile
 literature.bib: ../../literature.bib
 
 literature.bib:
