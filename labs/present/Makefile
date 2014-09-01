@@ -25,3 +25,4 @@ miun.depend.mk:
 
 include miun.depend.mk
 include miun.course.mk
+include miun.package.mk
