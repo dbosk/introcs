@@ -9,6 +9,7 @@ present.pdf: ${FILES}
 
 #export no
 TARBALL_FILES= 	${FILES} Makefile.export
+PUB_FILES= 		${PACKAGE}.tar.gz ${DOCUMENTS}
 
 literature.bib: ../../literature.bib
 
